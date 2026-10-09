@@ -1,0 +1,30 @@
+# Experimental one-boot capture-direct bootstrap, fallback is camera-service.
+service x2d2-direct-bootstrap /system/bin/report-camera-service-restarted
+    class core
+    disabled
+    oneshot
+    user root
+    group root
+    setenv LD_PRELOAD /system/x2d2-boot-v2/entry.so
+    setenv X2D2_UNIFIED_MODE boot
+
+service x2d2-direct-fallback /system/bin/report-camera-service-restarted
+    class auxiliary
+    disabled
+    oneshot
+    user root
+    group root
+    setenv LD_PRELOAD /system/x2d2-boot-v2/entry.so
+    setenv X2D2_UNIFIED_MODE recover
+
+on property:init.svc.x2d2-direct-bootstrap=stopped
+    start x2d2-direct-fallback
+
+service x2d2-unified-storage /system/bin/report-camera-service-restarted
+    class core
+    disabled
+    oneshot
+    user root
+    group root
+    setenv LD_PRELOAD /system/x2d2-boot-v2/entry.so
+    setenv X2D2_UNIFIED_MODE storage

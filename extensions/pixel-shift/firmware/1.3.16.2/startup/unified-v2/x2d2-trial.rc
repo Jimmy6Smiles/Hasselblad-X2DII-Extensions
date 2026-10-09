@@ -1,0 +1,32 @@
+# 自写独立试验定义。全部 disabled/oneshot，开机不接管相机，不自动重试。
+service x2d2-capture-trial /system/bin/camera-service
+    class auxiliary
+    disabled
+    oneshot
+    user root
+    group root
+    setenv XDG_RUNTIME_DIR /tmp
+    setenv LD_PRELOAD /dev/x2d2-shutter-v1/shutter.so
+    oom_score_adjust -100
+
+service x2d2-trial-guard /system/bin/report-camera-service-restarted
+    class auxiliary
+    disabled
+    oneshot
+    user root
+    group root
+    setenv LD_PRELOAD /system/x2d2-boot-v2/guard.so
+    setenv X2D2_TRIAL_GUARD_MODE supervise
+
+service x2d2-trial-recover /system/bin/report-camera-service-restarted
+    class auxiliary
+    disabled
+    oneshot
+    user root
+    group root
+    setenv LD_PRELOAD /system/x2d2-boot-v2/guard.so
+    setenv X2D2_TRIAL_GUARD_MODE recover
+
+# guard 正常退出或异常退出都尝试恢复；无有效 RAM 意图时不做服务操作。
+on property:init.svc.x2d2-trial-guard=stopped
+    start x2d2-trial-recover

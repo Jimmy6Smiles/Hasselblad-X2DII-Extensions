@@ -1,0 +1,31 @@
+# 自写休眠测试服务；不覆盖原厂定义，由 init 执行原厂域迁移。
+service x2d2-storage-trial /system/bin/camera-storage
+    class auxiliary
+    disabled
+    oneshot
+    user root
+    group root
+    priority -5
+    oom_score_adjust -200
+    setenv LD_PRELOAD /dev/x2d2-album-refresh-v1/album-observer.so
+
+service x2d2-storage-guard /system/bin/report-camera-service-restarted
+    class auxiliary
+    disabled
+    oneshot
+    user root
+    group root
+    setenv LD_PRELOAD /system/x2d2-boot-v2/storage-guard.so
+    setenv X2D2_STORAGE_GUARD_MODE supervise
+
+service x2d2-storage-recover /system/bin/report-camera-service-restarted
+    class auxiliary
+    disabled
+    oneshot
+    user root
+    group root
+    setenv LD_PRELOAD /system/x2d2-boot-v2/storage-guard.so
+    setenv X2D2_STORAGE_GUARD_MODE recover
+
+on property:init.svc.x2d2-storage-guard=stopped
+    start x2d2-storage-recover

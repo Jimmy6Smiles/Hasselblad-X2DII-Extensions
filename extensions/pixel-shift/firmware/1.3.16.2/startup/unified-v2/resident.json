@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "firmware": "1.3.16.2",
+  "revision": "unified-startup-v2-resident",
+  "installed_on_development_camera": true,
+  "resident_selector": "/data/x2d2-full-v1/unified.enabled",
+  "runtime_directory": "/system/x2d2-boot-v2",
+  "raw_jpeg_workers_changed": false,
+  "selinux_policy_changed": false,
+  "factory_programs_overwritten": false,
+  "verification": {
+    "executed_host_cases": 12,
+    "persistent_execution_domain_verified": true,
+    "public_build_matches_installed_libraries": true,
+    "trial_reboot_verified": true,
+    "viewfinder_menu_zoom_user_confirmed": true,
+    "resident_selector_readback_verified": true,
+    "reboot_after_resident_promotion_verified": false,
+    "new_capture_test_for_this_startup_revision": false
+  },
+  "observed_boot_seconds": {
+    "gui_release_not_screen_ready": 1.43,
+    "capture_process_start": 1.557347395,
+    "storage_process_start": 2.214318488,
+    "backend_adopted": 4.24
+  },
+  "installed_sha256": {
+    "entry.so": "dfa8f6b9d26ed058d1ef6a798ae759575f968f05974019917d0511093d8b2d72",
+    "guard.so": "def78d82cb34ae8595b50b672b09a52d4495d274db67cc0f0ebd6c7ab9432349",
+    "storage-guard.so": "345028ec07830a9efeceb2540c63d5ead24b1d94032aed0bc1a01f407a25e346",
+    "unified-start.sh": "054ce0ac88c444326d284ae4ae09fc92e55a3e5fc804ede766c13025eaabd50c",
+    "unified-storage.sh": "9509d8009edcafe0048d8ab49704aa93332e035b3b9ad26abff3a0ba8756f1d1",
+    "unified-recover.sh": "5de8a8227542759ff02a71e898f4ea3e89ac094653df9816aff80972e4673529"
+  }
+}
