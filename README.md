@@ -15,7 +15,7 @@ Independent experimental extensions for the Hasselblad X2D II 100C, maintained b
 
 New features should be added as peer directories under `extensions/`; feature-specific source, firmware versions, documentation and release packages stay inside their own directory.
 
-The first offline foundation of the unified installer is available under [installer](installer/README.md). It can build and verify local `.x2d2ext` bundles and test atomic activation/rollback; camera transport is not implemented yet.
+The unified installer foundation is available under [installer](installer/README.md). It builds and verifies local `.x2d2ext` bundles, probes firmware 1.3.16.2 through the Phocus WinUSB interface, and can stage hash-verified immutable generations over USB without activating them. Common boot activation, removal and recovery are still in development.
 
 ```text
 extensions/
