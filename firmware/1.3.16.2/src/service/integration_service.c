@@ -50,6 +50,7 @@ static void update_boot_recovery(void){
 }
 /* 启用不是拍摄事务。确认超时必须退出待武装，不能无限等待或伪造 ACK。 */
 static void check_arm_timeout(void);
+#include "async_prepare_service.inc"
 #include "mode_prepare_service.inc"
 #ifdef PS_SERVICE_HOST_ALBUM_FAKE
 #ifdef __ANDROID__
@@ -126,17 +127,17 @@ static int preflight(void){
 }
 static void status(char *out,size_t cap){
  snprintf(out,cap,"{\"schema\":1,\"connected\":true,\"experimentalReady\":%s,\"armed\":%s,\"busy\":%s,\"settled\":%s,\"recovery\":%s,\"jobToken\":\"%llu\",\"generationToken\":\"%llu\",\"cancelEnabled\":%s,\"error\":\"%s\",\"retainedInputsTrial\":false}",
-  !recovery&&!busy&&service_album_ready()&&(armed||readiness_fresh())&&live_hook(armed?1:0)?"true":"false",armed&&live_hook(1)&&fast_blocked()&&mode_preparation_ready()?"true":"false",busy?"true":"false",settled?"true":"false",recovery?"true":"false",(unsigned long long)jobid,(unsigned long long)session,busy&&child>0?"true":"false",error_text);
+  !recovery&&!busy&&service_album_ready()&&(armed||readiness_fresh())&&live_hook(armed?1:0)?"true":"false",armed&&!recovery?"true":"false",busy?"true":"false",settled?"true":"false",recovery?"true":"false",(unsigned long long)jobid,(unsigned long long)session,busy&&(child>0||shot_waiting)?"true":"false",error_text);
  size_t n=strlen(out);
  JobProgress progress=job_progress(jobid);
  int remaining=busy&&!recovery&&!progress.capture_verified?ps_delay_remaining(delay_deadline,clock_ms()):0;
- if(n&&out[n-1]=='}')snprintf(out+n-1,cap-n+1,",\"initialDelay\":%d,\"keepMode\":%s,\"cleanupAfterSave\":true,\"phase\":\"%s\",\"captureVerified\":%s,\"delayRemaining\":%d}",delay,keep?"true":"false",recovery?"recovery":remaining?"delay":progress.phase,progress.capture_verified?"true":"false",remaining);
+ if(n&&out[n-1]=='}')snprintf(out+n-1,cap-n+1,",\"initialDelay\":%d,\"keepMode\":%s,\"cleanupAfterSave\":true,\"phase\":\"%s\",\"captureVerified\":%s,\"delayRemaining\":%d}",delay,keep?"true":"false",recovery?"recovery":remaining?"delay":shot_waiting?"prepare":progress.phase,progress.capture_verified?"true":"false",remaining);
 }
 static void request_job(void){
 #ifdef PS_SERVICE_ARM_ONLY
  return; /* 第二道测试边界：不消费任何快门请求，不创建拍摄事务。 */
 #endif
- if(!armed||busy||recovery||!live_hook(1)||!fast_blocked()||!mode_preparation_ready())return;
+ if(!armed||busy||recovery||!live_hook(1)||!fast_blocked())return;
  int fd=open(SHUTTER"/request",O_RDONLY|O_NOFOLLOW|O_CLOEXEC);if(fd<0)return;
  WireGate q;struct stat st;int ok=!fstat(fd,&st)&&S_ISREG(st.st_mode)&&st.st_uid==getuid()&&st.st_size==sizeof q&&read(fd,&q,sizeof q)==sizeof q;close(fd);
  if(!ok||q.magic!=UINT64_C(0x315447485350)||q.session!=session||q.sequence!=sequence||q.mode!=1||q.ready!=1){recovery=1;armed=0;strcpy(error_text,"REQUEST_IDENTITY_UNCONFIRMED");gate(4,0);return;}
@@ -147,17 +148,40 @@ static void request_job(void){
  if(pending<0){recovery=1;armed=0;strcpy(error_text,"PENDING_ALREADY_EXISTS");gate(4,0);return;}
  ok=write(pending,jobtoken,strlen(jobtoken))==(ssize_t)strlen(jobtoken)&&!fsync(pending);close(pending);
  if(!ok||!sync_dir(PS_DATA)||!gate(2,0)){recovery=1;armed=0;strcpy(error_text,"PENDING_DURABILITY_FAILED");return;}
- busy=1;settled=0;armed=0;mode_prepared=0;
+ busy=1;settled=0;armed=0;shot_waiting=1;wait_cancel=0;
  /* 请求先改名留证，不删除/重发；每个物理按键序号只消费一次。 */
  char claimed[256];snprintf(claimed,sizeof claimed,PS_BIN"/request-%s",jobtoken);
  if(!exclusive_rename(SHUTTER"/request",claimed)){recovery=1;busy=0;strcpy(error_text,"REQUEST_CLAIM_FAILED");return;}
+ /* The countdown begins now; preparation continues without a second press. */
+}
+static void launch_waiting_job(void){
+ if(!shot_waiting)return;
+ if(stopping||recovery)wait_cancel=1;
+ if(wait_cancel){
+  stop_menu_check();
+  if(mode_prepare_child>0||mode_record_exists()||menu_check_child>0)return;
+  char folder[256],record[256];
+  snprintf(folder,sizeof folder,PS_DATA"/jobs/%llu",(unsigned long long)jobid);
+  snprintf(record,sizeof record,"%s/cancelled.pending",folder);
+  if(mkdir(folder,0700)||!exclusive_rename(PS_DATA"/pending",record)||!sync_dir(folder)||!sync_dir(PS_DATA)){
+   recovery=1;strcpy(error_text,"WAIT_CANCEL_COMMIT_FAILED");return;
+  }
+  shot_waiting=0;busy=0;settled=1;sequence++;readiness_ok=0;readiness_checked=0;
+  strcpy(error_text,"CANCELLED_INPUTS_RETAINED");gate(0,0);return;
+ }
+ if(!menu_check_ok||menu_check_child>0||!mode_preparation_ready())return;
+ char jobtoken[32],delaytoken[8],deadlinetoken[32];
+ snprintf(jobtoken,sizeof jobtoken,"%llu",(unsigned long long)jobid);
+ snprintf(delaytoken,sizeof delaytoken,"%d",delay);
+ snprintf(deadlinetoken,sizeof deadlinetoken,"%lld",(long long)delay_deadline);
  child=fork();
- if(child<0){recovery=1;busy=0;strcpy(error_text,"JOB_FORK_FAILED");return;}
+ if(child<0){wait_cancel=1;strcpy(error_text,"JOB_FORK_FAILED");return;}
  if(!child){
   close(listenfd);setpgid(0,0);char *av[]={PS_BIN"/integrated-job","--run-once",jobtoken,delaytoken,deadlinetoken,NULL};execv(av[0],av);_exit(127);
  }
- setpgid(child,child);
+ setpgid(child,child);shot_waiting=0;mode_prepared=0;
 }
+
 static void reap_job(void){
  if(child<=0)return;int result=0;pid_t got=waitpid(child,&result,WNOHANG);if(got==0||(got<0&&errno==EINTR))return;
  child=-1;busy=0;
@@ -185,11 +209,11 @@ static void client(int fd){
  else if(!strcmp(verb,"POST")&&strcasestr(b,"\r\nX-PixelShift-Local: 1\r\n")){
   int d,k,used=0;
   if(sscanf(path,"/arm?delay=%2d&keep=%1d%n",&d,&k,&used)==2&&path[used]==0&&d>=2&&d<=60&&(k==0||k==1)&&!busy&&!recovery){
-   if(!armed&&!mode_preparation_blocks_normal()&&readiness_fresh()&&live_hook(0)&&preflight()){delay=d;keep=k;sequence++;armed=1;arm_started=clock_ms();error_text[0]=0;ok=gate(1,0);if(!ok){armed=0;recovery=1;}}
+   if(!armed&&menu_check_child<0&&!mode_preparation_blocks_normal()&&readiness_fresh()&&live_hook(0)){delay=d;keep=k;sequence++;armed=1;arm_started=clock_ms();menu_check_ok=0;menu_check_finished=0;error_text[0]=0;ok=gate(1,0);if(!ok){armed=0;recovery=1;}}
   }else if(sscanf(path,"/options?delay=%2d&keep=%1d%n",&d,&k,&used)==2&&path[used]==0&&d>=2&&d<=60&&(k==0||k==1)&&armed&&!busy&&!recovery&&live_hook(1)){
    delay=d;keep=k;ok=1; /* 单线程更新；不切门控、不重放快门。 */
-  }else if(!strcmp(path,"/disarm")&&!busy&&!recovery){armed=0;ok=gate(mode_preparation_blocks_normal()?2:0,0);if(ok&&!strcmp(error_text,"FAST_CAPTURE_GUARD_UNCONFIRMED"))error_text[0]=0;}
-  else if(!strcmp(path,"/cancel")&&busy&&child>0){ok=!kill(child,SIGTERM);}
+  }else if(!strcmp(path,"/disarm")&&!busy&&!recovery){armed=0;stop_menu_check();ok=gate(mode_preparation_blocks_normal()?2:0,0);if(ok&&!strcmp(error_text,"FAST_CAPTURE_GUARD_UNCONFIRMED"))error_text[0]=0;}
+  else if(!strcmp(path,"/cancel")&&busy){if(shot_waiting){wait_cancel=1;ok=1;}else if(child>0)ok=!kill(child,SIGTERM);}
  }
  status(json,sizeof json);int count=snprintf(reply,sizeof reply,"HTTP/1.1 %s\r\nContent-Type: application/json\r\nConnection: close\r\nContent-Length: %zu\r\n\r\n%s",ok?"200 OK":"409 Conflict",strlen(json),json);
  if(count>0&&(size_t)count<sizeof reply)send(fd,reply,(size_t)count,MSG_NOSIGNAL);
@@ -209,12 +233,13 @@ int main(int argc,char **argv){
   if(stopping)armed=0;
   if(stopping&&child>0)kill(child,SIGTERM);
   unsigned mode=(recovery&&!boot_recovery_block)?4:busy?2:armed?1:mode_preparation_blocks_normal()?2:0;
-  if(!gate(mode,armed&&!busy&&!recovery&&live_hook(1)&&fast_blocked()&&mode_preparation_ready())){recovery=1;armed=0;strcpy(error_text,"GATE_WRITE_FAILED");}
+  if(!gate(mode,armed&&!busy&&!recovery&&live_hook(1)&&fast_blocked())){recovery=1;armed=0;strcpy(error_text,"GATE_WRITE_FAILED");}
   /* 等原厂线程重算及硬件确认；没有确认绝不把菜单标作已武装。可显式退出。 */
   check_arm_timeout();
-  live_hook(mode);update_boot_recovery();update_readiness();update_mode_preparation();request_job();reap_job();
+  live_hook(mode);update_boot_recovery();update_readiness();update_menu_check();update_mode_preparation();request_job();launch_waiting_job();reap_job();
   struct pollfd p={listenfd,POLLIN,0};if(poll(&p,1,50)>0){int fd=accept4(listenfd,NULL,NULL,SOCK_CLOEXEC);if(fd>=0){client(fd);close(fd);}}
  }
+ if(menu_check_child>0){stop_menu_check();while(waitpid(menu_check_child,NULL,0)<0&&errno==EINTR){}}
  if(readiness_child>0){kill(-readiness_child,SIGKILL);kill(readiness_child,SIGKILL);while(waitpid(readiness_child,NULL,0)<0&&errno==EINTR){}}
  if(boot_review_child>0){kill(-boot_review_child,SIGKILL);kill(boot_review_child,SIGKILL);while(waitpid(boot_review_child,NULL,0)<0&&errno==EINTR){}}
  if(!recovery)gate(mode_preparation_blocks_normal()?2:0,0);close(listenfd);close(lock);return recovery?1:0;

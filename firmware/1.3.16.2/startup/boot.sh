@@ -7,6 +7,13 @@ R=/dev/x2d2-integrated-v1
 S=/dev/x2d2-shutter-v1
 U=/dev/x2d2-menu-session-v1
 T=/system/bin/toybox
+stage=VERIFY
+boot_status() {
+ printf '%s %s\n' "$1" "$stage" > "$B/prepare.status.next"
+ $T mv "$B/prepare.status.next" "$B/prepare.status"
+}
+trap 'result=$?; if [ "$result" -ne 0 ]; then boot_status FAILED; fi' EXIT
+boot_status RUNNING
 [ -f "$B/enabled" ] && [ ! -e "$B/disabled" ] && [ -f "$B/boot.pending" ]
 cd "$B/payload"
 $T sha256sum -c manifest.sha256 >/dev/null
@@ -18,15 +25,21 @@ hash=$($T sha256sum /system/lib64/librcam.so)
 [ "${hash%% *}" = 3dd5b37b3db18b3e6b54271e1501b4dd337e101c06cdd386a896b1547b662f66 ]
 hash=$($T sha256sum /system/lib64/libdcam_fcali.so)
 [ "${hash%% *}" = dd28fa5829aa3a2b118ddefd14c2283845b9993784a28d954d81d2ee7bd3af05 ]
+stage=WAIT_CAMERA
+boot_status RUNNING
 attempt=0
 while [ "$(/system/bin/getprop init.svc.camera-gui)" != running ] || [ "$(/system/bin/getprop init.svc.camera-test)" != running ]; do
  attempt=$((attempt+1)); [ "$attempt" -lt 80 ]; $T sleep 0.1
 done
 # 相册未实际就绪，不停止任何拍摄服务。
+stage=WAIT_STORAGE
+boot_status RUNNING
 attempt=0
 while [ ! -f /dev/x2d2-album-refresh-v1/ready ] || [ "$(/system/bin/getprop init.svc.x2d2-storage-trial)" != running ]; do
- attempt=$((attempt+1)); [ "$attempt" -lt 100 ]; $T sleep 0.1
+ attempt=$((attempt+1)); [ "$attempt" -lt 300 ]; $T sleep 0.1
 done
+stage=STAGE_RUNTIME
+boot_status RUNNING
 $T mkdir "$R" "$S" "$U"
 $T chcon u:object_r:sel_device:s0 "$R" "$S" "$U"
 $T mkdir "$R/jobs" "$R/cache" "$R/scratch"
@@ -72,6 +85,8 @@ done
 printf 'AUTHORIZED_RETAIN_INPUTS_INTEGRATION\n' > "$S/integration.once"
 printf 'AUTHORIZED_NO_CAPTURE\n' > "$S/load.once"
 $T sync
+stage=HANDOFF
+boot_status RUNNING
 /system/bin/setprop ctl.stop x2d2-capture-trial
 attempt=0
 while [ "$(/system/bin/getprop init.svc.x2d2-capture-trial)" != stopped ]; do
@@ -79,3 +94,5 @@ while [ "$(/system/bin/getprop init.svc.x2d2-capture-trial)" != stopped ]; do
 done
 /system/bin/setprop ctl.start x2d2-trial-guard
 # 不创建 accepted、不清除 boot.pending；首次人工验收后才由安装器确认常驻。
+
+boot_status DISPATCHED

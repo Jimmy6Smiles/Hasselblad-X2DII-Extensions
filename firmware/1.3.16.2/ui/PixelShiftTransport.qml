@@ -28,7 +28,7 @@ QtObject {
     readonly property string progressText: !connected ? "连接中断\n正在核对任务，请勿关机" :
         recovery ? "处理未完成\n请保持供电，勿拔存储卡" :
         initialDelayActive ? "拍摄倒计时 " + delayRemaining + " 秒" :
-        phase === "merge" ? "正在合成" : phase === "encode" ? "正在生成成片" :
+        phase === "prepare" ? "正在准备拍摄" : phase === "merge" ? "正在合成" : phase === "encode" ? "正在生成成片" :
         phase === "save" ? "正在保存" : phase === "album" ? "正在登记相册" :
         phase === "cleanup" ? "正在清理原片" : "正在采集"
     property int pollTicks: 0

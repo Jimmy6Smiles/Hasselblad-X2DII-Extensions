@@ -179,14 +179,20 @@ static int finish_countdown(void *context){
   * overwritten silently. Only the mode setup is moved before the deadline. */
 
  int unchanged=!interrupted&&idle();int32_t actual=0;uint32_t format=0;
- for(unsigned i=0;unchanged&&i<7;i++)unchanged=get(props[i],&actual)&&actual==p->ae->original[i];
+ /* Only the two writable AE flags need a pre-write ownership check.
+  * Exposure selection is still checked AFTER locking by same_selection;
+  * ae_lock_enabled is derived and is checked after the lock setter.
+  * No cached menu-time exposure values are used. */
+ for(unsigned i=0;unchanged&&i<2;i++)unchanged=get(props[i],&actual)&&actual==p->ae->original[i];
  unchanged=unchanged&&fmt_get(&format)&&format==p->format->original;
  if(!unchanged)return 0;
  int ready=!interrupted&&(p->format->original==0||fmt_set(0));int32_t enabled=0;
  /* Leave up to 900 ms of the requested countdown for AE lock/readback.
   * No exposure is allowed before the original shared deadline. */
  while(ready&&!interrupted&&now()+900<p->until){struct timespec nap={0,20000000};nanosleep(&nap,NULL);}
- return ready&&!interrupted&&set_bool(0,0)&&!interrupted&&set_bool(1,1)&&get(props[2],&enabled)&&enabled==1&&same_selection(p->ae);
+ int locked=ready&&!interrupted&&set_bool(0,0)&&!interrupted&&set_bool(1,1)&&get(props[2],&enabled)&&enabled==1&&same_selection(p->ae);
+ printf("PS_CAPTURE_TIME ae_ready_ms=%lld\n",(long long)now());fflush(stdout);
+ return locked;
 }
 /* 真正的机内调用链：延迟 -> AE guard -> 单次 Auto6 -> 还原。
  * 不启动 UI、不操作原片，后续 worker 必须另行验证六文件归属及曝光。 */

@@ -412,23 +412,23 @@
     "source": "accepted resident custom UI"
   },
   "ui/PixelShiftTransport.qml": {
-    "sha256": "19fa0f1021665654e905e7f6ccdc9bc27f1f48dbb63b025df9081ceeddacbffc",
+    "sha256": "4923723ba9224c7b91baa833afc19256b9613bed49e6e6c712250b999d063003",
     "source": "accepted resident custom UI"
   },
   "startup/boot.sh": {
-    "sha256": "b51b07ce5f11bca88b651e1551498a1d01aecc50d606ce28178242d4d21e5207",
+    "sha256": "a0931555589c72f581202552ab9879be641a031ddfd7cc1b6aa1aa2d84578134",
     "source": "accepted resident startup"
   },
   "startup/prepare.sh": {
-    "sha256": "b51b07ce5f11bca88b651e1551498a1d01aecc50d606ce28178242d4d21e5207",
+    "sha256": "a0931555589c72f581202552ab9879be641a031ddfd7cc1b6aa1aa2d84578134",
     "source": "accepted resident startup"
   },
   "resident-manifest.sha256": {
-    "sha256": "9e99768484cdcb323a42bd104976d751bc8343c98e717ddf164e11a7f78f7275",
+    "sha256": "77ba322b16565412c2bff2b48f59beb11a433bbd05fc55e5d6b350982705f0d3",
     "source": "installed JPEG cleanup manifest"
   },
   "release.json": {
-    "sha256": "4e3966ae28632c825c6dee948d8aa47d34d00f9c701ed7533843bafd131c51d6",
+    "sha256": "11ce54a9c2ff485801b37a3f6e321724da5cb87dc3227de8c881b2e8d3eab9de",
     "source": "current release boundary"
   },
   "src/zoom/jpeg_zoom_region.h": {
@@ -452,7 +452,7 @@
     "source": "replay update build and documentation"
   },
   "README.md": {
-    "sha256": "6bd2ce7845b7235872b138f85d1c786892c8e4ab196897e2e7623ac27f104d99",
+    "sha256": "4e812745aeb247a3c31b063bed6163645bce5d78f3f1de2bb990cff02b8053d5",
     "source": "replay update build and documentation"
   },
   "src/native-renderer/six_row_kernel.h": {
@@ -824,7 +824,7 @@
     "source": "initial_delay.h accepted resident source"
   },
   "src/capture/native_auto6.c": {
-    "sha256": "23a0c32b110a6941fc2509b621bb28211eb0a88fa817831651ae3c5dde8ef001",
+    "sha256": "267166408553628249fa29514cfd9090000c10527a7ad72dc05f940c92133cef",
     "source": "native_auto6.c accepted resident source"
   },
   "src/jpeg-pack/first_frame_jpeg.c": {
@@ -876,7 +876,7 @@
     "source": "integrated_job.c accepted resident source"
   },
   "src/service/integration_service.c": {
-    "sha256": "7adad27ecc7779050e9e1261c99f7d0f997e71a97a2f0f8ba5672cc44fa7b028",
+    "sha256": "bd1365fa0838fb6ed86dca2d5bef19e895910306c0f81e5fe4fe97dda5237bda",
     "source": "integration_service.c accepted resident source"
   },
   "src/service/job_progress.h": {
@@ -884,7 +884,7 @@
     "source": "job_progress.h accepted resident source"
   },
   "src/service/mode_prepare_service.inc": {
-    "sha256": "b05155d3c5db440ad1a04bbe795b4dd5e42c449f8e812625e1b8b588aa4e5123",
+    "sha256": "5df21a9a52fb7dcf168f82bb0e7c21a89919a8e3cd111e52d7e7ad840540fc8d",
     "source": "mode_prepare_service.inc accepted resident source"
   },
   "src/zoom/album_candidate.c": {
@@ -906,5 +906,21 @@
   "tests/test_jpeg_cleanup.c": {
     "sha256": "ab3b2fedb8dd2ca59768307d21ae4c64cc80f2afed463eb5067901fe0a8e5f13",
     "source": "36-format-and-failure-scenarios"
+  },
+  "startup/boot_idle_retry.h": {
+    "sha256": "90cc3d5aca426ae8f09e1493d31ebaa2b5711ad674cbdeb3cd8fc1dec49817b8",
+    "source": "resident async preparation source"
+  },
+  "startup/entry.c": {
+    "sha256": "c8be9483d4a9420708229a8ec181b5b66cf816f44b4df5052d3e135a3ab27956",
+    "source": "resident async preparation source"
+  },
+  "startup/reboot_pending.h": {
+    "sha256": "ae495d898d2b6640f71bd1a381f70aad5b4bde73978895c921fc77e3e7f624b4",
+    "source": "resident async preparation source"
+  },
+  "src/service/async_prepare_service.inc": {
+    "sha256": "ecdaf01db09a997fe689fc61602c9961d18e42e950bdb9e3ebd5c981ee2ae4e3",
+    "source": "resident async preparation source"
   }
 }

@@ -19,15 +19,15 @@ static void update_mode_preparation(void){
    }else{
     mode_prepared=0;armed=0;
     if(mode_releasing){recovery=1;strcpy(error_text,"MODE_PREPARE_RESTORE_PENDING");}
-    else strcpy(error_text,"MODE_PREPARE_FAILED");
+    else{strcpy(error_text,"MODE_PREPARE_FAILED");if(shot_waiting)wait_cancel=1;}
    }
   }else if(got<0&&errno!=EINTR){mode_prepare_child=-1;armed=0;recovery=1;strcpy(error_text,"MODE_PREPARE_CHILD_UNKNOWN");}
   else if(clock_ms()-mode_prepare_started>15000)kill(mode_prepare_child,SIGTERM);
   return;
  }
- if(busy||recovery)return;
- int release=(!armed||stopping)&&mode_record_exists();
- if(!release&&(!armed||stopping||mode_prepared||!live_hook(1)||!fast_blocked()))return;
+ if((busy&&!shot_waiting)||recovery)return;
+ int release=((!armed&&!shot_waiting)||stopping||wait_cancel)&&mode_record_exists();
+ if(!release&&((!armed&&!shot_waiting)||stopping||wait_cancel||mode_prepared||!live_hook(shot_waiting?2:1)||(!shot_waiting&&!fast_blocked())))return;
  mode_releasing=release;mode_prepare_started=clock_ms();mode_prepare_child=fork();
  if(!mode_prepare_child){
   setpgid(0,0);close(listenfd);
