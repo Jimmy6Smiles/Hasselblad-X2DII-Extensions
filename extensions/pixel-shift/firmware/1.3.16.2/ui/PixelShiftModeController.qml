@@ -148,7 +148,7 @@ QtObject {
         return true
     }
     readonly property bool available: backend !== null && ((asyncBackend && backend.connected === true
-        && backend.experimentalReady === true) || (!asyncBackend
+        && (backend.experimentalReady === true || backend.canNormalizeFormat === true)) || (!asyncBackend
         && backend.firmwareMatched === true && backend.captureReady === true
         && backend.synthesisReady === true && backend.storageReady === true
         // 不要求 M 档；后端必须能锁定首帧实际曝光并在所有退出路径恢复。

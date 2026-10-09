@@ -1,10 +1,10 @@
-# X2D II Extension Manager (offline foundation)
+# X2D II Extension Manager (development foundation)
 
 [English](README.md) | [简体中文](README_CN.md)
 
-This directory contains the first safety boundary for a unified X2D II extension installer. It builds and verifies `.x2d2ext` bundles and exercises atomic generation activation and rollback locally. **It does not communicate with or modify a camera yet.**
+This directory contains the safety boundary for a unified X2D II extension installer. It builds and verifies `.x2d2ext` bundles, exercises atomic generation activation and rollback locally, performs a firmware-pinned WinUSB handshake, and can stage an immutable generation without activating it.
 
-The initial working package target is Electronic Shutter AF-C. Pixel Shift will be added after all of its runtime payloads and build recipes are represented in the public tree.
+The current package targets are Electronic Shutter AF-C and the tested Pixel Shift resident snapshot. Camera activation, removal and recovery remain intentionally separate from staging while the common boot manager is completed.
 
 ## Build a local AF-C bundle
 
@@ -26,15 +26,27 @@ python -m installer.manager plan .local-only\electronic-shutter-afc-1.0.0.x2d2ex
 python -m installer.manager simulate-install .local-only\electronic-shutter-afc-1.0.0.x2d2ext .local-only\simulated-camera
 python -m installer.manager probe-camera
 python -m installer.manager stage-camera .local-only\electronic-shutter-afc-1.0.0.x2d2ext
+python -m installer.manager stage-camera .local-only\pixel-shift-400mp-1.0.0.x2d2ext --fast
 python -m unittest discover -s installer\tests -v
 ```
 
-The verifier rejects unsupported firmware, path traversal, symbolic links, duplicate paths, unlisted payloads, oversized members and hash mismatches. `stage-camera` uploads and verifies an immutable generation but deliberately does not activate it. Activation uses an atomic state switch, so a failed staging operation cannot replace the previous active state.
+The verifier rejects unsupported firmware, path traversal, symbolic links, duplicate paths, unlisted payloads, oversized members and hash mismatches. `stage-camera` uploads and verifies an immutable generation but deliberately does not activate it. `--fast` keeps control on WinUSB and transfers bytes over the camera's point-to-point USB RNDIS link; the camera verifies every SHA-256 before committing each file.
+
+## Build a verified Pixel Shift bundle
+
+The resident payload export and GUI startup library are local build inputs and are not redistributed by this repository.
+
+```powershell
+python -m installer.build_pixel_shift_bundle `
+  --payload D:\path\to\verified-resident-export `
+  --gui-entry D:\path\to\libx2d2-gui-early.so `
+  --out .local-only\pixel-shift-400mp-1.0.0.x2d2ext
+```
 
 ## Not implemented yet
 
 - official `.cim` import (kept separate pending a licensing-safe integration);
-- Windows GUI and write-side deployment (the CLI now has a bounded read-only WinUSB handshake);
+- Windows GUI;
 - installation of the common device-side boot manager;
 - real camera install, update, remove and recovery operations;
-- Pixel Shift bundle generation.
+- activation of staged generations.

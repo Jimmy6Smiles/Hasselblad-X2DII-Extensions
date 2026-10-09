@@ -1,5 +1,6 @@
 // 自写私有体验版传输；只访问机内 loopback 的固定路由，不发送拍摄命令。
 import QtQml
+import com.hasselblad.proxies
 import com.hasselblad.storage
 QtObject {
     id: root
@@ -71,6 +72,26 @@ QtObject {
                 albumRefreshPending = ""
             }
         }
+    }
+
+    readonly property bool heifSelected: Camera.image_format === 3 || Camera.image_format === 4
+    readonly property bool canNormalizeFormat: connected && settled && !busy && !recovery
+        && !commandPending && heifSelected && Camera.writable.imageFormat
+    property bool formatArmWaiting: false
+    property int formatArmTicks: 0
+    property int formatArmDelay: 2
+    property bool formatArmKeep: false
+    function advanceFormatArm() {
+        if (!formatArmWaiting) return
+        if (!connected || recovery || busy || ++formatArmTicks > 40) {
+            formatArmWaiting = false; commandPending = false
+            lastError = "画质切换或拍摄准备未完成，请重新选择模式"
+            commandFinished(false); return
+        }
+        if (Camera.image_format !== 0 || !experimentalReady || inFlight) return
+        formatArmWaiting = false; commandPending = false
+        if (!exchange("POST", "/arm?delay=" + formatArmDelay + "&keep=" + (formatArmKeep ? 1 : 0)))
+            commandFinished(false)
     }
     signal commandFinished(bool ok)
     function acceptState(s) {
@@ -144,6 +165,12 @@ QtObject {
         return true
     }
     function arm(delay, keep) {
+        if (canNormalizeFormat) {
+            formatArmDelay = delay; formatArmKeep = keep; formatArmTicks = 0
+            formatArmWaiting = true; commandPending = true
+            Camera.image_format = 0
+            return true
+        }
         if (!connected || !experimentalReady || busy || commandPending) return false
         return exchange("POST", "/arm?delay=" + delay + "&keep=" + (keep ? 1 : 0))
     }
@@ -163,6 +190,7 @@ QtObject {
         interval: 300; running: true; repeat: true
         onTriggered: {
             root.refreshCompletedAlbum()
+            root.advanceFormatArm()
             if (!root.inFlight) root.exchange("GET", "/status")
             else if (++root.pollTicks > 50) {
                 var request = root.currentRequest

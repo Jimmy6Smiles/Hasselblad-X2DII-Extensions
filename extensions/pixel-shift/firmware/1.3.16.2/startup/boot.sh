@@ -68,13 +68,17 @@ $T dd if="$B/payload/ui/capture-hold-0.patch" of="$R/gui" bs=1 seek=35032266 con
 $T dd if="$B/payload/ui/capture-hold-1.patch" of="$R/gui" bs=1 seek=35022891 conv=notrunc 2>/dev/null
 $T dd if="$B/payload/ui/capture-hold-2.patch" of="$R/gui" bs=1 seek=35025297 conv=notrunc 2>/dev/null
 $T dd if="$B/payload/ui/capture-hold-3.patch" of="$R/gui" bs=1 seek=35087820 conv=notrunc 2>/dev/null
+$T dd if="$B/payload/ui/quality-0.patch" of="$R/gui" bs=1 seek=35285781 conv=notrunc 2>/dev/null
+$T dd if="$B/payload/ui/quality-1.patch" of="$R/gui" bs=1 seek=35588102 conv=notrunc 2>/dev/null
+$T dd if="$B/payload/ui/afc-control.patch" of="$R/gui" bs=1 seek=35502463 conv=notrunc 2>/dev/null
+$T dd if="$B/payload/ui/afc-liveview.patch" of="$R/gui" bs=1 seek=35839203 conv=notrunc 2>/dev/null
 for name in PixelShiftBracketing.qml PixelShiftBusyLayer.qml PixelShiftDriveBadge.qml PixelShiftDriveGrid.qml PixelShiftDrivePopup.qml PixelShiftFramedImage.qml PixelShiftFramedItem.qml PixelShiftLiveBadge.qml PixelShiftModeController.qml PixelShiftSelector.qml PixelShiftSettings.qml PixelShiftState.qml PixelShiftStateAccess.qml PixelShiftTransport.qml pixel-shift.svg qmldir; do
  $T cp "$B/payload/ui/$name" "$U/$name"
 done
 $T chmod 700 "$R/gui"
 # 对应 manifest 的重建摘要由打包器写入；不以仅存在性验收 GUI。
 hash=$($T sha256sum "$R/gui")
-[ "${hash%% *}" = fa2fbdc89648909f29d6a55bf0d2a40fb3cfdf187ac94c1bf615add03de347dd ]
+[ "${hash%% *}" = e1f00256151fc9bcddd52f0528785c23c78a2028a86631e85c40c1f91b7cfe55 ]
 # 每块实际挂载卷只建私有中间目录，不改变相机默认存储设置。
 for volume in ssd cfe; do
  if $T grep -q " /mnt/media_rw/$volume " /proc/mounts; then

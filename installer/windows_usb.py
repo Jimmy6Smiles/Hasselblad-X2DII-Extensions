@@ -101,6 +101,26 @@ class WinUsbSession:
         if not ok:
             raise UsbError(code, ctypes.get_last_error())
 
+    def _set_read_timeout(self, milliseconds: int):
+        timeout = wintypes.DWORD(milliseconds)
+        self._check(self.winusb.WinUsb_SetPipePolicy(
+            self.usb, self.pipe_in, 3, 4, ctypes.byref(timeout)), "USB_TIMEOUT_POLICY")
+
+    def _discard_stale_replies(self):
+        """Clear only replies left by a previously timed-out host process."""
+        self._set_read_timeout(50)
+        try:
+            for _ in range(64):
+                try:
+                    self._read()
+                except UsbError as error:
+                    if error.win32 == 121:
+                        return
+                    raise
+            raise UsbError("USB_STALE_REPLY_LIMIT")
+        finally:
+            self._set_read_timeout(10000)
+
     def _enumerate(self) -> list[str]:
         guid = GUID.parse(INTERFACE_GUID_TEXT)
         device_set = self.setupapi.SetupDiGetClassDevsW(ctypes.byref(guid), None, None, 0x12)
@@ -152,9 +172,13 @@ class WinUsbSession:
             if len(set(order)) != 4 or any((pipe & 0x0F) == 0 for pipe in order) or any(bool(order[i] & 0x80) != (i >= 2) for i in range(4)):
                 raise UsbError("USB_PIPE_MISMATCH")
             self.pipe_in, self.pipe_out = order[3], order[1]
-            timeout = wintypes.DWORD(2500)
-            self._check(self.winusb.WinUsb_SetPipePolicy(self.usb, self.pipe_in, 3, 4, ctypes.byref(timeout)), "USB_TIMEOUT_POLICY")
+            # Device-side file and mount operations can legitimately take
+            # longer than a parameter read. Keep the request count bounded,
+            # but allow one slow flash operation to return its framed reply.
+            self._set_read_timeout(10000)
+            timeout = wintypes.DWORD(10000)
             self._check(self.winusb.WinUsb_SetPipePolicy(self.usb, self.pipe_out, 3, 4, ctypes.byref(timeout)), "USB_TIMEOUT_POLICY")
+            self._discard_stale_replies()
             return self
         except Exception:
             self.close()
@@ -175,8 +199,16 @@ class WinUsbSession:
     def read_parameter(self, parameter_id: int, sequence: int) -> bytes:
         self._write(self.pipe_out, read_request(parameter_id, sequence))
         reply = ReadReply(sequence)
-        for _ in range(4):
-            value = reply.add(self._read())
+        timeouts = 0
+        for _ in range(8):
+            try:
+                packet = self._read()
+            except UsbError as error:
+                if error.win32 == 121 and timeouts < 2:
+                    timeouts += 1
+                    continue
+                raise
+            value = reply.add(packet)
             if value is not None: return value
         raise UsbError("USB_REPLY_LIMIT")
 
@@ -184,8 +216,16 @@ class WinUsbSession:
         """Run one internally generated command; callers must not accept raw user text."""
         self._write(self.pipe_out, shell_request(command, tag))
         output = bytearray()
-        for _ in range(64):
-            complete, payload = shell_reply(self._read(), tag)
+        timeouts = 0
+        for _ in range(68):
+            try:
+                packet = self._read()
+            except UsbError as error:
+                if error.win32 == 121 and timeouts < 3:
+                    timeouts += 1
+                    continue
+                raise
+            complete, payload = shell_reply(packet, tag)
             output.extend(payload)
             if len(output) > 8192: raise UsbError("SHELL_OUTPUT_LIMIT")
             if complete: return output.decode("ascii")
