@@ -3,6 +3,7 @@ __pycache__/
 build/
 output/
 outputs/
+output-*/
 *.cim
 *.3FR
 *.3fr
