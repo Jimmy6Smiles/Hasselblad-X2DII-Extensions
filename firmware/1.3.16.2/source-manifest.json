@@ -1,0 +1,910 @@
+{
+  "src/coordinator/album_candidate.c": {
+    "sha256": "927d80cdb95c71e50ad7a8a9742d06adb7527a71e5c76ccac4ea3da9d5dda13e",
+    "source": "identity-guard-source/album_candidate.c"
+  },
+  "src/coordinator/album_job_client.inc": {
+    "sha256": "ff84727c57e8dcae45d65ae3c700d7d2dfada957969ddd3795d1409857a504a4",
+    "source": "album_job_client.inc accepted resident source"
+  },
+  "src/coordinator/album_lookup.S": {
+    "sha256": "2d954667f34247416de9c1abff8dea78a9ec860ae58ab1260e838dbb021e91ac",
+    "source": "identity-guard-source/album_lookup.S"
+  },
+  "src/coordinator/album_native_cleanup.inc": {
+    "sha256": "880551b2242e7488afac4994eba277d5e16ce983b4acd8c37654e5784ee42281",
+    "source": "album_native_cleanup.inc accepted resident source"
+  },
+  "src/coordinator/album_observer.c": {
+    "sha256": "77e0a633ce0298325feab5c2767ce5035ced9333f1751dea6ac828c12c37e19c",
+    "source": "identity-guard-source/album_observer.c"
+  },
+  "src/coordinator/album_observer_fingerprint.h": {
+    "sha256": "aa5207a397e225b70841e0a18267ca682904a15bef5038c8b738c2d171a515e6",
+    "source": "identity-guard-source/album_observer_fingerprint.h"
+  },
+  "src/coordinator/album_refresh.inc": {
+    "sha256": "6f9dd43b1f8e818613f7bda89ad58165145dd272d706bb71adae94fd3ed08d7f",
+    "source": "identity-guard-source/album_refresh.inc"
+  },
+  "src/coordinator/album_refresh_contract.h": {
+    "sha256": "8a3d498d2d3c1e81f261b647224bef369d88d222b37527c769cbcab55d979ddb",
+    "source": "album_refresh_contract.h accepted resident source"
+  },
+  "src/coordinator/album_runtime.h": {
+    "sha256": "40c17474329df2de015ec6e9d86996b71500e7b6e83ea0e90dde1c106fe5de79",
+    "source": "album_runtime.h accepted resident source"
+  },
+  "src/coordinator/auto_prepare.c": {
+    "sha256": "e95040a9ca8228dfce384910065ccbcc8f41120c0f93e5b3cc2937f6060350cc",
+    "source": "identity-guard-source/auto_prepare.c"
+  },
+  "src/coordinator/completed_stage_cleanup.h": {
+    "sha256": "951823e6c26efcf480547134987f7f020d3c25bd7fef41d78d3adcf502ea373f",
+    "source": "completed_stage_cleanup.h accepted resident source"
+  },
+  "src/coordinator/dcf_fingerprint.h": {
+    "sha256": "84609315d83e08d284ef7966cf56ca87adf7a85f2feb8ee04e2ea43f45108c86",
+    "source": "identity-guard-source/dcf_fingerprint.h"
+  },
+  "src/coordinator/dcf_sync_client.inc": {
+    "sha256": "c27c324737b072e3f2e1a8976f7980912a74f5ecb0477f6f484701085c119fc7",
+    "source": "dcf_sync_client.inc accepted resident source"
+  },
+  "src/coordinator/dcf_sync_contract.h": {
+    "sha256": "d426ff12bcec828f2af972fc853a97cadf2f4294bd523f6f89df47770449b43c",
+    "source": "dcf_sync_contract.h accepted resident source"
+  },
+  "src/coordinator/dcf_sync_runtime.inc": {
+    "sha256": "f5377e9b8055bc8cc889a624224be14077734874068116ccbd4d5ab6933698b7",
+    "source": "identity-guard-source/dcf_sync_runtime.inc"
+  },
+  "src/coordinator/direct_header.h": {
+    "sha256": "752182305b190d9b74e88722a2c782fbb3b45de6fe8d5bac8b69e3160992c3c9",
+    "source": "identity-guard-source/direct_header.h"
+  },
+  "src/coordinator/file_identity_guard.h": {
+    "sha256": "0fe7ab9dbf90d8ed6304dc229fbb93b52033989c2319d36431b321d162c4a9ec",
+    "source": "file_identity_guard.h accepted resident source"
+  },
+  "src/coordinator/final_header.h": {
+    "sha256": "d1ef5f25452d80b98f6f4746c00697dfe55740dadbb0b367ff9cd5a1dfea6b98",
+    "source": "identity-guard-source/final_header.h"
+  },
+  "src/coordinator/first_frame_metadata.h": {
+    "sha256": "8af7a3da50bacc7305e5936e60a6dfad1ed12827e3e173d373b5d0a1b68b158a",
+    "source": "identity-guard-source/first_frame_metadata.h"
+  },
+  "src/coordinator/flush_event.h": {
+    "sha256": "0893f12ed652cdfe5226f2aeac725cca2395d24c9d5c809b56d86f582254da89",
+    "source": "flush_event.h accepted resident source"
+  },
+  "src/coordinator/initial_delay.h": {
+    "sha256": "ba14c8b93d2e35b18117acdda86043b03d43f1d0e84ef6a233a4679dc2b679b9",
+    "source": "initial_delay.h accepted resident source"
+  },
+  "src/coordinator/integrated_job.c": {
+    "sha256": "40a9a98bfbf03b5a1e6d48890acd0305a73aae054dcbc7cef429d29a9fbdb3f3",
+    "source": "integrated_job.c accepted resident source"
+  },
+  "src/coordinator/native_job_lease.h": {
+    "sha256": "c762b1f2ba00c206405a0d577573fc995c740456c401e5dfa1102c507277381a",
+    "source": "native_job_lease.h accepted resident source"
+  },
+  "src/coordinator/native_service_quiesce.h": {
+    "sha256": "2ea2b3f9e4949e1968e0461003a0845cc77e51a3c33954599e15b2ec70f6b87b",
+    "source": "native_service_quiesce.h accepted resident source"
+  },
+  "src/coordinator/overlap_chunk_pipeline.h": {
+    "sha256": "42ded149fbdb409936f2e524d1e52f9daec4964a37c4fbad66495b4da38715b7",
+    "source": "identity-guard-source/overlap_chunk_pipeline.h"
+  },
+  "src/coordinator/overlap_container_worker.c": {
+    "sha256": "d26202ccc022f95b071276e1a5f0e6f4fef2169d0565d85a5895aa471f34d9c7",
+    "source": "identity-guard-source/overlap_container_worker.c"
+  },
+  "src/coordinator/overlap_integrated_job.c": {
+    "sha256": "274e08422ff22f839870dbb56e9ae5443d0373e98cf9908d3aaa5362b84a45fd",
+    "source": "identity-guard-source/overlap_integrated_job.c"
+  },
+  "src/coordinator/overlap_prefix.h": {
+    "sha256": "cf115d7efdd22245e6354b7b81ccbc3fbf11d43b2c7e0c1ed6ee446acc92ac9a",
+    "source": "identity-guard-source/overlap_prefix.h"
+  },
+  "src/coordinator/overlap_prepare.c": {
+    "sha256": "51904d14644b069bfcb033f8a6841bbb97bdf79aaa839e2e17da37cbd9d19d63",
+    "source": "identity-guard-source/overlap_prepare.c"
+  },
+  "src/coordinator/overlap_shadow.inc": {
+    "sha256": "37db539015c371996941293c3f995d43528cbe788d6507ec0f3bfb844138d159",
+    "source": "overlap_shadow.inc accepted resident source"
+  },
+  "src/coordinator/overlap_six_worker.c": {
+    "sha256": "e5bea730499fd8794ccc613696637f1a60c80e5506b9f2c840291764d213f569",
+    "source": "identity-guard-source/overlap_six_worker.c"
+  },
+  "src/coordinator/readback_digest.h": {
+    "sha256": "3066347f638a9c34cca0c8e3f59249c7f4336c9dc1d49969491d6dc9bb401156",
+    "source": "identity-guard-source/readback_digest.h"
+  },
+  "src/coordinator/six_row_kernel.h": {
+    "sha256": "88268bf29f50b0dac35de1e0c08098d3a52444a52310525ffba12aa5b4fcd506",
+    "source": "identity-guard-source/six_row_kernel.h"
+  },
+  "src/coordinator/stream_candidates.h": {
+    "sha256": "20b5e32547bef5f90a225bccba536712cc49b507e8570f5633fa7d2622cb4075",
+    "source": "stream_candidates.h accepted resident source"
+  },
+  "src/coordinator/stream_gate.h": {
+    "sha256": "ceba5e5d8e30fc76e0bd8a1b8b8554c29287c18df4cb9c08e45adf8cc8b6c958",
+    "source": "stream_gate.h accepted resident source"
+  },
+  "src/coordinator/stream_observer.c": {
+    "sha256": "b7b2a0e927ee5570626cd84b4680b2df8a2601b3f82367fc19f8d88dc769d175",
+    "source": "identity-guard-source/stream_observer.c"
+  },
+  "src/coordinator/stream_wire.h": {
+    "sha256": "dbc38c8e6bcc6ca1d7f8340702c7b329f439a6bbf82b78f9b664705469f58d64",
+    "source": "stream_wire.h accepted resident source"
+  },
+  "src/coordinator/test_album_job_client.c": {
+    "sha256": "9d362994b057a9689d06c89e7237b77b5c49cda5e309f832131d721511642438",
+    "source": "identity-guard-source/test_album_job_client.c"
+  },
+  "src/coordinator/test_dcf_runtime.c": {
+    "sha256": "1c0d8ff85998a2da7d378284c9e383748983fad23744d2d10f5f1e8c8d1b224c",
+    "source": "identity-guard-source/test_dcf_runtime.c"
+  },
+  "src/coordinator/test_dcf_sync.c": {
+    "sha256": "6ad796c1de7c141060938fb24414daf233a0da82ff66df8f7646ad623cca8d44",
+    "source": "identity-guard-source/test_dcf_sync.c"
+  },
+  "src/coordinator/test_identity_guard.c": {
+    "sha256": "38200e8b4b04d979375a76026d451c7c7bb12b63836ded4eae0c13291af56458",
+    "source": "identity-guard-source/test_identity_guard.c"
+  },
+  "src/merge/album_candidate.c": {
+    "sha256": "927d80cdb95c71e50ad7a8a9742d06adb7527a71e5c76ccac4ea3da9d5dda13e",
+    "source": "raw-no-raster-scan-source/album_candidate.c"
+  },
+  "src/merge/album_job_client.inc": {
+    "sha256": "6dba4ce3299a775eed2e96024d3a9770cff084d4e9f3fcfa6c3b41152fcba1d2",
+    "source": "raw-no-raster-scan-source/album_job_client.inc"
+  },
+  "src/merge/album_lookup.S": {
+    "sha256": "2d954667f34247416de9c1abff8dea78a9ec860ae58ab1260e838dbb021e91ac",
+    "source": "raw-no-raster-scan-source/album_lookup.S"
+  },
+  "src/merge/album_native_cleanup.inc": {
+    "sha256": "dd8e7eca6892b58cf2eaa03ee21108dd8c2ddde4b3cd1738f06a917a913eefcf",
+    "source": "raw-no-raster-scan-source/album_native_cleanup.inc"
+  },
+  "src/merge/album_observer.c": {
+    "sha256": "77e0a633ce0298325feab5c2767ce5035ced9333f1751dea6ac828c12c37e19c",
+    "source": "raw-no-raster-scan-source/album_observer.c"
+  },
+  "src/merge/album_observer_fingerprint.h": {
+    "sha256": "aa5207a397e225b70841e0a18267ca682904a15bef5038c8b738c2d171a515e6",
+    "source": "raw-no-raster-scan-source/album_observer_fingerprint.h"
+  },
+  "src/merge/album_refresh.inc": {
+    "sha256": "6f9dd43b1f8e818613f7bda89ad58165145dd272d706bb71adae94fd3ed08d7f",
+    "source": "raw-no-raster-scan-source/album_refresh.inc"
+  },
+  "src/merge/album_refresh_contract.h": {
+    "sha256": "8a3d498d2d3c1e81f261b647224bef369d88d222b37527c769cbcab55d979ddb",
+    "source": "raw-no-raster-scan-source/album_refresh_contract.h"
+  },
+  "src/merge/album_runtime.h": {
+    "sha256": "40c17474329df2de015ec6e9d86996b71500e7b6e83ea0e90dde1c106fe5de79",
+    "source": "raw-no-raster-scan-source/album_runtime.h"
+  },
+  "src/merge/auto_prepare.c": {
+    "sha256": "e95040a9ca8228dfce384910065ccbcc8f41120c0f93e5b3cc2937f6060350cc",
+    "source": "raw-no-raster-scan-source/auto_prepare.c"
+  },
+  "src/merge/baseline_digest.h": {
+    "sha256": "3066347f638a9c34cca0c8e3f59249c7f4336c9dc1d49969491d6dc9bb401156",
+    "source": "raw-no-raster-scan-source/baseline_digest.h"
+  },
+  "src/merge/completed_stage_cleanup.h": {
+    "sha256": "951823e6c26efcf480547134987f7f020d3c25bd7fef41d78d3adcf502ea373f",
+    "source": "raw-no-raster-scan-source/completed_stage_cleanup.h"
+  },
+  "src/merge/dcf_fingerprint.h": {
+    "sha256": "84609315d83e08d284ef7966cf56ca87adf7a85f2feb8ee04e2ea43f45108c86",
+    "source": "raw-no-raster-scan-source/dcf_fingerprint.h"
+  },
+  "src/merge/dcf_sync_client.inc": {
+    "sha256": "096400daa6e7420d248e26d03ea57e9e3aa6aeede5a6ecdd36829c8ea690b51a",
+    "source": "raw-no-raster-scan-source/dcf_sync_client.inc"
+  },
+  "src/merge/dcf_sync_contract.h": {
+    "sha256": "5aba242bde52f7ee5ed301cfb1d5fd724094b44ee938736e46dac77c80c97405",
+    "source": "raw-no-raster-scan-source/dcf_sync_contract.h"
+  },
+  "src/merge/dcf_sync_runtime.inc": {
+    "sha256": "f5377e9b8055bc8cc889a624224be14077734874068116ccbd4d5ab6933698b7",
+    "source": "raw-no-raster-scan-source/dcf_sync_runtime.inc"
+  },
+  "src/merge/direct_header.h": {
+    "sha256": "752182305b190d9b74e88722a2c782fbb3b45de6fe8d5bac8b69e3160992c3c9",
+    "source": "raw-no-raster-scan-source/direct_header.h"
+  },
+  "src/merge/final_header.h": {
+    "sha256": "d1ef5f25452d80b98f6f4746c00697dfe55740dadbb0b367ff9cd5a1dfea6b98",
+    "source": "raw-no-raster-scan-source/final_header.h"
+  },
+  "src/merge/first_frame_metadata.h": {
+    "sha256": "8af7a3da50bacc7305e5936e60a6dfad1ed12827e3e173d373b5d0a1b68b158a",
+    "source": "raw-no-raster-scan-source/first_frame_metadata.h"
+  },
+  "src/merge/flush_event.h": {
+    "sha256": "0893f12ed652cdfe5226f2aeac725cca2395d24c9d5c809b56d86f582254da89",
+    "source": "raw-no-raster-scan-source/flush_event.h"
+  },
+  "src/merge/initial_delay.h": {
+    "sha256": "ba14c8b93d2e35b18117acdda86043b03d43f1d0e84ef6a233a4679dc2b679b9",
+    "source": "raw-no-raster-scan-source/initial_delay.h"
+  },
+  "src/merge/integrated_job.c": {
+    "sha256": "4739a1e3afaa59263a8de7183d6583edcf05ded2606de6ffd3f1472bdb9ca0dc",
+    "source": "raw-no-raster-scan-source/integrated_job.c"
+  },
+  "src/merge/native_job_lease.h": {
+    "sha256": "c762b1f2ba00c206405a0d577573fc995c740456c401e5dfa1102c507277381a",
+    "source": "raw-no-raster-scan-source/native_job_lease.h"
+  },
+  "src/merge/native_service_quiesce.h": {
+    "sha256": "2ea2b3f9e4949e1968e0461003a0845cc77e51a3c33954599e15b2ec70f6b87b",
+    "source": "raw-no-raster-scan-source/native_service_quiesce.h"
+  },
+  "src/merge/overlap_chunk_pipeline.h": {
+    "sha256": "eeb41b37d7392a86ef209810d992aeba25070d973573968560768562c34f4682",
+    "source": "raw-no-raster-scan-source/overlap_chunk_pipeline.h"
+  },
+  "src/merge/overlap_container_worker.c": {
+    "sha256": "e3f7fd1e88fabf98d4ac695bce7ac0d9687dd40f17d0fc0ebdd4d037b4611476",
+    "source": "raw-no-raster-scan-source/overlap_container_worker.c"
+  },
+  "src/merge/overlap_integrated_job.c": {
+    "sha256": "274e08422ff22f839870dbb56e9ae5443d0373e98cf9908d3aaa5362b84a45fd",
+    "source": "raw-no-raster-scan-source/overlap_integrated_job.c"
+  },
+  "src/merge/overlap_prefix.h": {
+    "sha256": "cf115d7efdd22245e6354b7b81ccbc3fbf11d43b2c7e0c1ed6ee446acc92ac9a",
+    "source": "raw-no-raster-scan-source/overlap_prefix.h"
+  },
+  "src/merge/overlap_prepare.c": {
+    "sha256": "51904d14644b069bfcb033f8a6841bbb97bdf79aaa839e2e17da37cbd9d19d63",
+    "source": "raw-no-raster-scan-source/overlap_prepare.c"
+  },
+  "src/merge/overlap_shadow.inc": {
+    "sha256": "37db539015c371996941293c3f995d43528cbe788d6507ec0f3bfb844138d159",
+    "source": "raw-no-raster-scan-source/overlap_shadow.inc"
+  },
+  "src/merge/overlap_six_worker.c": {
+    "sha256": "1f654418310284a60b36d0b20d6010606569ba9229f6fb631ef3770bfc4168be",
+    "source": "raw-no-raster-scan-source/overlap_six_worker.c"
+  },
+  "src/merge/readback_digest.h": {
+    "sha256": "30f53eac3106e5093b4f763c33b8bf23925a2dfb109c7ac076ebfa9c02083983",
+    "source": "raw-no-raster-scan-source/readback_digest.h"
+  },
+  "src/merge/six_row_kernel.h": {
+    "sha256": "88268bf29f50b0dac35de1e0c08098d3a52444a52310525ffba12aa5b4fcd506",
+    "source": "raw-no-raster-scan-source/six_row_kernel.h"
+  },
+  "src/merge/stream_candidates.h": {
+    "sha256": "20b5e32547bef5f90a225bccba536712cc49b507e8570f5633fa7d2622cb4075",
+    "source": "raw-no-raster-scan-source/stream_candidates.h"
+  },
+  "src/merge/stream_gate.h": {
+    "sha256": "ceba5e5d8e30fc76e0bd8a1b8b8554c29287c18df4cb9c08e45adf8cc8b6c958",
+    "source": "raw-no-raster-scan-source/stream_gate.h"
+  },
+  "src/merge/stream_observer.c": {
+    "sha256": "b7b2a0e927ee5570626cd84b4680b2df8a2601b3f82367fc19f8d88dc769d175",
+    "source": "raw-no-raster-scan-source/stream_observer.c"
+  },
+  "src/merge/stream_wire.h": {
+    "sha256": "dbc38c8e6bcc6ca1d7f8340702c7b329f439a6bbf82b78f9b664705469f58d64",
+    "source": "raw-no-raster-scan-source/stream_wire.h"
+  },
+  "src/merge/test_album_job_client.c": {
+    "sha256": "b15d3ce57e9216cb5fb2db4ef5e7b0869d6aefddc509465908ee04669da49c77",
+    "source": "raw-no-raster-scan-source/test_album_job_client.c"
+  },
+  "src/merge/test_dcf_runtime.c": {
+    "sha256": "1c0d8ff85998a2da7d378284c9e383748983fad23744d2d10f5f1e8c8d1b224c",
+    "source": "raw-no-raster-scan-source/test_dcf_runtime.c"
+  },
+  "src/merge/test_dcf_sync.c": {
+    "sha256": "6ad796c1de7c141060938fb24414daf233a0da82ff66df8f7646ad623cca8d44",
+    "source": "raw-no-raster-scan-source/test_dcf_sync.c"
+  },
+  "src/merge/test_digest_fast.c": {
+    "sha256": "5221d0b06bf7fae787161e60e44f8b1fea4efada28676aeb01e22cdee7b170ec",
+    "source": "raw-no-raster-scan-source/test_digest_fast.c"
+  },
+  "factory_preview_extent.h": {
+    "sha256": "cadd96fc815ce2a60e00c848259f3ca20d5fd68657c7ac293c43e28dc6f8d63d",
+    "source": "factory_preview_extent.h"
+  },
+  "src/zoom/zoom_region.c": {
+    "sha256": "7b57193eca03718d4207e5ba58d2e0d6e0558bdce99112044f881f37b47d851b",
+    "source": "zoom_region.c accepted resident source"
+  },
+  "src/zoom/zoom_server.c": {
+    "sha256": "749a82459c593f284fe3e6204d5ee981047003bec5fe7ec1b007fa54adeff4bd",
+    "source": "zoom_server.c accepted resident source"
+  },
+  "src/zoom/zoom_album_server.c": {
+    "sha256": "0d9b11b684c36cf2744698eef6783a325182a5e7edac2e41f38044b5439f1c9a",
+    "source": "zoom_album_server.c accepted resident source"
+  },
+  "src/zoom-parser/album_candidate.c": {
+    "sha256": "397b7b3c464585fe8728bc21fc0fb0dc70831d23d528f9fa1d97f78e9c773c44",
+    "source": "legacy-domain-adapter/album_candidate.c"
+  },
+  "src/zoom-parser/first_frame_metadata.h": {
+    "sha256": "8af7a3da50bacc7305e5936e60a6dfad1ed12827e3e173d373b5d0a1b68b158a",
+    "source": "legacy-domain-adapter/first_frame_metadata.h"
+  },
+  "src/zoom-parser/readback_digest.h": {
+    "sha256": "3066347f638a9c34cca0c8e3f59249c7f4336c9dc1d49969491d6dc9bb401156",
+    "source": "legacy-domain-adapter/readback_digest.h"
+  },
+  "ui/DetailLayer.qml": {
+    "sha256": "b3c28d135a9f098ae0f45b905c6d3b166b5fdaeaebe8743c045d5883656e85c5",
+    "source": "accepted factory SDR display update"
+  },
+  "ui/PixelShiftBracketing.qml": {
+    "sha256": "6ba9ba69b2ad27f525f2dbe919c021a3df7dc6dab112933a94308e32021daacd",
+    "source": "accepted resident custom UI"
+  },
+  "ui/PixelShiftBusyLayer.qml": {
+    "sha256": "bb6e97b5887790cf847e8690abfe7bf3e1698531ac8ea58bd8b357afb2efc2b0",
+    "source": "accepted resident custom UI"
+  },
+  "ui/PixelShiftDriveBadge.qml": {
+    "sha256": "064b23f161c1ed05d752ea2f830128319d3e2ba269163aea69845a429fcf0a60",
+    "source": "accepted resident custom UI"
+  },
+  "ui/PixelShiftDriveGrid.qml": {
+    "sha256": "34b8bfc49cea017609fc24046b3dda12a90aaf6f04430f24a90647cea7d869fe",
+    "source": "accepted resident custom UI"
+  },
+  "ui/PixelShiftDrivePopup.qml": {
+    "sha256": "be29ecda39eeb43536186929686a518e900d954ab098c5ec16836273080bc821",
+    "source": "accepted resident custom UI"
+  },
+  "ui/PixelShiftFramedImage.qml": {
+    "sha256": "73ef3ddc0ca40a56907af8e729895c4729796f79f1297389ba21eea0f91f9cce",
+    "source": "accepted resident custom UI"
+  },
+  "ui/PixelShiftFramedItem.qml": {
+    "sha256": "48aa5c314e64386fb0a3a160274ade162f511d05d27df829d678b417578d1249",
+    "source": "accepted resident custom UI"
+  },
+  "ui/PixelShiftLiveBadge.qml": {
+    "sha256": "08d5219c3fe0d8c40824694a6d6a040e578b22ba76e5257402b1f097efaf410f",
+    "source": "accepted resident custom UI"
+  },
+  "ui/PixelShiftModeController.qml": {
+    "sha256": "0b9b9b944ea68ae2f4f70bdc870afc9c9bb867ada4862a3ae5dc9d048337d264",
+    "source": "accepted resident custom UI"
+  },
+  "ui/PixelShiftSelector.qml": {
+    "sha256": "c89aeb9869ad3e2edb961818dc703000e209d4121da9f4c91995432f5cf9c43d",
+    "source": "accepted resident custom UI"
+  },
+  "ui/PixelShiftSettings.qml": {
+    "sha256": "42de02c522d7cc111b39ebc125ebbc5c6a73670ea25b3639bed45ff015bd2078",
+    "source": "accepted resident custom UI"
+  },
+  "ui/PixelShiftState.qml": {
+    "sha256": "69c52cd6aeee58d2b5a21619c489c7f3a719f408143f7ca3b7c15f467041cdb3",
+    "source": "accepted resident custom UI"
+  },
+  "ui/PixelShiftStateAccess.qml": {
+    "sha256": "be0af64fad454852d940dbf542dc365889d80106e2f6304c4877b0ee7874020f",
+    "source": "accepted resident custom UI"
+  },
+  "ui/PixelShiftTransport.qml": {
+    "sha256": "19fa0f1021665654e905e7f6ccdc9bc27f1f48dbb63b025df9081ceeddacbffc",
+    "source": "accepted resident custom UI"
+  },
+  "startup/boot.sh": {
+    "sha256": "b51b07ce5f11bca88b651e1551498a1d01aecc50d606ce28178242d4d21e5207",
+    "source": "accepted resident startup"
+  },
+  "startup/prepare.sh": {
+    "sha256": "b51b07ce5f11bca88b651e1551498a1d01aecc50d606ce28178242d4d21e5207",
+    "source": "accepted resident startup"
+  },
+  "resident-manifest.sha256": {
+    "sha256": "9e99768484cdcb323a42bd104976d751bc8343c98e717ddf164e11a7f78f7275",
+    "source": "installed JPEG cleanup manifest"
+  },
+  "release.json": {
+    "sha256": "4e3966ae28632c825c6dee948d8aa47d34d00f9c701ed7533843bafd131c51d6",
+    "source": "current release boundary"
+  },
+  "src/zoom/jpeg_zoom_region.h": {
+    "sha256": "8bcd6f4ee48c7ba5f8d0280a31332fbc7d59e3400265f633c83c803eb632d829",
+    "source": "jpeg_zoom_region.h accepted resident source"
+  },
+  "ui/AlbumBinding.qml": {
+    "sha256": "5abb0a5d81c079a1196c32b0e9547565710c5f8d2e94f5f33ba88e614658b23b",
+    "source": "accepted no-flicker custom QML fragment"
+  },
+  "tests/test_zoom_no_flicker.cjs": {
+    "sha256": "62abcf7a74cb1a3199d26d14040b9e6f6265d71c7bd99416e900192a58c9a8bd",
+    "source": "replay update build and documentation"
+  },
+  "build.py": {
+    "sha256": "e845eb3205633e1f7de752d1b999a729cdad5b3f392186f70437b0d3cd949741",
+    "source": "replay update build and documentation"
+  },
+  "build_zoom_patch.py": {
+    "sha256": "fa755c375c8d286ffd67561a6dee10bc6928c4baaf7490a5bdf5faf00368d5e4",
+    "source": "replay update build and documentation"
+  },
+  "README.md": {
+    "sha256": "6bd2ce7845b7235872b138f85d1c786892c8e4ab196897e2e7623ac27f104d99",
+    "source": "replay update build and documentation"
+  },
+  "src/native-renderer/six_row_kernel.h": {
+    "sha256": "88268bf29f50b0dac35de1e0c08098d3a52444a52310525ffba12aa5b4fcd506",
+    "source": "six_row_kernel.h accepted resident source"
+  },
+  "src/native-renderer/first_frame_metadata.h": {
+    "sha256": "8af7a3da50bacc7305e5936e60a6dfad1ed12827e3e173d373b5d0a1b68b158a",
+    "source": "first_frame_metadata.h accepted resident source"
+  },
+  "src/native-renderer/readback_digest.h": {
+    "sha256": "3066347f638a9c34cca0c8e3f59249c7f4336c9dc1d49969491d6dc9bb401156",
+    "source": "readback_digest.h accepted resident source"
+  },
+  "src/native-renderer/overlap_chunk_pipeline.h": {
+    "sha256": "42ded149fbdb409936f2e524d1e52f9daec4964a37c4fbad66495b4da38715b7",
+    "source": "overlap_chunk_pipeline.h accepted resident source"
+  },
+  "src/native-renderer/overlap_six_worker.c": {
+    "sha256": "012965f257619bd09abf4d16ffc47387fd2e4149469c9207606d06e222f68b6f",
+    "source": "overlap_six_worker.c accepted resident source"
+  },
+  "src/native-renderer/native_raw_domain.h": {
+    "sha256": "a9a383dd851b7e0edcf40cfba549c5a16297d0035a517083e89f9052333f56f9",
+    "source": "native_raw_domain.h accepted resident source"
+  },
+  "src/native-renderer/native_merge_rows.h": {
+    "sha256": "b50fe5a6718ebb89044e104e9b73d51e6056f2c486430c1bb7dd1664786ec8f3",
+    "source": "native_merge_rows.h accepted resident source"
+  },
+  "src/native-renderer/native_tile_window.h": {
+    "sha256": "82ab613f29e8cc8d575f3f6bdb866f8fd2887e31bb60febf81f769cb66da5de4",
+    "source": "native_tile_window.h accepted resident source"
+  },
+  "src/native-renderer/native_job_paths.h": {
+    "sha256": "735389d97cbf6405ecef76df25f1b6fa3fb293bb9d6e4d62944020b1786120f8",
+    "source": "native_job_paths.h accepted resident source"
+  },
+  "src/native-renderer/native_cache_rows.h": {
+    "sha256": "47289afd542cb47c5a1cbe91963de1bfc54158f16f57558f641f27e5cddedb1d",
+    "source": "native_cache_rows.h accepted resident source"
+  },
+  "src/native-renderer/native_tile_plan.h": {
+    "sha256": "966503fae195cc06d48a985c4bb0a54565b2f9a61071a211f5b9806ee648788b",
+    "source": "native_tile_plan.h accepted resident source"
+  },
+  "src/native-renderer/native_image_assembly.h": {
+    "sha256": "40f8a245c336052c868a4f3611861c2f240b3a78e890bbe4aad8f9afa676a327",
+    "source": "native_image_assembly.h accepted resident source"
+  },
+  "src/native-renderer/native_preview_assembly.h": {
+    "sha256": "6d6eb9790ab9f5a2021cde7b57cc6b72bc02b6cc7b1cc6e11d6f8c770105e5e0",
+    "source": "native_preview_assembly.h accepted resident source"
+  },
+  "src/native-renderer/native_nv16_disk.h": {
+    "sha256": "f6e99d4aa2c9c1fc22e4e6f2315dba1a6d6156de7be3fdae2d3b7a33e5ed1e76",
+    "source": "native_nv16_disk.h accepted resident source"
+  },
+  "src/native-renderer/native_factory_mesh.h": {
+    "sha256": "c87f399a5a27b0e9a44373967f41d6ade950980e0e3d19b0b9c077ea0387b8e5",
+    "source": "native_factory_mesh.h accepted resident source"
+  },
+  "src/native-renderer/native_factory_grid_bundle.h": {
+    "sha256": "2ccf21b15e94efe67086b29ce7ce6c361011cee45d0763502139d828dc9770ee",
+    "source": "native_factory_grid_bundle.h accepted resident source"
+  },
+  "src/native-renderer/hardware_gdc_runtime_plan.h": {
+    "sha256": "c1d1a4a9e5ef3041fd6eacb49f299a9608b8fb7b281d7de933a01bc3c4da3f1d",
+    "source": "hardware_gdc_runtime_plan.h native replay snapshot"
+  },
+  "src/native-renderer/native_stream_cache.h": {
+    "sha256": "804b123caf0e257678c37086de4936aa45db171c64735efe8049d5dc60feec8d",
+    "source": "native_stream_cache.h native replay snapshot"
+  },
+  "src/native-renderer/native_stream_bridge.h": {
+    "sha256": "2fda2817fa8a7dd376ed01e49e5d7edf6ce5dd17b5955f1d5b765d2e1c6fd523",
+    "source": "native_stream_bridge.h native replay snapshot"
+  },
+  "src/native-renderer/native_preview_dewarp.h": {
+    "sha256": "335b315e872fdc154c9c66d990b46d3da6f8c23a3dc108246e7a667498d0aa9d",
+    "source": "native_preview_dewarp.h accepted resident source"
+  },
+  "src/native-renderer/native_reference_reduce.h": {
+    "sha256": "a006915c518776fa127a726a122f7d7c66d54729e92da252005f1eb70abda734",
+    "source": "native_reference_reduce.h accepted resident source"
+  },
+  "src/native-renderer/native_dcam_fixture.h": {
+    "sha256": "b126100390f36783b2f9a2e3279f4a1308809518412db90ac0cb27c1f88530df",
+    "source": "native_dcam_fixture.h accepted resident source"
+  },
+  "src/native-renderer/native_render_clone.h": {
+    "sha256": "69e43ffb30bc1d5a5f91390e13e55cca48a5baa11380d2505250a8fa3c101343",
+    "source": "native_render_clone.h accepted resident source"
+  },
+  "src/native-renderer/native_jpeg_layout.h": {
+    "sha256": "b8e337465193d1497ba69238ea0d5e67f2e94ead6ad335fb47e33e3a688fa5b5",
+    "source": "native_jpeg_layout.h accepted resident source"
+  },
+  "src/native-renderer/native_jpeg_trial.h": {
+    "sha256": "c7c242932cbdefcea2bbb78f435d7fd49b747caafe8bdcb338c8f5d3e59f31d2",
+    "source": "native_jpeg_trial.h accepted resident source"
+  },
+  "src/native-renderer/native_render_repeat.h": {
+    "sha256": "0327ea977812494a7618d31cd318585d2fe9f96ebf3baa4d1b1fa2b4d5c42405",
+    "source": "native_render_repeat.h accepted resident source"
+  },
+  "src/native-renderer/native_render_import.h": {
+    "sha256": "f0622309b184f9a01bc63a19f903fc1f8fd6d740a74085ab7c058094869a2716",
+    "source": "native_render_import.h accepted resident source"
+  },
+  "src/native-renderer/native_template_export.h": {
+    "sha256": "b9feb8be9470d2f539c54daa20fc9cb4234a87a33ce13f06af3cb76327c817de",
+    "source": "native_template_export.h accepted resident source"
+  },
+  "src/native-renderer/native_render_observer.c": {
+    "sha256": "8ce470882f5c6231f56ccb5d85647f05bfda0eff840c31a06cfe679f2f780064",
+    "source": "native_render_observer.c accepted resident source"
+  },
+  "src/native-renderer/native_template_load.h": {
+    "sha256": "9a8b2dc7a834de6679567fc0ff452bcfe7311bc717e8a0f24314dfce5a62c1aa",
+    "source": "native_template_load.h accepted resident source"
+  },
+  "src/native-renderer/native_request_token.h": {
+    "sha256": "ac7fb8fcb941e1d7c25a5eaadeebbdf686a548dc0f4b278ec2c56898cf4c9e70",
+    "source": "native_request_token.h accepted resident source"
+  },
+  "src/native-renderer/native_job_metadata.h": {
+    "sha256": "e28c265e99685b34e4c9c59abcbdbb4e73f67c40730377e830d8cb67f16e59d5",
+    "source": "native_job_metadata.h accepted resident source"
+  },
+  "src/native-renderer/native_job_inputs.h": {
+    "sha256": "cf2ac0e77fe3187aab49f0dcf45d98edc83e57ea4ec3479be27c4a3bfd8feaf6",
+    "source": "native_job_inputs.h accepted resident source"
+  },
+  "src/native-renderer/native_playback_source.h": {
+    "sha256": "2673e13f277f4722ac7a9fe2825aeff37ad1326f53003c039e5c84494946af62",
+    "source": "native_playback_source.h accepted resident source"
+  },
+  "src/native-renderer/native_render_job.h": {
+    "sha256": "815a61ed3e9b2d2c63e4c3edcc0283d951038b2a69902303b28e66ffdcbb6fb7",
+    "source": "native_render_job.h accepted resident source"
+  },
+  "src/native-renderer/native_job_lease.h": {
+    "sha256": "c762b1f2ba00c206405a0d577573fc995c740456c401e5dfa1102c507277381a",
+    "source": "native_job_lease.h accepted resident source"
+  },
+  "src/native-renderer/native_service_quiesce.h": {
+    "sha256": "2ea2b3f9e4949e1968e0461003a0845cc77e51a3c33954599e15b2ec70f6b87b",
+    "source": "native_service_quiesce.h accepted resident source"
+  },
+  "src/native-renderer/native_view_scope.h": {
+    "sha256": "9197a79cc2d410ba4df97ebaed5c19d8bed7cf4ebf2e0891238078b7c2ccde21",
+    "source": "native_view_scope.h accepted resident source"
+  },
+  "src/native-renderer/native_view_control.h": {
+    "sha256": "fed214e712ac7178add8b8244007bd9c7176feaa1d45e4f0b7466ef9af693c31",
+    "source": "native_view_control.h accepted resident source"
+  },
+  "src/native-renderer/native_merged_tile_trial.c": {
+    "sha256": "eec716a667936beb8ef59904f47dc0a8455df4bc5492425ae06249dc58409fea",
+    "source": "native_merged_tile_trial.c accepted resident source"
+  },
+  "src/native-reference/six_row_kernel.h": {
+    "sha256": "88268bf29f50b0dac35de1e0c08098d3a52444a52310525ffba12aa5b4fcd506",
+    "source": "six_row_kernel.h native replay snapshot"
+  },
+  "src/native-reference/first_frame_metadata.h": {
+    "sha256": "8af7a3da50bacc7305e5936e60a6dfad1ed12827e3e173d373b5d0a1b68b158a",
+    "source": "first_frame_metadata.h native replay snapshot"
+  },
+  "src/native-reference/readback_digest.h": {
+    "sha256": "3066347f638a9c34cca0c8e3f59249c7f4336c9dc1d49969491d6dc9bb401156",
+    "source": "readback_digest.h native replay snapshot"
+  },
+  "src/native-reference/overlap_chunk_pipeline.h": {
+    "sha256": "42ded149fbdb409936f2e524d1e52f9daec4964a37c4fbad66495b4da38715b7",
+    "source": "overlap_chunk_pipeline.h native replay snapshot"
+  },
+  "src/native-reference/overlap_six_worker.c": {
+    "sha256": "012965f257619bd09abf4d16ffc47387fd2e4149469c9207606d06e222f68b6f",
+    "source": "overlap_six_worker.c native replay snapshot"
+  },
+  "src/native-reference/native_raw_domain.h": {
+    "sha256": "a9a383dd851b7e0edcf40cfba549c5a16297d0035a517083e89f9052333f56f9",
+    "source": "native_raw_domain.h native replay snapshot"
+  },
+  "src/native-reference/native_merge_rows.h": {
+    "sha256": "b50fe5a6718ebb89044e104e9b73d51e6056f2c486430c1bb7dd1664786ec8f3",
+    "source": "native_merge_rows.h native replay snapshot"
+  },
+  "src/native-reference/native_cache_rows.h": {
+    "sha256": "47289afd542cb47c5a1cbe91963de1bfc54158f16f57558f641f27e5cddedb1d",
+    "source": "native_cache_rows.h native replay snapshot"
+  },
+  "src/native-reference/native_tile_window.h": {
+    "sha256": "82ab613f29e8cc8d575f3f6bdb866f8fd2887e31bb60febf81f769cb66da5de4",
+    "source": "native_tile_window.h native replay snapshot"
+  },
+  "src/native-reference/native_job_paths.h": {
+    "sha256": "735389d97cbf6405ecef76df25f1b6fa3fb293bb9d6e4d62944020b1786120f8",
+    "source": "native_job_paths.h native replay snapshot"
+  },
+  "src/native-reference/native_tile_plan.h": {
+    "sha256": "966503fae195cc06d48a985c4bb0a54565b2f9a61071a211f5b9806ee648788b",
+    "source": "native_tile_plan.h native replay snapshot"
+  },
+  "src/native-reference/native_image_assembly.h": {
+    "sha256": "40f8a245c336052c868a4f3611861c2f240b3a78e890bbe4aad8f9afa676a327",
+    "source": "native_image_assembly.h native replay snapshot"
+  },
+  "src/native-reference/native_preview_assembly.h": {
+    "sha256": "6d6eb9790ab9f5a2021cde7b57cc6b72bc02b6cc7b1cc6e11d6f8c770105e5e0",
+    "source": "native_preview_assembly.h native replay snapshot"
+  },
+  "src/native-reference/native_factory_mesh.h": {
+    "sha256": "c87f399a5a27b0e9a44373967f41d6ade950980e0e3d19b0b9c077ea0387b8e5",
+    "source": "native_factory_mesh.h native replay snapshot"
+  },
+  "src/native-reference/native_factory_grid_bundle.h": {
+    "sha256": "2ccf21b15e94efe67086b29ce7ce6c361011cee45d0763502139d828dc9770ee",
+    "source": "native_factory_grid_bundle.h native replay snapshot"
+  },
+  "src/native-reference/native_preview_dewarp.h": {
+    "sha256": "335b315e872fdc154c9c66d990b46d3da6f8c23a3dc108246e7a667498d0aa9d",
+    "source": "native_preview_dewarp.h native replay snapshot"
+  },
+  "src/native-reference/native_reference_reduce.h": {
+    "sha256": "a006915c518776fa127a726a122f7d7c66d54729e92da252005f1eb70abda734",
+    "source": "native_reference_reduce.h native replay snapshot"
+  },
+  "src/native-reference/native_dcam_fixture.h": {
+    "sha256": "b126100390f36783b2f9a2e3279f4a1308809518412db90ac0cb27c1f88530df",
+    "source": "native_dcam_fixture.h native replay snapshot"
+  },
+  "src/native-reference/native_render_clone.h": {
+    "sha256": "69e43ffb30bc1d5a5f91390e13e55cca48a5baa11380d2505250a8fa3c101343",
+    "source": "native_render_clone.h native replay snapshot"
+  },
+  "src/native-reference/native_jpeg_layout.h": {
+    "sha256": "b8e337465193d1497ba69238ea0d5e67f2e94ead6ad335fb47e33e3a688fa5b5",
+    "source": "native_jpeg_layout.h native replay snapshot"
+  },
+  "src/native-reference/native_jpeg_trial.h": {
+    "sha256": "c7c242932cbdefcea2bbb78f435d7fd49b747caafe8bdcb338c8f5d3e59f31d2",
+    "source": "native_jpeg_trial.h native replay snapshot"
+  },
+  "src/native-reference/native_render_repeat.h": {
+    "sha256": "0327ea977812494a7618d31cd318585d2fe9f96ebf3baa4d1b1fa2b4d5c42405",
+    "source": "native_render_repeat.h native replay snapshot"
+  },
+  "src/native-reference/native_render_import.h": {
+    "sha256": "f0622309b184f9a01bc63a19f903fc1f8fd6d740a74085ab7c058094869a2716",
+    "source": "native_render_import.h native replay snapshot"
+  },
+  "src/native-reference/native_template_export.h": {
+    "sha256": "b9feb8be9470d2f539c54daa20fc9cb4234a87a33ce13f06af3cb76327c817de",
+    "source": "native_template_export.h native replay snapshot"
+  },
+  "src/native-reference/native_render_observer.c": {
+    "sha256": "8ce470882f5c6231f56ccb5d85647f05bfda0eff840c31a06cfe679f2f780064",
+    "source": "native_render_observer.c native replay snapshot"
+  },
+  "src/native-reference/native_template_load.h": {
+    "sha256": "9a8b2dc7a834de6679567fc0ff452bcfe7311bc717e8a0f24314dfce5a62c1aa",
+    "source": "native_template_load.h native replay snapshot"
+  },
+  "src/native-reference/native_request_token.h": {
+    "sha256": "ac7fb8fcb941e1d7c25a5eaadeebbdf686a548dc0f4b278ec2c56898cf4c9e70",
+    "source": "native_request_token.h native replay snapshot"
+  },
+  "src/native-reference/native_job_metadata.h": {
+    "sha256": "e28c265e99685b34e4c9c59abcbdbb4e73f67c40730377e830d8cb67f16e59d5",
+    "source": "native_job_metadata.h native replay snapshot"
+  },
+  "src/native-reference/native_job_inputs.h": {
+    "sha256": "cf2ac0e77fe3187aab49f0dcf45d98edc83e57ea4ec3479be27c4a3bfd8feaf6",
+    "source": "native_job_inputs.h native replay snapshot"
+  },
+  "src/native-reference/native_render_job.h": {
+    "sha256": "815a61ed3e9b2d2c63e4c3edcc0283d951038b2a69902303b28e66ffdcbb6fb7",
+    "source": "native_render_job.h native replay snapshot"
+  },
+  "src/native-reference/native_job_lease.h": {
+    "sha256": "c762b1f2ba00c206405a0d577573fc995c740456c401e5dfa1102c507277381a",
+    "source": "native_job_lease.h native replay snapshot"
+  },
+  "src/native-reference/native_service_quiesce.h": {
+    "sha256": "2ea2b3f9e4949e1968e0461003a0845cc77e51a3c33954599e15b2ec70f6b87b",
+    "source": "native_service_quiesce.h native replay snapshot"
+  },
+  "src/native-reference/native_view_scope.h": {
+    "sha256": "9197a79cc2d410ba4df97ebaed5c19d8bed7cf4ebf2e0891238078b7c2ccde21",
+    "source": "native_view_scope.h native replay snapshot"
+  },
+  "src/native-reference/native_view_control.h": {
+    "sha256": "fed214e712ac7178add8b8244007bd9c7176feaa1d45e4f0b7466ef9af693c31",
+    "source": "native_view_control.h native replay snapshot"
+  },
+  "src/native-reference/grid_reference.c": {
+    "sha256": "fc36b03676f18bd96fa3acd3b4bb33e79e160ddb33b7eb2ee95fd1be3eb31e48",
+    "source": "grid_reference.c native replay snapshot"
+  },
+  "src/native-codec/native_jpeg_layout.h": {
+    "sha256": "b8e337465193d1497ba69238ea0d5e67f2e94ead6ad335fb47e33e3a688fa5b5",
+    "source": "native_jpeg_layout.h native replay snapshot"
+  },
+  "src/native-codec/nv16_window_read.h": {
+    "sha256": "a91465b6405681b75986f7d73fa9e7eeba02b3f4115db04d9458ebdeda640076",
+    "source": "nv16_window_read.h native replay snapshot"
+  },
+  "src/native-codec/native_factory_mesh.h": {
+    "sha256": "c87f399a5a27b0e9a44373967f41d6ade950980e0e3d19b0b9c077ea0387b8e5",
+    "source": "native_factory_mesh.h native replay snapshot"
+  },
+  "src/native-codec/native_factory_grid_bundle.h": {
+    "sha256": "2ccf21b15e94efe67086b29ce7ce6c361011cee45d0763502139d828dc9770ee",
+    "source": "native_factory_grid_bundle.h native replay snapshot"
+  },
+  "src/native-codec/hardware_gdc_runtime_plan.h": {
+    "sha256": "c1d1a4a9e5ef3041fd6eacb49f299a9608b8fb7b281d7de933a01bc3c4da3f1d",
+    "source": "hardware_gdc_runtime_plan.h native replay snapshot"
+  },
+  "src/native-codec/native_jpeg_trial.h": {
+    "sha256": "c7c242932cbdefcea2bbb78f435d7fd49b747caafe8bdcb338c8f5d3e59f31d2",
+    "source": "native_jpeg_trial.h native replay snapshot"
+  },
+  "src/native-codec/worker.c": {
+    "sha256": "e748d64bc035b024cfe3e2c5e922a0002087e8e6c3bb986148d7c14052a872b4",
+    "source": "worker.c native replay snapshot"
+  },
+  "src/native-join/factory_jpeg_band_header.h": {
+    "sha256": "eb3081dd37264b1912663671a67b70b9ab13c9c3035dcc4854a3893cf89ab22a",
+    "source": "factory_jpeg_band_header.h accepted resident source"
+  },
+  "src/native-join/jpeg_grid_assemble.c": {
+    "sha256": "e46e5772200f8be3936afcafd66a98b68ffa036239ef9c8f890edef4d762607d",
+    "source": "jpeg_grid_assemble.c native replay snapshot"
+  },
+  "src/native-cache/native_replay_cache.h": {
+    "sha256": "f31f57c4c929075188b82f760f299f3c6297c4d26f2d6acd1625cb2c0076d263",
+    "source": "native_replay_cache.h native replay snapshot"
+  },
+  "src/native-cache/native_replay_publish.c": {
+    "sha256": "d14ccd9b6a9ac2ea91e424d00273cfeeb543bdf0725a8d7a699ee7aa8fbbe9b0",
+    "source": "native_replay_publish.c native replay snapshot"
+  },
+  "tests/test_native_replay_cache.c": {
+    "sha256": "63999e5231e941512f568bd217d58aa63a24e7a9b116b5cf4f75d765c628575a",
+    "source": "native replay tests"
+  },
+  "src/zoom/native_replay_cache.h": {
+    "sha256": "f31f57c4c929075188b82f760f299f3c6297c4d26f2d6acd1625cb2c0076d263",
+    "source": "native replay zoom snapshot"
+  },
+  "build_native_replay.py": {
+    "sha256": "fed2df5db7e3f9e0b590f5ce4fd6bc72319a8ec3184749aab2e8dc093b613c52",
+    "source": "native replay integration"
+  },
+  "src/capture/exposure_guard.c": {
+    "sha256": "50e65a387702a3715b6528f1c4ae554bee80e75a7da00eba6f9af6c7ad759ae8",
+    "source": "exposure_guard.c accepted resident source"
+  },
+  "src/capture/format_guard.inc": {
+    "sha256": "da6351ddcf8df73d4bed51f87d514c284ebed94a96924df75a5e9624246916a2",
+    "source": "format_guard.inc accepted resident source"
+  },
+  "src/capture/initial_delay.h": {
+    "sha256": "ba14c8b93d2e35b18117acdda86043b03d43f1d0e84ef6a233a4679dc2b679b9",
+    "source": "initial_delay.h accepted resident source"
+  },
+  "src/capture/native_auto6.c": {
+    "sha256": "23a0c32b110a6941fc2509b621bb28211eb0a88fa817831651ae3c5dde8ef001",
+    "source": "native_auto6.c accepted resident source"
+  },
+  "src/jpeg-pack/first_frame_jpeg.c": {
+    "sha256": "040ca196a5bbdbcda6405ea9108feda16b330bf204529762c004011100035c64",
+    "source": "first_frame_jpeg.c accepted resident source"
+  },
+  "src/jpeg-pack/first_frame_metadata.h": {
+    "sha256": "8af7a3da50bacc7305e5936e60a6dfad1ed12827e3e173d373b5d0a1b68b158a",
+    "source": "first_frame_metadata.h accepted resident source"
+  },
+  "src/jpeg-pack/jpeg_first_frame_pack.c": {
+    "sha256": "b7b07772ce007257ed64e93e9b2897e6180feee6c1565f490290536ad61aadec",
+    "source": "jpeg_first_frame_pack.c accepted resident source"
+  },
+  "src/native-join/join.c": {
+    "sha256": "08be9838527e74dba60ca33908fd1b64e7bbb32bbfa489c33e13c168857524b8",
+    "source": "join.c accepted resident source"
+  },
+  "src/native-renderer/native_direct_nine.h": {
+    "sha256": "76a9bb8e3e454704882a039bc7ca66b25d58b823aa3664a36ed19d99a1dbf6f2",
+    "source": "native_direct_nine.h accepted resident source"
+  },
+  "src/native-renderer/native_window_segments.h": {
+    "sha256": "96a102526bb7b428cbfcbecd6bdc9bd5f9ddbdcf8e1d97a420dce330e593a7cc",
+    "source": "native_window_segments.h accepted resident source"
+  },
+  "src/service/album_job_client.inc": {
+    "sha256": "6dba4ce3299a775eed2e96024d3a9770cff084d4e9f3fcfa6c3b41152fcba1d2",
+    "source": "album_job_client.inc accepted resident source"
+  },
+  "src/service/album_native_cleanup.inc": {
+    "sha256": "dd8e7eca6892b58cf2eaa03ee21108dd8c2ddde4b3cd1738f06a917a913eefcf",
+    "source": "album_native_cleanup.inc accepted resident source"
+  },
+  "src/service/album_refresh_contract.h": {
+    "sha256": "8a3d498d2d3c1e81f261b647224bef369d88d222b37527c769cbcab55d979ddb",
+    "source": "album_refresh_contract.h accepted resident source"
+  },
+  "src/service/album_runtime.h": {
+    "sha256": "40c17474329df2de015ec6e9d86996b71500e7b6e83ea0e90dde1c106fe5de79",
+    "source": "album_runtime.h accepted resident source"
+  },
+  "src/service/initial_delay.h": {
+    "sha256": "ba14c8b93d2e35b18117acdda86043b03d43f1d0e84ef6a233a4679dc2b679b9",
+    "source": "initial_delay.h accepted resident source"
+  },
+  "src/service/integrated_job.c": {
+    "sha256": "8685cba97247f615b13c2504cdfa43680b5114157833cdfc8c545aac1d5d0f27",
+    "source": "integrated_job.c accepted resident source"
+  },
+  "src/service/integration_service.c": {
+    "sha256": "7adad27ecc7779050e9e1261c99f7d0f997e71a97a2f0f8ba5672cc44fa7b028",
+    "source": "integration_service.c accepted resident source"
+  },
+  "src/service/job_progress.h": {
+    "sha256": "e052d131ea7f4d9635b7aeff7f49371a69a560cc8f204f2bda6c882ca87f3c73",
+    "source": "job_progress.h accepted resident source"
+  },
+  "src/service/mode_prepare_service.inc": {
+    "sha256": "b05155d3c5db440ad1a04bbe795b4dd5e42c449f8e812625e1b8b588aa4e5123",
+    "source": "mode_prepare_service.inc accepted resident source"
+  },
+  "src/zoom/album_candidate.c": {
+    "sha256": "defa504502366ef3f42721e933ac9bac6420d753af293043a0d70cbc8e85bb0c",
+    "source": "album_candidate.c accepted resident source"
+  },
+  "src/zoom/factory_preview_extent.h": {
+    "sha256": "cadd96fc815ce2a60e00c848259f3ca20d5fd68657c7ac293c43e28dc6f8d63d",
+    "source": "factory_preview_extent.h accepted resident source"
+  },
+  "src/zoom/first_frame_metadata.h": {
+    "sha256": "8af7a3da50bacc7305e5936e60a6dfad1ed12827e3e173d373b5d0a1b68b158a",
+    "source": "first_frame_metadata.h accepted resident source"
+  },
+  "src/zoom/readback_digest.h": {
+    "sha256": "3066347f638a9c34cca0c8e3f59249c7f4336c9dc1d49969491d6dc9bb401156",
+    "source": "readback_digest.h accepted resident source"
+  },
+  "tests/test_jpeg_cleanup.c": {
+    "sha256": "ab3b2fedb8dd2ca59768307d21ae4c64cc80f2afed463eb5067901fe0a8e5f13",
+    "source": "36-format-and-failure-scenarios"
+  }
+}
