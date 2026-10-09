@@ -1,37 +1,35 @@
 # Hasselblad X2D II Extensions
 
-X2D II 100C 四亿像素「像素超频」扩展的独立源码仓库，由 Jimmy6Smiles 维护。
+Independent experimental extensions for the Hasselblad X2D II 100C, maintained by Jimmy6Smiles.
 
-**适配固件：1.3.16.2。非哈苏官方项目。当前提供源码快照，不是 CIM 或开箱即用的安装包。**
+**Supported firmware: 1.3.16.2. This is not an official Hasselblad project.**
 
-## 功能
+## Extensions
 
-- 六帧采集与四亿 RAW 合成。
-- RAW、RAW+JPEG、仅 JPEG 输出；**暂不支持 HEIF／RAW+HEIF**。
-- 九块原厂 JPEG 显影、硬件编码与并行压缩域拼接，不额外加入自写显影或锐化。
-- 成片保存、相册登记与身份确认后，自动删除本次六张原片。
-- 辅助回放放大、拖动与缩放后的细节更新。
-- 成片完成后自动刷新回放列表，无需退出文件夹重进；已通过重启后的实拍验证。
-- 切换模式时提前准备拍摄，取消、恢复和异常保护。
+| Extension | Status | Description |
+| --- | --- | --- |
+| [Electronic Shutter AF-C](extensions/electronic-shutter-afc/README.md) | Device verified | Enables AF-C with the electronic shutter while preserving the original lens and drive-mode restrictions. Independent of Pixel Shift. |
+| [Pixel Shift](extensions/pixel-shift/README.md) | Device verified | Six-frame 400 MP RAW capture, optional JPEG output, album integration, source-frame cleanup and assisted playback. |
 
-详细构建依赖、验证边界、当前限制及版本摘要见 [1.3.16.2 源码说明](firmware/1.3.16.2/README.md)。
+New features should be added as peer directories under `extensions/`; feature-specific source, firmware versions, documentation and release packages stay inside their own directory.
 
-## 独立扩展
+```text
+extensions/
+├── electronic-shutter-afc/
+│   ├── src/
+│   ├── prebuilt/
+│   └── dist/
+└── pixel-shift/
+    └── firmware/
+        └── 1.3.16.2/
+```
 
-- [电子快门 AF-C](features/electronic-shutter-afc/README.md)：独立后端与 UI 构建包，不依赖或包含像素超频；适配 X2D II 100C 固件 1.3.16.2。
+## Safety
 
-## 重要限制
+These extensions can make the camera unresponsive, cause failed captures or lose data. Back up all photographs and do not use experimental builds for irreplaceable work. Firmware-specific offsets and binaries must never be reused on another model or firmware version.
 
-这是正在开发的相机扩展，可能导致相机无响应、拍摄失败或数据丢失。请备份照片，不要用于不可重拍的重要场景。不保证固件升级可以恢复所有改动。
+The repository does not contain Hasselblad firmware images, photographs, device credentials or vendor libraries. A source directory or release archive is not automatically a universal installer; follow the installation boundary documented by each extension.
 
-独立安装工具链尚未整理完毕；运行依赖已适配的启动、存储和按键服务。不要直接复制启动脚本到其他设备，也不要用于第一代 X2D 或其他固件。
+## Sources and licensing
 
-仅 JPEG 自动清理仍需单独实拍验收；倒计时结束到拍摄请求的等待仍待优化。完整状态见版本说明，不将模拟测试等同于相机实测。
-
-## 来源与许可
-
-本仓库从本地 X2D II 开发快照独立整理，不带原协作仓库的 Git 历史、其他机型项目、照片、固件镜像、厂商库、校准数据或设备日志。
-
-处理思路参考 Hasselblad Feature Extensions / Hasselblad Enhancement Research 的 X2D 实现，并对 X2D II 单独适配。原有版权和许可声明保留，详见 [第三方说明](THIRD_PARTY_NOTICES.md)。未声明许可的文件不在此擅自统一改授 MIT 等许可；公开可读不等于对全部依赖另行授予许可。
-
-后续更新在此仓库独立提交，原协作仓库不受影响。
+The X2D II implementations were developed from local research snapshots and reference processing ideas from Hasselblad Feature Extensions / Hasselblad Enhancement Research. Original notices are preserved in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Files without an explicit license are not automatically relicensed merely because the repository is publicly readable.

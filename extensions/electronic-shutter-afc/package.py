@@ -5,9 +5,8 @@ import json
 import zipfile
 
 HERE = Path(__file__).resolve().parent
-ROOT = HERE.parents[1]
 VERSION = "1.0.0"
-DEST = ROOT / "dist" / f"X2DII-Electronic-Shutter-AFC-{VERSION}.zip"
+DEST = HERE / "dist" / f"X2DII-Electronic-Shutter-AFC-{VERSION}.zip"
 FILES = (
     "README.md",
     "build.py",
