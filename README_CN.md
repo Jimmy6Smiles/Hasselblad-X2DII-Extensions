@@ -15,6 +15,8 @@
 
 新增功能应作为 `extensions/` 下的同级目录；每项扩展自己的源码、固件版本、文档和发布包都保存在对应目录内。
 
+统一安装器的首个离线基础版位于 [installer](installer/README_CN.md)：目前可以生成并校验本地 `.x2d2ext` 扩展包，以及测试原子启用和失败回滚；尚未接入相机通信。
+
 ```text
 extensions/
 ├── electronic-shutter-afc/

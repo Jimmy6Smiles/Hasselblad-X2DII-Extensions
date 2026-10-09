@@ -19,6 +19,7 @@ output-*/
 *.dll
 *.bin
 *.zip
+*.x2d2ext
 *.log
 .env
 .env.*
