@@ -6,6 +6,7 @@ import zipfile
 from pathlib import Path
 
 from installer.transaction import GenerationStore
+from installer.staging import plan_bundle
 from installer.x2d2ext import BundleError, build_bundle, verify_bundle
 
 
@@ -87,6 +88,14 @@ class BundleTests(unittest.TestCase):
         store.install(self.bundle())
         self.assertEqual(store.remove("test-extension")["extensions"], {})
         self.assertTrue(any(store.generations.iterdir()))
+
+    def test_camera_staging_plan_is_bounded_and_deterministic(self):
+        verified = verify_bundle(self.bundle())
+        first, second = plan_bundle(verified), plan_bundle(verified)
+        self.assertEqual(first, second)
+        self.assertTrue(first.commands)
+        self.assertTrue(all(len(command.encode("ascii")) <= 231 for command in first.commands))
+        self.assertEqual(first.files[0][2], len(b"arm64-test"))
 
 
 if __name__ == "__main__": unittest.main()

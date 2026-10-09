@@ -24,6 +24,7 @@ python -m installer.build_afc_bundle `
 python -m installer.manager verify .local-only\electronic-shutter-afc-1.0.0.x2d2ext
 python -m installer.manager plan .local-only\electronic-shutter-afc-1.0.0.x2d2ext
 python -m installer.manager simulate-install .local-only\electronic-shutter-afc-1.0.0.x2d2ext .local-only\simulated-camera
+python -m installer.manager probe-camera
 python -m unittest discover -s installer\tests -v
 ```
 
@@ -32,7 +33,7 @@ python -m unittest discover -s installer\tests -v
 ## 尚未实现
 
 - 官方 `.cim` 导入（等待采用许可证边界清晰的接入方式）；
-- Windows 图形界面与 WinUSB 通信；
+- Windows 图形界面与写入部署（命令行现已提供受限的只读 WinUSB 握手）；
 - 相机端公共启动管理器；
 - 真机安装、升级、卸载与恢复；
 - 像素超频扩展包生成。

@@ -19,12 +19,21 @@ def main(argv=None) -> int:
     simulate = commands.add_parser("simulate-install", help="exercise atomic install locally")
     simulate.add_argument("bundle", type=Path)
     simulate.add_argument("root", type=Path)
+    commands.add_parser("probe-camera", help="perform a read-only X2D II USB handshake")
     args = parser.parse_args(argv)
-    bundle = verify_bundle(args.bundle)
-    if args.command == "verify":
+    if args.command == "probe-camera":
+        from .windows_usb import UsbError, snapshot
+        try:
+            result = snapshot()
+        except UsbError as error:
+            print(json.dumps({"ok": False, "error": error.code, "win32": error.win32}, indent=2))
+            return 2
+    elif args.command == "verify":
+        bundle = verify_bundle(args.bundle)
         result = {"ok": True, "id": bundle.manifest["id"], "version": bundle.manifest["version"],
                   "sha256": bundle.digest}
     elif args.command == "plan":
+        bundle = verify_bundle(args.bundle)
         result = {"target": bundle.manifest["target"], "components": bundle.manifest["components"],
                   "camera_write": False, "note": "offline plan only"}
     else:
@@ -35,4 +44,3 @@ def main(argv=None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

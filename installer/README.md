@@ -24,6 +24,7 @@ python -m installer.build_afc_bundle `
 python -m installer.manager verify .local-only\electronic-shutter-afc-1.0.0.x2d2ext
 python -m installer.manager plan .local-only\electronic-shutter-afc-1.0.0.x2d2ext
 python -m installer.manager simulate-install .local-only\electronic-shutter-afc-1.0.0.x2d2ext .local-only\simulated-camera
+python -m installer.manager probe-camera
 python -m unittest discover -s installer\tests -v
 ```
 
@@ -32,7 +33,7 @@ The verifier rejects unsupported firmware, path traversal, symbolic links, dupli
 ## Not implemented yet
 
 - official `.cim` import (kept separate pending a licensing-safe integration);
-- the Windows GUI and WinUSB transport;
+- Windows GUI and write-side deployment (the CLI now has a bounded read-only WinUSB handshake);
 - installation of the common device-side boot manager;
 - real camera install, update, remove and recovery operations;
 - Pixel Shift bundle generation.
