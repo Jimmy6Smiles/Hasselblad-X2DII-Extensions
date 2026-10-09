@@ -25,10 +25,11 @@ python -m installer.manager verify .local-only\electronic-shutter-afc-1.0.0.x2d2
 python -m installer.manager plan .local-only\electronic-shutter-afc-1.0.0.x2d2ext
 python -m installer.manager simulate-install .local-only\electronic-shutter-afc-1.0.0.x2d2ext .local-only\simulated-camera
 python -m installer.manager probe-camera
+python -m installer.manager stage-camera .local-only\electronic-shutter-afc-1.0.0.x2d2ext
 python -m unittest discover -s installer\tests -v
 ```
 
-The verifier rejects unsupported firmware, path traversal, symbolic links, duplicate paths, unlisted payloads, oversized members and hash mismatches. Activation uses immutable generations and an atomic `active.json` switch, so a failed staging operation cannot replace the previous active state.
+The verifier rejects unsupported firmware, path traversal, symbolic links, duplicate paths, unlisted payloads, oversized members and hash mismatches. `stage-camera` uploads and verifies an immutable generation but deliberately does not activate it. Activation uses an atomic state switch, so a failed staging operation cannot replace the previous active state.
 
 ## Not implemented yet
 

@@ -86,9 +86,8 @@ def validate_snapshot(firmware: bytes, running: bytes) -> dict:
     running_text = running.decode("ascii", "strict")
     if not re.fullmatch(r"S\d+,v?\d+(?:\.\d+){1,4}", firmware_text):
         raise ProtocolError("unrecognized firmware reply")
-    if firmware_text not in ("S5,4.2.0", "S6,v4.2.0"):
+    if firmware_text != "S9,v1.3.16.2":
         raise ProtocolError("unsupported camera protocol version")
     if running_text != "i1":
         raise ProtocolError("camera service is not running")
     return {"protocol": firmware_text, "camera_running": True}
-

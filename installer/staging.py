@@ -23,6 +23,8 @@ class StagingPlan:
     generation: str
     commands: tuple[str, ...]
     files: tuple[tuple[str, str, int], ...]
+    temporary: str
+    final: str
 
 
 def _check_command(command: str) -> str:
@@ -72,4 +74,21 @@ def plan_bundle(bundle: VerifiedBundle) -> StagingPlan:
     records.append(("stage.json", hashlib.sha256(stage).hexdigest(), len(stage)))
     commands.append(_check_command(
         f"F={final};S={temporary};test -e $F&&/system/bin/toybox rm -rf $S||/system/bin/toybox mv $S $F"))
-    return StagingPlan(bundle.manifest["id"], generation, tuple(commands), tuple(records))
+    return StagingPlan(bundle.manifest["id"], generation, tuple(commands), tuple(records), temporary, final)
+
+
+def execute_plan(session, plan: StagingPlan, first_tag: int) -> dict:
+    if not 0 < first_tag <= 0x7FFFFFFF - len(plan.commands):
+        raise ValueError("invalid shell tag range")
+    completed = 0
+    try:
+        for completed, command in enumerate(plan.commands, start=1):
+            session.shell(command, first_tag + completed - 1)
+    except Exception:
+        try:
+            session.shell(f"/system/bin/toybox rm -rf {plan.temporary}", first_tag + len(plan.commands))
+        except Exception:
+            pass
+        raise
+    return {"id": plan.extension_id, "generation": plan.generation,
+            "commands": completed, "files": len(plan.files), "activated": False}

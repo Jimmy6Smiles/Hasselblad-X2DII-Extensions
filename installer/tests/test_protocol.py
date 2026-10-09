@@ -37,8 +37,8 @@ class ProtocolTests(unittest.TestCase):
         with self.assertRaisesRegex(ProtocolError, "CRC"): shell_reply(bytes(packet), 99)
 
     def test_snapshot_accepts_only_reviewed_version(self):
-        self.assertTrue(validate_snapshot(b"S6,v4.2.0", b"i1")["camera_running"])
-        with self.assertRaises(ProtocolError): validate_snapshot(b"S6,v4.3.0", b"i1")
+        self.assertTrue(validate_snapshot(b"S9,v1.3.16.2", b"i1")["camera_running"])
+        with self.assertRaises(ProtocolError): validate_snapshot(b"S9,v1.3.16.3", b"i1")
 
 
 if __name__ == "__main__": unittest.main()

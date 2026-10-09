@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import secrets
 from pathlib import Path
 
 from .transaction import GenerationStore
@@ -20,6 +21,8 @@ def main(argv=None) -> int:
     simulate.add_argument("bundle", type=Path)
     simulate.add_argument("root", type=Path)
     commands.add_parser("probe-camera", help="perform a read-only X2D II USB handshake")
+    stage = commands.add_parser("stage-camera", help="upload a verified bundle without activating it")
+    stage.add_argument("bundle", type=Path)
     args = parser.parse_args(argv)
     if args.command == "probe-camera":
         from .windows_usb import UsbError, snapshot
@@ -36,6 +39,15 @@ def main(argv=None) -> int:
         bundle = verify_bundle(args.bundle)
         result = {"target": bundle.manifest["target"], "components": bundle.manifest["components"],
                   "camera_write": False, "note": "offline plan only"}
+    elif args.command == "stage-camera":
+        from .protocol import validate_snapshot
+        from .staging import execute_plan, plan_bundle
+        from .windows_usb import WinUsbSession
+        bundle = verify_bundle(args.bundle)
+        staging = plan_bundle(bundle)
+        with WinUsbSession() as session:
+            validate_snapshot(session.read_parameter(27, 1), session.read_parameter(28, 2))
+            result = execute_plan(session, staging, secrets.randbelow(0x3FFFFFFF) + 100)
     else:
         result = GenerationStore(args.root).install(args.bundle)
     print(json.dumps(result, ensure_ascii=False, indent=2))

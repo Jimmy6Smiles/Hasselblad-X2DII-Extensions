@@ -25,10 +25,11 @@ python -m installer.manager verify .local-only\electronic-shutter-afc-1.0.0.x2d2
 python -m installer.manager plan .local-only\electronic-shutter-afc-1.0.0.x2d2ext
 python -m installer.manager simulate-install .local-only\electronic-shutter-afc-1.0.0.x2d2ext .local-only\simulated-camera
 python -m installer.manager probe-camera
+python -m installer.manager stage-camera .local-only\electronic-shutter-afc-1.0.0.x2d2ext
 python -m unittest discover -s installer\tests -v
 ```
 
-校验器会拒绝固件不符、目录穿越、符号链接、重复路径、未登记文件、超大文件和哈希不匹配。安装模拟使用不可变版本目录与原子 `active.json` 切换；暂存失败不会覆盖此前启用的版本。
+校验器会拒绝固件不符、目录穿越、符号链接、重复路径、未登记文件、超大文件和哈希不匹配。`stage-camera` 只上传并校验不可变版本，不会启用扩展。正式启用采用原子状态切换；暂存失败不会覆盖此前启用的版本。
 
 ## 尚未实现
 
