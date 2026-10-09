@@ -9,6 +9,7 @@ VERSION = "1.0.0"
 DEST = HERE / "dist" / f"X2DII-Electronic-Shutter-AFC-{VERSION}.zip"
 FILES = (
     "README.md",
+    "README_CN.md",
     "build.py",
     "package.py",
     "src/afc_eshutter.c",

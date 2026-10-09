@@ -1,30 +1,32 @@
-# X2D II 电子快门 AF-C
+# X2D II Electronic Shutter AF-C
 
-这是一个与像素超频完全独立的 X2D II 100C 扩展，使 AF-C 可在电子快门下使用。
+[English](README.md) | [简体中文](README_CN.md)
 
-## 适配范围
+An X2D II 100C extension that enables AF-C with the electronic shutter. It is completely independent of Pixel Shift.
 
-- 机型：Hasselblad X2D II 100C
-- 固件：**1.3.16.2**
-- 已验证：电子快门、单张驱动模式下可在机身选择 AF-C，并能连续跟踪
-- 仍保留：镜头固件能力检查，以及自拍、间隔、曝光包围、景深包围等原厂限制
+## Compatibility
 
-不要用于第一代 X2D、其他机型或其他固件。代码和 UI 资源位置均为固件固定地址，构建器会先检查完整文件摘要和关键指令，任何不匹配都会拒绝生成。
+- Camera: Hasselblad X2D II 100C
+- Firmware: **1.3.16.2**
+- Device verified: AF-C can be selected and continuously tracks in electronic-shutter, single-drive mode
+- Preserved restrictions: lens-firmware capability checks and the original Self-Timer, Interval, Exposure Bracketing and Focus Bracketing restrictions
 
-## 与像素超频的关系
+Do not use this build on the first-generation X2D, another camera model or another firmware version. Code and UI resource locations are firmware-pinned. The builder validates complete file hashes and critical instructions and rejects every mismatch.
 
-没有依赖关系：
+## Independence from Pixel Shift
 
-- 不包含像素位移采集、RAW 合成、相册或回放代码；
-- 不引用 `/data/x2d2-full-v1`、像素超频服务或其启动脚本；
-- 后端是独立的 `afc-electronic.so`；
-- UI 适配直接从原厂 1.3.16.2 `camera-gui` 生成。
+There is no runtime dependency:
 
-如果相机已经修改过 `camera-gui` 或 `camera-service` 启动项，不要直接覆盖。应从原厂固件重新构建，并由安装器合并现有改动；本包不会假装两个完整 GUI 文件可以安全互相覆盖。
+- no pixel-shift capture, RAW merge, album or playback code is included;
+- `/data/x2d2-full-v1`, Pixel Shift services and Pixel Shift startup scripts are not referenced;
+- the backend is the standalone `afc-electronic.so` library;
+- the UI adaptation is generated directly from the factory 1.3.16.2 `camera-gui`.
 
-## 构建
+Do not overwrite a camera whose `camera-gui` or `camera-service` startup entry has already been modified. Rebuild from the factory firmware and make the installer merge existing changes. This package does not assume that two complete patched GUI binaries can safely overwrite each other.
 
-依赖 Python 3、`pyelftools` 和 Android NDK r27。原厂 `camera-service`、`camera-gui` 需由使用者从自己合法取得的 1.3.16.2 固件中提取，不随仓库或发布包提供。
+## Build
+
+Python 3, `pyelftools` and Android NDK r27 are required. Users must extract `camera-service` and `camera-gui` from a legally obtained 1.3.16.2 firmware image. Vendor files are not distributed in this repository or release archive.
 
 ```powershell
 python -m pip install pyelftools
@@ -35,30 +37,30 @@ python build.py `
   --out output
 ```
 
-输出：
+Outputs:
 
-- `payload/afc-electronic.so`：只加载到 `camera-service` 的 ARM64 后端；
-- `payload/camera-gui`：只包含电子快门 AF-C 菜单适配的完整 GUI；
-- `payload/camera-service.env`：启动时所需的 `LD_PRELOAD` 值；
-- `manifest.json`：输入、输出摘要及两个 UI 资源的修改范围。
+- `payload/afc-electronic.so`: ARM64 backend loaded only into `camera-service`;
+- `payload/camera-gui`: complete GUI containing only the electronic-shutter AF-C UI adaptation;
+- `payload/camera-service.env`: required `LD_PRELOAD` value;
+- `manifest.json`: input/output hashes and the exact two modified UI resources.
 
-仓库中的 `prebuilt/1.3.16.2/afc-electronic.so` 只含本项目自有代码；完整原厂 GUI 必须在本地生成。
+`prebuilt/1.3.16.2/afc-electronic.so` contains only project-owned code. The complete patched vendor GUI must be generated locally.
 
-## 安装边界
+## Installation boundary
 
-这不是 CIM，也不包含通用 USB 维护驱动或绕过相机权限的工具。安装程序至少必须完成以下操作：
+This is not a CIM image and does not include a generic USB maintenance driver or a tool for bypassing camera permissions. An installer must at least:
 
-1. 再次核对机型、固件和原厂文件摘要；
-2. 备份原 `camera-gui` 与 `camera-service.rc`；
-3. 安装本地生成的 `camera-gui` 与 `afc-electronic.so`；
-4. 仅给 `camera-service` 增加 `LD_PRELOAD=/system/lib64/libx2d2-afc-electronic.so`；
-5. 恢复系统分区只读并重启；
-6. 检查 `/tmp/x2d2-afc-electronic.json` 的 `ready:true`，再验证原厂 AF-S、MF 和机械快门。
+1. verify the camera model, firmware and factory file hashes again;
+2. back up the original `camera-gui` and `camera-service.rc`;
+3. install the locally generated `camera-gui` and `afc-electronic.so`;
+4. add only `LD_PRELOAD=/system/lib64/libx2d2-afc-electronic.so` to `camera-service`;
+5. restore the system partition to read-only and reboot;
+6. require `ready:true` in `/tmp/x2d2-afc-electronic.json`, then verify factory AF-S, MF and mechanical-shutter behavior.
 
-不要把像素超频启动项作为本功能的前提。若安装器不能原子备份、回读校验及失败恢复，请不要部署。
+Do not make the Pixel Shift startup entry a prerequisite. Do not deploy through an installer that lacks atomic backup, readback verification and failure recovery.
 
-## 实现
+## Implementation
 
-后端仅做两项固件固定修改：保留 AF-C capability bit，并跳过 `updateFocusMode()` 中电子快门专属的 AF-C 回退分支。其余镜头与驱动模式判断仍由原厂逻辑执行。UI 同步开放控制屏和实时取景中的 AF-C 选项，并移除电子快门专属阻止提示。
+The backend makes two firmware-pinned changes: it preserves the AF-C capability bit and skips the electronic-shutter-only AF-C fallback branch in `updateFocusMode()`. All other original lens and drive-mode checks remain active. The UI enables AF-C in the control screen and live view under the same conditions and removes only the electronic-shutter-specific blocked message.
 
-这是非官方实验功能，可能造成相机无响应、失焦或无法拍摄。不要用于不可重拍的重要场景。
+This is an unofficial experimental feature. It can make the camera unresponsive, lose focus or prevent capture. Do not use it for irreplaceable work.

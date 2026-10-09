@@ -1,5 +1,7 @@
 # Pixel Shift
 
+[English](README.md) | [简体中文](README_CN.md)
+
 Six-frame 400 MP Pixel Shift capture for the Hasselblad X2D II 100C.
 
 The current device-verified implementation is firmware-specific. Source, build instructions, validation boundaries and known limitations are documented in the corresponding firmware directory:

@@ -1,5 +1,7 @@
 # Extensions
 
+[English](README.md) | [简体中文](README_CN.md)
+
 Each directory below is a separate camera feature. Extensions must not use another extension's runtime files, startup path or private state unless that dependency is explicitly documented.
 
 - [`electronic-shutter-afc`](electronic-shutter-afc/README.md) — AF-C support with the electronic shutter.

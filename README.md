@@ -1,5 +1,7 @@
 # Hasselblad X2D II Extensions
 
+[English](README.md) | [简体中文](README_CN.md)
+
 Independent experimental extensions for the Hasselblad X2D II 100C, maintained by Jimmy6Smiles.
 
 **Supported firmware: 1.3.16.2. This is not an official Hasselblad project.**
