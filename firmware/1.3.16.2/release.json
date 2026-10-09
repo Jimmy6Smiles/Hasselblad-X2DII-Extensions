@@ -15,8 +15,8 @@
     "full-jpeg": "b14f0f3c61dd56de2952264dad9ac3b7a285526480accefac55dc193bf6d3025",
     "guard.so": "00e30a83fcd67f774511146d1e64f90bbaec564c1b70dcf46d1913f616c50ad6",
     "integrated-job": "eeda3310f7b0dbbd1157e8d06ea0d5346bd37e6334c828e92c39938b92d22a01",
-    "integration-service": "4c9e9930a25e467abb7cd28b1d08281390ea5330fc9e6c12b5e11fd403082d57",
-    "native-auto6": "e3045b98d6ea916dc3a582601f30dd946d5d07a9c349edbd770589d0f03f8a63",
+    "integration-service": "8a6dbbc647fde354991199fe970e9fb3ca7d8d03c26030c154c8802edae53f93",
+    "native-auto6": "9017f358a3b15f08b4b11de27fd816c8b10dc5a03f9f1dd39127a78c520f41f2",
     "native-color.conf": "c904a8de719d9941ddeafdc4e5af1306e4ffc552184d1f01cacd0066f7348e53",
     "native-color.sp": "4548a874ce46228ccd6e04144a54f880cb1c33c53f673906910dac12a7ed972e",
     "native-first-frame-scoped": "7aca71d0ec3fe5170b1b0456946bb78cb5bdfc5a34ebb7bcbf3632d1a4c99a2b",
@@ -42,7 +42,7 @@
     "ui/PixelShiftSettings.qml": "42de02c522d7cc111b39ebc125ebbc5c6a73670ea25b3639bed45ff015bd2078",
     "ui/PixelShiftState.qml": "69c52cd6aeee58d2b5a21619c489c7f3a719f408143f7ca3b7c15f467041cdb3",
     "ui/PixelShiftStateAccess.qml": "be0af64fad454852d940dbf542dc365889d80106e2f6304c4877b0ee7874020f",
-    "ui/PixelShiftTransport.qml": "4923723ba9224c7b91baa833afc19256b9613bed49e6e6c712250b999d063003",
+    "ui/PixelShiftTransport.qml": "db4d25001ccb1cebce3b944d6f6771e1ac2972a9400037dc802304a957c99d93",
     "ui/capture-hold-0.patch": "771b7e187e9ec9d61a2058a9b0ac72c916126d30fd80d02e1df6e862c01e2c69",
     "ui/capture-hold-1.patch": "daa9d084cca3556c0b6be3ef68c3279e1d1704cb98e8f44773ca5ace224e0ab7",
     "ui/capture-hold-2.patch": "cc5c0afabc2250902b0c576b7a390122aba65cd7d1849f1b8a82b34365bbc01d",
@@ -75,14 +75,17 @@
     "reboot_and_trial_user_report": "OK no problem after request to reboot and test RAW+JPEG",
     "jpeg_cleanup_capture_log_independently_verified": false,
     "jpeg_only_cleanup_hardware_verified": false,
-    "async_selection_host_scenarios": 5,
+    "async_selection_host_scenarios": 6,
     "capture_guard_host_scenarios": 9,
     "post_lock_selection_change_rejected": true,
     "async_reboot_runtime_hash_verified": true,
-    "async_raw_capture_registered_and_six_deleted": true
+    "async_raw_capture_registered_and_six_deleted": true,
+    "playback_refresh_host_scenarios": 9,
+    "playback_refresh_reboot_runtime_hash_verified": true,
+    "playback_refresh_after_capture_user_confirmed": true
   },
   "known_limits": [
-    "Latest RAW shot: countdown deadline to capture request 1.904 s. Storage preflight and mode preparation run asynchronously; per-shot directories and exposure records remain on the shutter path. This is not zero-latency capture.",
+    "Countdown-to-capture delay remains variable; async preparation does not guarantee zero latency. Intermittent idle-query rejection remains under investigation; preflight rejection now restores menu-owned settings before completing the task.",
     "Auxiliary zoom preserves the installed paired-JPEG/RAW fallback implementation; this snapshot does not assert a new RAW native-render path."
   ],
   "gui_startup_library_sha256": "59da6fd4415e1cd48ae9bde4fc97237e8febfed0e4f1c71bc8c31a357725a1d8"

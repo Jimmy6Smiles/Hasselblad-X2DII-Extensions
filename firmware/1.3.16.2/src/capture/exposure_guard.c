@@ -68,7 +68,11 @@ static int call(const char *prop,const char *value,char out[LIMIT]){
     return ok&&WIFEXITED(status)&&WEXITSTATUS(status)==0;
 }
 static int get(const char *prop,int32_t *value){
-    char b[LIMIT],prefix[80];if(!call(prop,NULL,b))return 0;
+    char b[LIMIT]={0},prefix[80];int query_ok=call(prop,NULL,b);
+    if(!strcmp(prop,"exposure_status")||!strcmp(prop,"exposures_processing_counter")){
+        fprintf(stderr,"AE_IDLE_QUERY prop=%s ok=%d reply=[%.*s]\n",prop,query_ok,LIMIT-1,b);
+    }
+    if(!query_ok)return 0;
     int n=snprintf(prefix,sizeof prefix,"%s = ",prop);if(n<0||(size_t)n>=sizeof prefix||strncmp(b,prefix,(size_t)n))return 0;
     char *v=b+n;size_t len=strlen(v);if(len&&v[len-1]=='\n')v[--len]=0;if(len&&v[len-1]=='\r')v[--len]=0;
     if(!strcmp(prop,props[0])||!strcmp(prop,props[1])||!strcmp(prop,props[2])){

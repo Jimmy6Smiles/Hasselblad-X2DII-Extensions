@@ -412,8 +412,8 @@
     "source": "accepted resident custom UI"
   },
   "ui/PixelShiftTransport.qml": {
-    "sha256": "4923723ba9224c7b91baa833afc19256b9613bed49e6e6c712250b999d063003",
-    "source": "accepted resident custom UI"
+    "sha256": "db4d25001ccb1cebce3b944d6f6771e1ac2972a9400037dc802304a957c99d93",
+    "source": "2026-10-09 resident playback refresh and preflight recovery source snapshot"
   },
   "startup/boot.sh": {
     "sha256": "a0931555589c72f581202552ab9879be641a031ddfd7cc1b6aa1aa2d84578134",
@@ -424,12 +424,12 @@
     "source": "accepted resident startup"
   },
   "resident-manifest.sha256": {
-    "sha256": "77ba322b16565412c2bff2b48f59beb11a433bbd05fc55e5d6b350982705f0d3",
-    "source": "installed JPEG cleanup manifest"
+    "sha256": "0efb4a559203e9abb2a1d51dfe7c981f90571100e93bcb4531b36a9f78134533",
+    "source": "2026-10-09 resident playback refresh and preflight recovery source snapshot"
   },
   "release.json": {
-    "sha256": "11ce54a9c2ff485801b37a3f6e321724da5cb87dc3227de8c881b2e8d3eab9de",
-    "source": "current release boundary"
+    "sha256": "20179204230325cf8a815e5e28a596c48061651ad300a7e554fffbb1d58f0207",
+    "source": "2026-10-09 resident playback refresh and preflight recovery source snapshot"
   },
   "src/zoom/jpeg_zoom_region.h": {
     "sha256": "8bcd6f4ee48c7ba5f8d0280a31332fbc7d59e3400265f633c83c803eb632d829",
@@ -452,8 +452,8 @@
     "source": "replay update build and documentation"
   },
   "README.md": {
-    "sha256": "4e812745aeb247a3c31b063bed6163645bce5d78f3f1de2bb990cff02b8053d5",
-    "source": "replay update build and documentation"
+    "sha256": "ce0ed96431df66433cef330963a88db8a93e6c506f94dff836649bdfc17bb95c",
+    "source": "2026-10-09 resident playback refresh and preflight recovery source snapshot"
   },
   "src/native-renderer/six_row_kernel.h": {
     "sha256": "88268bf29f50b0dac35de1e0c08098d3a52444a52310525ffba12aa5b4fcd506",
@@ -812,8 +812,8 @@
     "source": "native replay integration"
   },
   "src/capture/exposure_guard.c": {
-    "sha256": "50e65a387702a3715b6528f1c4ae554bee80e75a7da00eba6f9af6c7ad759ae8",
-    "source": "exposure_guard.c accepted resident source"
+    "sha256": "6b8ae8328963ee8c4d58e6bc7f6069947d17a2c5a479c6f8e33558849cb4c867",
+    "source": "2026-10-09 resident playback refresh and preflight recovery source snapshot"
   },
   "src/capture/format_guard.inc": {
     "sha256": "da6351ddcf8df73d4bed51f87d514c284ebed94a96924df75a5e9624246916a2",
@@ -825,7 +825,7 @@
   },
   "src/capture/native_auto6.c": {
     "sha256": "267166408553628249fa29514cfd9090000c10527a7ad72dc05f940c92133cef",
-    "source": "native_auto6.c accepted resident source"
+    "source": "2026-10-09 resident playback refresh and preflight recovery source snapshot"
   },
   "src/jpeg-pack/first_frame_jpeg.c": {
     "sha256": "040ca196a5bbdbcda6405ea9108feda16b330bf204529762c004011100035c64",
@@ -876,8 +876,8 @@
     "source": "integrated_job.c accepted resident source"
   },
   "src/service/integration_service.c": {
-    "sha256": "bd1365fa0838fb6ed86dca2d5bef19e895910306c0f81e5fe4fe97dda5237bda",
-    "source": "integration_service.c accepted resident source"
+    "sha256": "231373b646e291c91e8ddeca1259cd2907eeb681dabc8a13b7ec96d403634f98",
+    "source": "2026-10-09 resident playback refresh and preflight recovery source snapshot"
   },
   "src/service/job_progress.h": {
     "sha256": "e052d131ea7f4d9635b7aeff7f49371a69a560cc8f204f2bda6c882ca87f3c73",
@@ -922,5 +922,9 @@
   "src/service/async_prepare_service.inc": {
     "sha256": "ecdaf01db09a997fe689fc61602c9961d18e42e950bdb9e3ebd5c981ee2ae4e3",
     "source": "resident async preparation source"
+  },
+  "tests/test_playback_refresh.py": {
+    "sha256": "fe47af5459e8754eefc2c1edfc1c56690930d825ea8e6e443c76d8d5700f2b11",
+    "source": "2026-10-09 resident playback refresh and preflight recovery source snapshot"
   }
 }

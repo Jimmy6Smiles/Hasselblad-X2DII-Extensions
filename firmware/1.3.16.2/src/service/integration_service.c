@@ -163,7 +163,9 @@ static void launch_waiting_job(void){
   char folder[256],record[256];
   snprintf(folder,sizeof folder,PS_DATA"/jobs/%llu",(unsigned long long)jobid);
   snprintf(record,sizeof record,"%s/cancelled.pending",folder);
-  if(mkdir(folder,0700)||!exclusive_rename(PS_DATA"/pending",record)||!sync_dir(folder)||!sync_dir(PS_DATA)){
+  struct stat own;
+  int made=mkdir(folder,0700)==0;
+  if((!made&&(errno!=EEXIST||lstat(folder,&own)||!S_ISDIR(own.st_mode)||own.st_uid!=getuid()||(own.st_mode&0077)))||!exclusive_rename(PS_DATA"/pending",record)||!sync_dir(folder)||!sync_dir(PS_DATA)){
    recovery=1;strcpy(error_text,"WAIT_CANCEL_COMMIT_FAILED");return;
   }
   shot_waiting=0;busy=0;settled=1;sequence++;readiness_ok=0;readiness_checked=0;
@@ -185,6 +187,11 @@ static void launch_waiting_job(void){
 static void reap_job(void){
  if(child<=0)return;int result=0;pid_t got=waitpid(child,&result,WNOHANG);if(got==0||(got<0&&errno==EINTR))return;
  child=-1;busy=0;
+ /* Exit 20 is emitted only before camera settings or exposure were touched.
+  * Menu preparation may still own Auto6: release it before completing task. */
+ if(got>0&&WIFEXITED(result)&&WEXITSTATUS(result)==20){
+  armed=0;busy=1;shot_waiting=1;wait_cancel=1;return;
+ }
  if(got>0&&WIFEXITED(result)&&WEXITSTATUS(result)==130){
   char record[256],folder[256];snprintf(folder,sizeof folder,PS_DATA"/jobs/%llu",(unsigned long long)jobid);
   snprintf(record,sizeof record,PS_DATA"/jobs/%llu/cancelled.pending",(unsigned long long)jobid);

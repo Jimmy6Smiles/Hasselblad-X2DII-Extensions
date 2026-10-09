@@ -1,5 +1,6 @@
 // 自写私有体验版传输；只访问机内 loopback 的固定路由，不发送拍摄命令。
 import QtQml
+import com.hasselblad.storage
 QtObject {
     id: root
     readonly property bool asynchronousControl: true
@@ -33,6 +34,44 @@ QtObject {
         phase === "cleanup" ? "正在清理原片" : "正在采集"
     property int pollTicks: 0
     property var currentRequest: null
+
+    // ContentModel owns the visible list; a storage-service rescan alone does
+    // not replace that list. Reuse its native same-folder browse slot once.
+    property string albumRefreshPending: ""
+    property string albumRefreshSeen: ""
+    property int albumRefreshWait: 0
+    property int albumRefreshAttempts: 0
+    function queueAlbumRefresh(s) {
+        if (s.busy || s.recovery) { albumRefreshPending = ""; return }
+        var saved = s.error === "SAVED_DEFAULT_FOLDER_SIX_DELETED"
+            || s.error === "SAVED_999HASBL_SIX_DELETED"
+            || s.error === "SAVED_999HASBL_INPUTS_RETAINED"
+        if (!s.settled || !saved || s.jobToken === "0") return
+        var key = s.generationToken + ":" + s.jobToken
+        if (key === albumRefreshSeen) return
+        albumRefreshSeen = key
+        albumRefreshPending = key
+        albumRefreshWait = 2
+        albumRefreshAttempts = 0
+    }
+    function refreshCompletedAlbum() {
+        if (!albumRefreshPending || !connected || busy || recovery || !settled) return
+        if (albumRefreshWait > 0) { --albumRefreshWait; return }
+        if (ContentModel.isBrowsing || ContentModel.loading || ContentModel.fileSelectMode) return
+        var path = ContentModel.path
+        // Never change folder, storage device, selection mode or image data.
+        if (!path) { albumRefreshPending = ""; return }
+        try {
+            ContentModel.onPathChanged(path)
+            console.info("PS_ALBUM_LIST_REFRESH", albumRefreshPending, path)
+            albumRefreshPending = ""
+        } catch (e) {
+            if (++albumRefreshAttempts >= 3) {
+                console.warn("PS_ALBUM_LIST_REFRESH_FAILED", String(e))
+                albumRefreshPending = ""
+            }
+        }
+    }
     signal commandFinished(bool ok)
     function acceptState(s) {
         if (s.schema !== 1 || typeof s.armed !== "boolean" || typeof s.busy !== "boolean"
@@ -68,6 +107,7 @@ QtObject {
         else if (s.error && s.recovery === true) lastError = "任务需核对：" + s.error
         else if (s.error) lastError = "模式未就绪：" + s.error
         else lastError = ""
+        queueAlbumRefresh(s)
         return true
     }
     function exchange(method, path) {
@@ -122,6 +162,7 @@ QtObject {
     property Timer polling: Timer {
         interval: 300; running: true; repeat: true
         onTriggered: {
+            root.refreshCompletedAlbum()
             if (!root.inFlight) root.exchange("GET", "/status")
             else if (++root.pollTicks > 50) {
                 var request = root.currentRequest
