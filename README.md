@@ -3,6 +3,7 @@
 English | [简体中文](README_CN.md)
 
 Maintained by Jimmy6Smiles. This is a distribution-only repository; source development is private.
+Standalone MODs carry attribution and provenance signatures; see [verification notes](PROVENANCE.md). Installer packages are unchanged.
 **Unofficial project. X2D II 100C firmware 1.3.16.2 only.**
 
 ## Downloads
