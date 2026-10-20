@@ -1,0 +1,2 @@
+# Preserve the exact bytes used by the published public-key fingerprint.
+MOD_ORIGIN_PUBLIC_KEY.pem -text
