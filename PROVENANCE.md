@@ -31,7 +31,7 @@ Ed25519 原始 32 字节公钥 SHA-256：
 
 本次仅增加分发层来源信息及相应外层校验项，**未修改机身程序、内部 bundle、部署文件、照片或第三方署名**。旧安装记录依赖的内部包标识保持不变；已经正常安装的用户无需重装。版本号和已知问题定位不变，稳定版仍为 1.2.4-rc2。
 
-独立 MOD 附件的文件名保持不变，但下载 SHA-256 已更新。安装器 ZIP 以及其中附带的旧 MOD 不变。第三方保留的旧包可能没有此标识，不能仅因此判断为伪造。
+独立 MOD 附件和安装器压缩包内附 MOD 均已补齐来源标识，文件名保持不变；有变更的 MOD、ZIP 及相关下载 SHA-256 已更新。安装器可执行文件和 Mac 应用内部文件保持原字节。无内附 MOD 的安装器 ZIP 不需要变更。第三方保留的旧包可能没有此标识，不能仅因此判断为伪造。
 
 标识可以被删除；这不是 DRM、反调试、联网追踪或不可移除水印。它用于辨认和核验来源，不能阻止复制或保证他人无法冒充。签名私钥不随下载包或源码公开。
 
@@ -41,6 +41,6 @@ Standalone MOD downloads now identify **Jimmy6Smiles** as their distribution sou
 
 Use the independently published public key above, verify the Ed25519 signature over the exact `SOURCE_ORIGIN.json` bytes, then compare member hashes, manager metadata and notice hash against the actual package. A key supplied only by an untrusted package is not a trust anchor.
 
-Only envelope attribution and its outer checksums changed. Runtime binaries, inner bundle, deployment files, photographs and existing third-party notices are untouched. Existing installations need no reinstall. Installer ZIPs and their bundled MODs remain unchanged. The manager has not gained mandatory provenance-signature enforcement.
+Only MOD envelope attribution and corresponding archive checksums changed. Runtime binaries, inner bundle, deployment files, photographs and existing third-party notices are untouched. Existing installations need no reinstall. Both standalone and installer-bundled MODs now carry attribution. Installer executables and Mac application contents are unchanged; archives without bundled MODs remain unchanged. The manager has not gained mandatory provenance-signature enforcement.
 
 Attribution is removable and is not DRM or a guarantee of safety, device validation or anti-copy protection. Historical genuine packages may lack it.
