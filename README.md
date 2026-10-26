@@ -31,6 +31,8 @@ Download Release Assets, not GitHub's automatic Source code archive. Check SHA25
 
 ## Authors and scope
 
+During live view, press and hold ⭕ to open the filter shortcut. Select your filter before entering Multiple Exposure mode; filters cannot be changed once you are in Multiple Exposure mode.
+
 X2D2 in-camera filter author: [FarSails777](https://github.com/FarSails777). Distribution and integration by Jimmy6Smiles; third-party attribution is preserved. Pixel Shift includes AF-C and does not support HEIF. Multiple Exposure rc34 adds lazy job creation and background cleanup of successful jobs. Never Sleep controls screen timeout, not every power-management mechanism.
 
 Offline tests and individual device tests do not establish universal compatibility. Back up photos; avoid irreplaceable shoots. No automatic capture, reboot or diagnostic upload is performed.
