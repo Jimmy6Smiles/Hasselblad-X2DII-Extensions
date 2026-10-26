@@ -8,7 +8,7 @@ Release and download repository maintained by Jimmy6Smiles. Source development i
 
 ## Read before installing or updating firmware
 
-Disconnects, installation failures and recovery issues across users' computers are not fully resolved. The author currently has limited spare time and cannot troubleshoot each installation individually. Early testing is recommended for users who can use AI tools to understand logs and recovery steps; users who prefer a trouble-free experience should wait. AI assistance is not a guarantee of correctness.
+Disconnects, installation failures and recovery issues across users' computers are not fully resolved. The author currently has limited spare time and cannot provide individual remote troubleshooting for every user. Early testing is recommended for users who can use AI tools to understand logs and recovery steps; users who prefer a trouble-free experience should wait. AI assistance is not a guarantee of correctness.
 
 **Before updating the camera's OEM firmware, uninstall all old MODs, then the old shared runtime, reboot and complete verification. Check both `/data` and `/system` for old components, startup entries, installation records and unfinished transactions.** An “uninstalled” label or missing menu is not proof of a clean system. Firmware flashing may retain `/data`; it is not a substitute for uninstalling. Preserve photos and PC backups. Do not blindly delete unknown files or bypass verification.
 
@@ -31,6 +31,6 @@ Download Release Assets, not GitHub's automatic Source code archive. Check SHA25
 
 ## Authors and scope
 
-X2D2 in-camera filter author: **farsails777@gmail.com**, the supplied Git account email. Distribution and integration by Jimmy6Smiles; third-party attribution is preserved. Pixel Shift includes AF-C and does not support HEIF. Multiple Exposure rc34 adds lazy job creation and background cleanup of successful jobs. Never Sleep controls screen timeout, not every power-management mechanism.
+X2D2 in-camera filter author: [FarSails777](https://github.com/FarSails777). Distribution and integration by Jimmy6Smiles; third-party attribution is preserved. Pixel Shift includes AF-C and does not support HEIF. Multiple Exposure rc34 adds lazy job creation and background cleanup of successful jobs. Never Sleep controls screen timeout, not every power-management mechanism.
 
 Offline tests and individual device tests do not establish universal compatibility. Back up photos; avoid irreplaceable shoots. No automatic capture, reboot or diagnostic upload is performed.

@@ -8,5 +8,5 @@
 
 ## 2026-10-26 配套发布补充
 
-- X2D2 机内滤镜作者：**farsails777@gmail.com**（所提供的 Git 账户邮箱）；Jimmy6Smiles 负责此仓库分发及配套维护，不主张该滤镜的原创权。
+- X2D2 机内滤镜作者：[FarSails777](https://github.com/FarSails777)；Jimmy6Smiles 负责此仓库分发及配套维护，不主张该滤镜的原创权。
 - 本次二进制 Release 的来源声明不改变原有第三方许可，不将分发包整体重新授权；历史源码许可继续有效。

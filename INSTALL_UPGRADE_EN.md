@@ -4,7 +4,7 @@ English | [简体中文](INSTALL_UPGRADE_CN.md)
 
 ## Installation reliability and support
 
-Disconnections, installation failures and recovery issues across different users' setups have not been fully resolved. Jimmy6Smiles currently has limited spare time and cannot provide individual remote troubleshooting for every user. Early adoption is recommended for users who can use AI tools to read logs, verify files and understand recovery procedures. If you prefer to avoid troubleshooting, please wait for a later version. AI assistance does not guarantee correctness: bypassing checks, forcing overwrites or deleting whole directories is not a substitute for diagnosis.
+Disconnections, installation failures and recovery issues across different users' setups have not been fully resolved. The author currently has limited spare time and cannot provide individual remote troubleshooting for every user. Early adoption is recommended for users who can use AI tools to read logs, verify files and understand recovery procedures. If you prefer to avoid troubleshooting, please wait for a later version. AI assistance does not guarantee correctness: bypassing checks, forcing overwrites or deleting whole directories is not a substitute for diagnosis.
 
 This is unofficial, experimental software. Its GitHub Release status does not imply universal compatibility or trouble-free operation. Back up your photos and keep the battery adequately charged. The manager does not automatically take photos or restart the camera; follow its explicit instructions for manual actions.
 
@@ -46,4 +46,4 @@ On the developer's camera, rc34 was checked for exiting without taking a frame, 
 
 ## Authors
 
-**X2D2 in-camera filter author: farsails777@gmail.com**, credited using the supplied Git account email; no GitHub username is inferred from it. Manager, shared runtime, other MODs and repository distribution are maintained by Jimmy6Smiles. Third-party and OEM rights remain with their respective owners.
+X2D2 in-camera filter author: [FarSails777](https://github.com/FarSails777). Manager, shared runtime, other MODs and repository distribution are maintained by Jimmy6Smiles. Third-party and OEM rights remain with their respective owners.
