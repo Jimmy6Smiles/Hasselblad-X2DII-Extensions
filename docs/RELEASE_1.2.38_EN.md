@@ -1,3 +1,5 @@
+> Withdrawn: the 1.2.38 set has a startup profile-path defect. Do not install or roll back using this page. Historical record only; see [1.2.39](RELEASE_1.2.39_EN.md).
+
 # Matched set 1.2.38 — 2026-10-26
 
 For Hasselblad X2D II 100C OEM firmware **1.3.18.1** only. Unofficial extensions; existing rc/test labels and tested executable bytes are retained.

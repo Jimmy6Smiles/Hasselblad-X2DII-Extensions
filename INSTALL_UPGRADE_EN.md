@@ -25,14 +25,14 @@ If you already updated firmware, do not blindly run uninstall commands intended 
 - Supported camera and firmware: **X2D II 100C / OEM firmware 1.3.18.1 only**. Historical 1.3.16.2 downloads are for their original environment, not this set.
 - Download the current Windows ZIP and fully extract it to a writable folder. There is no matching macOS binary yet; do not use a historical Mac manager to install this set.
 - Close Phocus and other camera utilities. Run only one manager. Connect USB, select the camera's Phocus tethering mode and return to live view.
-- Read the camera state, then select **Detect Shared Runtime** (`检测公共接口`). Follow the prompts to install the embedded **1.2.38** runtime, manually reboot and complete verification. Then install the matched MODs. The installer owns the common startup configuration; MODs register their own components. Do not put the shared runtime in the `mods` folder as a separate MOD.
+- Read the camera state, then select **Detect Shared Runtime** (`检测公共接口`). Follow the prompts to install the embedded **1.2.39** runtime, manually reboot and complete verification. Then install the matched MODs. The installer owns the common startup configuration; MODs register their own components. Do not put the shared runtime in the `mods` folder as a separate MOD.
 - The Windows archive includes all four matched MODs, which are also available as separate Release assets. Keep one version per feature. Do not mix files from different runtime sets merely because their displayed feature versions match.
-- **Paired Upgrade / Recovery** (`配套升级 / 恢复`) accepts only the exact reviewed **1.2.35** baseline. Rollback is likewise limited to its matching 1.2.35 / Multiple Exposure rc38 set. This is not a forced upgrade mechanism for arbitrary old versions. Other old environments must first follow the uninstall and inspection procedure above.
+- **Paired Upgrade / Recovery** accepts only exact 1.2.38 with normal registration and startup plans. Rollback to withdrawn 1.2.38 is disabled. Rescued/renamed plans or restored factory startup entries need separate review. Other old environments require uninstall acceptance and residue checks first.
 - If a disconnect, timeout, “Task needs verification” or hash mismatch occurs, stop repeatedly clicking Install and preserve the logs. Reconnect or reboot as instructed, read state again and use **Resume Interrupted Operation** (`恢复中断`). Do not let AI tooling, Phocus and another manager compete for the USB connection.
 
 ## Versions and validation limits
 
-See the [1.2.38 release notes](docs/RELEASE_1.2.38_EN.md) for matched versions, actual validation and limitations.
+See the [1.2.39 release notes](docs/RELEASE_1.2.39_EN.md) for matched versions, actual validation and limitations.
 
 ## Authors
 

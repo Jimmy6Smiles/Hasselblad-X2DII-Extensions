@@ -4,13 +4,13 @@
 
 由 Jimmy6Smiles 维护；本仓库用于发布说明和下载，源码在私有库维护。非哈苏官方项目。
 
-**最新公开测试配套：X2D II 100C / 固件 1.3.18.1 / 公共运行时 1.2.38。不要与旧 1.3.16.2 包混用。**
+**最新公开测试配套：X2D II 100C / 固件 1.3.18.1 / 公共运行时 1.2.39。不要与旧 1.3.16.2 包混用。**
 
 ## 本次更新
 
-**多重曝光 rc41 修复无滤镜取景红蓝通道颠倒**，成片处理不变。本机已确认取景颜色、放大退出蒙版恢复、两张合成和回放正常。四亿 rc11 仅更新宿主路径，滤镜及永不息屏不变。
+1.2.39 修正公共采集宿主的旧版本传感器配置路径。四亿 rc12 保留 rc8 功能；多重曝光 rc42 保留 rc41 取景颜色修正；滤镜及永不息屏不变。**1.2.38 配套已撤回，本版不提供回退到它。**
 
-[完整更新说明与验收范围](docs/RELEASE_1.2.38_CN.md)。直接配套升级仅支持精确 1.2.35；更早版本须按安装指南处理。
+[更新记录、升级前提和验证范围](docs/RELEASE_1.2.39_CN.md)。仅支持精确正常 1.2.38 配套直接升级；曾修改启动清单进行救援的状态需另行核对。
 
 ## 安装前请先读
 
@@ -24,16 +24,16 @@
 
 | 下载 | 版本 |
 |---|---|
-| [Windows 安装器 + 公共运行时](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/mod-manager-runtime-1.2.38-20261026) | 1.2.38 |
-| [公共运行时身份与说明](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/common-runtime-1.2.38) | 1.2.38 |
-| [机内滤镜 45 款](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/in-camera-filters-0.1.1-rc5-fw-1.3.18.1-runtime-1.2.38) | 0.1.1-rc5 |
-| [像素超频 400 MP（含 AF-C）](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/pixel-shift-400mp-1.2.5-rc11-fw-1.3.18.1-runtime-1.2.38) | 1.2.5-rc11 |
-| [多重曝光](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/multiple-exposure-0.1.2-rc41-fw-1.3.18.1-runtime-1.2.38) | 0.1.2-rc41 |
-| [永不息屏](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/never-sleep-1.0.1-fw-1.3.18.1-runtime-1.2.38) | 1.0.1 |
+| [Windows 安装器 + 公共运行时](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/mod-manager-runtime-1.2.39-20261026) | 1.2.39 |
+| [公共运行时身份与说明](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/common-runtime-1.2.39) | 1.2.39 |
+| [机内滤镜 45 款](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/in-camera-filters-0.1.1-rc5-fw-1.3.18.1-runtime-1.2.39) | 0.1.1-rc5 |
+| [像素超频 400 MP（含 AF-C）](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/pixel-shift-400mp-1.2.5-rc12-fw-1.3.18.1-runtime-1.2.39) | 1.2.5-rc12 |
+| [多重曝光](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/multiple-exposure-0.1.2-rc42-fw-1.3.18.1-runtime-1.2.39) | 0.1.2-rc42 |
+| [永不息屏](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/never-sleep-1.0.1-fw-1.3.18.1-runtime-1.2.39) | 1.0.1 |
 
 Windows ZIP 已内附这四个 MOD，也可从对应 Release 单独下载。公共接口内置于安装器，由“检测公共接口”及配套事务管理，不作为独立 MOD 安装。**同版本 macOS 包尚未构建，不要用历史 Mac 管理器安装这套新包。**
 
-在 Release 的 Assets 下载附件并核对 SHA256SUMS.txt。GitHub 自动生成的 Source code ZIP/TAR 仅包含发布说明，不是安装器。旧 Release 保留用于对应旧环境恢复；[历史固件 1.3.16.2 资料](docs/HISTORICAL_1.3.16.2_CN.md)。
+在 Release 的 Assets 下载附件并核对 SHA256SUMS.txt。GitHub 自动生成的 Source code ZIP/TAR 仅包含发布说明，不是安装器。除已撤回的 1.2.38 外，历史 Release 保留用于对应旧环境恢复；[历史固件 1.3.16.2 资料](docs/HISTORICAL_1.3.16.2_CN.md)。
 
 ## 功能及署名
 
