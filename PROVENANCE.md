@@ -1,3 +1,17 @@
+# 当前登记式 MOD 来源核验（2026-10-26）
+
+本次固件 1.3.18.1 / 运行时 1.2.31 配套采用 **ZIP 注释签名 v2**。新登记式包严格限制文件名单，所以不往载荷列表新增来源文件，也不改 `manager.json` 或机身程序；旧版下文的“新增四个包内文件”仅适用于历史包。
+
+每个 `.x2d2ext` 的 ZIP 注释包含 `manifest_base64`、`signature_base64` 和公钥摘要。来源清单记录原始包摘要、所有成员摘要（含 manager.json）、功能作者、分发者及 Release 标签。独立 Release 同时提供 `.origin.json`、`.ed25519` 与 AUTHOR.txt。安装器内附包与独立包逐字节一致。
+
+滤镜作者是 **farsails777@gmail.com**；Jimmy6Smiles 是该滤镜配套包的分发维护者，不替代原创署名。
+
+核验时使用本仓库独立发布的 MOD_ORIGIN_PUBLIC_KEY.pem：其 SHA-256 应为 `575dd226368fbc673611ebae5073be85af12abf5c5d4dfe77d5fb6e728f46cdf`。先核验 Ed25519 签名，再比对全部 ZIP 成员的 SHA-256、清单与独立附件。不要只相信包内自己声明的密钥。可运行本仓库 `verify_mod_origin.py`（Python，依赖 cryptography），参数为 MOD 路径。
+
+此标识用于来源追溯，不能防止拆包或删除，不是反调试、加密、照片水印或安全认证。当前安装器仍执行载荷校验，没有自动强制来源签名验证。本次没有剥离或改写已验收二进制符号，避免破坏配套安装身份；不声称程序无法被逆向。
+
+## 历史包的来源方案（保留供核验）
+
 # MOD 来源标识 / MOD distribution provenance
 
 本项目的独立 MOD 下载包自 2026-10-20 起增加 **Jimmy6Smiles** 来源标识。

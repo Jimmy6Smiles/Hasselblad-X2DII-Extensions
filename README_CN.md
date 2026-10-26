@@ -2,43 +2,44 @@
 
 [English](README.md) | 简体中文
 
-由 Jimmy6Smiles 维护。本仓库仅用于发布说明和下载，源码在私有仓库维护。
-独立下载及安装器压缩包内附的 MOD 均带有来源声明及签名，详见 [来源核验说明](PROVENANCE.md)。安装器程序本身不变。
-**非哈苏官方项目；仅适配 X2D II 100C、固件 1.3.16.2。**
+由 Jimmy6Smiles 维护；本仓库用于发布说明和下载，源码在私有库维护。非哈苏官方项目。
 
-## 下载
+**最新公开测试配套：X2D II 100C / 固件 1.3.18.1 / 公共运行时 1.2.31。不要与旧 1.3.16.2 包混用。**
 
-- [Windows 管理器：2026-10-18 AF-C 首次安装修复版](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/download/mod-manager-2026.10.18-afc-fix-1/X2DII-Offline-Windows-20261018-afc-first-install-1.zip)
-- [macOS 管理器：2026-10-18 AF-C 首次安装修复版](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/download/mod-manager-2026.10.18-afc-fix-1/X2DII-Offline-macOS-20261018-afc-first-install-1.zip)
-- [像素超频稳定版 1.2.4-rc2](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/pixel-shift-1.2.4-rc2)
-- [独立电子快门 AF-C 1.0.0](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/download/mod-manager-2026.10.17-preview/Electronic-Shutter-AFC.x2d2ext)
-- [全部 Release、历史版本与校验值](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases)
+## 安装前请先读
 
-在 Release 的 **Assets** 下载实际附件。GitHub 自动生成的 “Source code” ZIP/TAR 仅含本发布库说明，不是安装器，也不包含功能源码。管理器与 MOD 分开下载。
+目前尚未完全解决不同用户安装时出现的断线、失败和恢复问题。作者最近空闲时间有限，无法为每位用户单独排障。建议有能力借助 AI 阅读日志、核对状态和处理恢复的用户先尝试；怕麻烦、不想折腾的用户可以等待。AI 不能保证操作正确，不要让它跳过校验或盲目删除文件。
 
-**稳定版仍为 1.2.4-rc2。1.2.5-rc1 存在已知问题，不建议使用。**
-[1.2.5-rc2](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/pixel-shift-1.2.5-rc2) 仅供遇到未拍摄任务残留、尚未接入或倒计时立即退出的用户协助排查。它增加恢复处理及取消原因记录，尚未完成实机验收，不保证解决倒计时退出；稳定版正常使用者无需升级。
+**更新相机原厂固件前，必须先卸载旧 MOD 和旧公共接口，重启验收，再检查 `/data` 与 `/system` 的旧组件、启动项和未完成事务。** 显示“未安装”或菜单消失不代表已清理干净，刷固件也不能代替卸载。检查失败或残留归属不明时先处理，不要继续刷机。
 
-## 功能
+完整流程：[固件升级、残留核对和安装说明](INSTALL_UPGRADE_CN.md)。不删除照片，未知文件不能按名称批量清理。
 
-- 像素超频：六帧四亿像素 RAW、可选 JPEG、相册登记、原片清理和辅助回放。
-- 电子快门 AF-C：独立功能包。像素超频已包含此功能，**两包互斥，只安装一个**。
-- 支持 RAW、JPEG、RAW＋JPEG，不支持 HEIF。
+## 最新测试版下载
 
-## 安装与使用
+| 下载 | 版本 |
+|---|---|
+| [Windows 安装器 + 公共运行时](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/mod-manager-runtime-1.2.31-preview-20261026) | 1.2.31 |
+| [公共运行时身份与说明](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/common-runtime-1.2.31) | 1.2.31 |
+| [机内滤镜 45 款](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/in-camera-filters-0.1.1-rc5-fw-1.3.18.1-runtime-1.2.31) | 0.1.1-rc5 |
+| [像素超频 400 MP（含 AF-C）](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/pixel-shift-400mp-1.2.5-rc4-fw-1.3.18.1-runtime-1.2.31) | 1.2.5-rc4 |
+| [多重曝光](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/multiple-exposure-0.1.2-rc34-fw-1.3.18.1-runtime-1.2.31) | 0.1.2-rc34 |
+| [永不息屏](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/never-sleep-1.0.1-fw-1.3.18.1-runtime-1.2.31) | 1.0.1 |
 
-1. 核对机型和固件，备份照片，保持充足电量。
-2. 完整解压管理器。Windows 打开 EXE；Mac 打开应用。程序未完成正式签名／公证，不要全局关闭安全防护。
-3. 将需要的 `.x2d2ext` 放入程序旁的 `mods` 文件夹，或在界面选择 mods 目录。不要解压 MOD；同一功能只保留一个版本。
-4. 退出 Phocus 及其他管理器，用 USB 连接相机，选择仅充电／Phocus 联机模式并回到取景。Windows 保留正常工作的 Phocus 驱动。
-5. 读取相机状态，选择功能并安装。按明确提示手动关机再开机，等待管理器继续验收；不要重复安装或写入中断电。
-6. 像素超频使用三脚架和静止场景，六帧间移动会影响成片。
+Windows ZIP 已内附这四个 MOD，也可从对应 Release 单独下载。公共接口内置于安装器，由“检测公共接口”及配套事务管理，不作为独立 MOD 安装。**同版本 macOS 包尚未构建，不要用历史 Mac 管理器安装这套新包。**
 
-卸载只需点击一次并按提示重启、等待流程完成。停止等待不撤销已完成写入。通信超时或校验失败时停止，重新连接读取状态并导出诊断，不要强行覆盖或删除恢复备份。升级候选版前阅读该版本说明，旧版卸载需使用对应旧包。更换管理器不必重装正常工作的 MOD。
+在 Release 的 Assets 下载附件并核对 SHA256SUMS.txt。GitHub 自动生成的 Source code ZIP/TAR 仅包含发布说明，不是安装器。旧 Release 保留用于对应旧环境恢复；[历史固件 1.3.16.2 资料](docs/HISTORICAL_1.3.16.2_CN.md)。
 
-已收到 Windows/macOS 可用及 Mac 安装后 Windows 卸载的个人设备验证反馈，不代表所有电脑、相机或存储组合均已覆盖。程序不自动拍摄、重启或上传诊断；分享诊断前请检查隐私。
+## 功能及署名
 
-## 安全及许可
+- 机内滤镜 45 款：作者 **farsails777@gmail.com**（提供的 Git 账户邮箱）。本仓库负责配套分发，不能将其原创署名归于分发者。
+- 像素超频：六帧四亿 RAW／JPEG、辅助回放，包含 AF-C；不要重复安装旧独立 AF-C 包。四亿不支持 HEIF。
+- 多重曝光：拍摄合成、取景叠加和结果保存；rc34 延迟建立任务目录，并在成功后后台清理中间文件。以界面支持选项及已验证场景为准。
+- 永不息屏：提供屏幕超时“永不息屏”选项，不等于取消全部电源管理。
 
-实验性扩展可能造成相机无响应、拍摄失败或数据丢失，不用于无法重拍的重要场景。不要上传照片、完整固件、凭据或私人诊断。
-本次调整只改变公开仓库的源码可见方式，不撤销已授予的许可，也不能收回已被他人克隆或 Fork 的内容。第三方声明见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
+管理器、公共运行时和其他 MOD 由 Jimmy6Smiles 维护。保留第三方权利与署名，详见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
+
+## 来源核验与测试范围
+
+本次四个 MOD 含签名来源 ZIP 注释，另附独立清单和 Ed25519 签名。所有安装载荷和 EXE 字节保持已验证版本不变；详见 [PROVENANCE.md](PROVENANCE.md)。来源签名不等于不可逆向、代码签名或安全保证。
+
+离线测试和开发者单机实测不代表所有环境均兼容。请先备份照片，不用于无法重拍的重要场景；分享诊断前检查隐私。项目不自动上传诊断，也不自动拍照或重启。

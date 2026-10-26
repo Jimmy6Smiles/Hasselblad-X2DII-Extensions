@@ -2,43 +2,38 @@
 
 English | [简体中文](README_CN.md)
 
-Maintained by Jimmy6Smiles. This is a distribution-only repository; source development is private.
-Standalone and installer-bundled MODs carry attribution and provenance signatures; see [verification notes](PROVENANCE.md). Installer executables are unchanged.
-**Unofficial project. X2D II 100C firmware 1.3.16.2 only.**
+Release and download repository maintained by Jimmy6Smiles. Source development is private. This is an unofficial project.
+
+**Current experimental set: X2D II 100C, firmware 1.3.18.1, shared runtime 1.2.31.** Do not mix it with the historical 1.3.16.2 packages.
+
+## Read before installing or updating firmware
+
+Disconnects, installation failures and recovery issues across users' computers are not fully resolved. The author currently has limited spare time and cannot troubleshoot each installation individually. Early testing is recommended for users who can use AI tools to understand logs and recovery steps; users who prefer a trouble-free experience should wait. AI assistance is not a guarantee of correctness.
+
+**Before updating the camera's OEM firmware, uninstall all old MODs, then the old shared runtime, reboot and complete verification. Check both `/data` and `/system` for old components, startup entries, installation records and unfinished transactions.** An “uninstalled” label or missing menu is not proof of a clean system. Firmware flashing may retain `/data`; it is not a substitute for uninstalling. Preserve photos and PC backups. Do not blindly delete unknown files or bypass verification.
+
+See the [detailed installation / upgrade guide (Chinese)](INSTALL_UPGRADE_CN.md). If firmware has already been updated, inspect the actual state first; do not blindly run old-firmware uninstall commands.
 
 ## Downloads
 
-- [Windows manager: 2026-10-18 AF-C first-install fix](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/download/mod-manager-2026.10.18-afc-fix-1/X2DII-Offline-Windows-20261018-afc-first-install-1.zip)
-- [macOS manager: 2026-10-18 AF-C first-install fix](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/download/mod-manager-2026.10.18-afc-fix-1/X2DII-Offline-macOS-20261018-afc-first-install-1.zip)
-- [Stable Pixel Shift 1.2.4-rc2](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/pixel-shift-1.2.4-rc2)
-- [Standalone electronic-shutter AF-C 1.0.0](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/download/mod-manager-2026.10.17-preview/Electronic-Shutter-AFC.x2d2ext)
-- [All releases, historical versions and checksums](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases)
+| 下载 | 版本 |
+|---|---|
+| [Windows 安装器 + 公共运行时](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/mod-manager-runtime-1.2.31-preview-20261026) | 1.2.31 |
+| [公共运行时身份与说明](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/common-runtime-1.2.31) | 1.2.31 |
+| [机内滤镜 45 款](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/in-camera-filters-0.1.1-rc5-fw-1.3.18.1-runtime-1.2.31) | 0.1.1-rc5 |
+| [像素超频 400 MP（含 AF-C）](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/pixel-shift-400mp-1.2.5-rc4-fw-1.3.18.1-runtime-1.2.31) | 1.2.5-rc4 |
+| [多重曝光](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/multiple-exposure-0.1.2-rc34-fw-1.3.18.1-runtime-1.2.31) | 0.1.2-rc34 |
+| [永不息屏](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/never-sleep-1.0.1-fw-1.3.18.1-runtime-1.2.31) | 1.0.1 |
 
-Download actual attachments under **Assets**. GitHub's automatic “Source code” archives contain distribution documentation, not an installer or feature implementation. Download the manager and MOD separately.
 
-**1.2.4-rc2 remains stable. 1.2.5-rc1 has known issues and is not recommended.**
-[1.2.5-rc2](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/pixel-shift-1.2.5-rc2) is a troubleshooting candidate for retained pre-capture tasks, mode-not-ready errors or immediate countdown cancellation. It adds recovery handling and cancellation evidence; device acceptance is pending and the countdown issue is not confirmed fixed. Working stable installations need no update.
+The Windows archive includes the four matched MODs. They are also released separately. Shared runtime binaries are embedded in the installer and managed by it; the runtime release provides identity metadata and links, not a standalone MOD. **No matching macOS binary is available yet.** Historical Mac downloads are not compatible with this new set.
 
-## Features
+Download Release Assets, not GitHub's automatic Source code archive. Check SHA256SUMS.txt. Previous releases are retained for their original firmware environments. The paired upgrade path accepts only the exact reviewed 1.2.30 baseline; it is not an arbitrary-version upgrade mechanism.
 
-- Pixel Shift: six-frame 400 MP RAW, optional JPEG, album integration, source-frame cleanup and assisted playback.
-- Electronic-shutter AF-C: available separately and already included in Pixel Shift. **The two packages conflict; install only one.**
-- RAW, JPEG and RAW+JPEG supported; HEIF unsupported.
+## Authors and scope
 
-## Installation and use
+X2D2 in-camera filter author: **farsails777@gmail.com**, the supplied Git account email. Distribution and integration by Jimmy6Smiles; third-party attribution is preserved. Pixel Shift includes AF-C and does not support HEIF. Multiple Exposure rc34 adds lazy job creation and background cleanup of successful jobs. Never Sleep controls screen timeout, not every power-management mechanism.
 
-1. Check model and firmware, back up photographs and maintain battery charge.
-2. Fully extract the manager and launch the Windows EXE or Mac application. Formal signing/notarization is not complete; do not globally disable security protections.
-3. Put the desired `.x2d2ext` in the adjacent `mods` folder, or select a mods directory in the GUI. Do not extract MOD files. Keep one version per feature.
-4. Quit Phocus and other managers. Connect USB, select charging/Phocus tethering mode and return to live view. Retain the working Phocus driver on Windows.
-5. Read camera status, select the feature and install. Follow manual reboot prompts and wait for verification. Do not repeatedly install or interrupt power during writes.
-6. Use a tripod and static scene for Pixel Shift; movement between frames affects the result.
+The MOD archives contain signed provenance in their ZIP comments with detached manifests and signatures. Executable and camera payload bytes remain unchanged. See [provenance verification](PROVENANCE.md) and [third-party notices](THIRD_PARTY_NOTICES.md). This is not DRM or an anti-reverse-engineering guarantee.
 
-For uninstall, click once and follow reboot prompts until completion. Stopping a wait does not undo completed writes. On timeout or checksum failure, stop, reconnect, read status and export diagnostics; do not force overwrites or remove recovery backups. Read candidate instructions before upgrading and use the matching old package to uninstall an old version. Updating the manager does not require reinstalling a working MOD.
-
-Individual users have verified Windows/macOS operation, including installation on Mac followed by uninstallation on Windows. This does not cover every computer, camera or storage configuration. The manager does not automatically capture, reboot or upload diagnostics. Review private information before sharing diagnostics.
-
-## Safety and notices
-
-Experimental extensions may cause unresponsiveness, failed captures or data loss. Do not use for irreplaceable work. Do not upload photographs, full firmware, credentials or private diagnostics.
-Changing repository visibility does not revoke previously granted licenses or recall existing clones and forks. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+Offline tests and individual device tests do not establish universal compatibility. Back up photos; avoid irreplaceable shoots. No automatic capture, reboot or diagnostic upload is performed.
