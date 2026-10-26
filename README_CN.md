@@ -38,8 +38,6 @@ Windows ZIP 已内附这四个 MOD，也可从对应 Release 单独下载。公�
 
 管理器、公共运行时和其他 MOD 由 Jimmy6Smiles 维护。保留第三方权利与署名，详见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
 
-## 来源核验与测试范围
-
-本次四个 MOD 含签名来源 ZIP 注释，另附独立清单和 Ed25519 签名。所有安装载荷和 EXE 字节保持已验证版本不变；详见 [PROVENANCE.md](PROVENANCE.md)。来源签名不等于不可逆向、代码签名或安全保证。
+## 测试范围
 
 离线测试和开发者单机实测不代表所有环境均兼容。请先备份照片，不用于无法重拍的重要场景；分享诊断前检查隐私。项目不自动上传诊断，也不自动拍照或重启。

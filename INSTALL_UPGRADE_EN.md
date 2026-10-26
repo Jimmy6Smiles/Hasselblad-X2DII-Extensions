@@ -44,8 +44,6 @@ The earlier paired test run passed 515 tests. Source-export verification passed 
 
 On the developer's camera, rc34 was checked for exiting without taking a frame, two-frame RAW+JPEG composition and playback. This does not establish acceptance of every mode, storage medium or platform. Updated Mac packaging rules exist, but the corresponding Mac build and camera installation have not been completed.
 
-## Authors and provenance
+## Authors
 
 **X2D2 in-camera filter author: farsails777@gmail.com**, credited using the supplied Git account email; no GitHub username is inferred from it. Manager, shared runtime, other MODs and repository distribution are maintained by Jimmy6Smiles. Third-party and OEM rights remain with their respective owners.
-
-The MOD archives add a signed provenance manifest in the ZIP comment, with separate `.origin.json` and `.ed25519` assets. Installation payloads, member lists and internal version identities are unchanged. This provides provenance verification, not protection against reverse engineering or removal, code signing, notarization or a safety certification. See [provenance verification](PROVENANCE.md).

@@ -25,7 +25,6 @@ See the [detailed installation / upgrade guide](INSTALL_UPGRADE_EN.md). If firmw
 | [Multiple Exposure](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/multiple-exposure-0.1.2-rc34-fw-1.3.18.1-runtime-1.2.31) | 0.1.2-rc34 |
 | [Never Sleep](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/never-sleep-1.0.1-fw-1.3.18.1-runtime-1.2.31) | 1.0.1 |
 
-
 The Windows archive includes the four matched MODs. They are also released separately. Shared runtime binaries are embedded in the installer and managed by it; the runtime release provides identity metadata and links, not a standalone MOD. **No matching macOS binary is available yet.** Historical Mac downloads are not compatible with this new set.
 
 Download Release Assets, not GitHub's automatic Source code archive. Check SHA256SUMS.txt. Previous releases are retained for their original firmware environments. The paired upgrade path accepts only the exact reviewed 1.2.30 baseline; it is not an arbitrary-version upgrade mechanism.
@@ -33,7 +32,5 @@ Download Release Assets, not GitHub's automatic Source code archive. Check SHA25
 ## Authors and scope
 
 X2D2 in-camera filter author: **farsails777@gmail.com**, the supplied Git account email. Distribution and integration by Jimmy6Smiles; third-party attribution is preserved. Pixel Shift includes AF-C and does not support HEIF. Multiple Exposure rc34 adds lazy job creation and background cleanup of successful jobs. Never Sleep controls screen timeout, not every power-management mechanism.
-
-The MOD archives contain signed provenance in their ZIP comments with detached manifests and signatures. Executable and camera payload bytes remain unchanged. See [provenance verification](PROVENANCE.md) and [third-party notices](THIRD_PARTY_NOTICES.md). This is not DRM or an anti-reverse-engineering guarantee.
 
 Offline tests and individual device tests do not establish universal compatibility. Back up photos; avoid irreplaceable shoots. No automatic capture, reboot or diagnostic upload is performed.
