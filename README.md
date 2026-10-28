@@ -4,13 +4,13 @@ English | [简体中文](README_CN.md)
 
 Release and download repository maintained by Jimmy6Smiles. Source development is private. This is an unofficial project.
 
-**Current experimental set: X2D II 100C, firmware 1.3.18.1, shared runtime 1.2.39.** Do not mix it with the historical 1.3.16.2 packages.
+**Current experimental set: X2D II 100C, firmware 1.3.18.1, shared runtime 1.2.39+fm.3.** Do not mix it with the historical 1.3.16.2 packages.
 
 ## What changed
 
-1.2.39 corrects a stale sensor-profile path in the shared capture host. Pixel Shift rc12 preserves rc8 behavior; Multiple Exposure rc42 preserves rc41 live-color corrections. Filters and Never Sleep are unchanged. **The 1.2.38 set is withdrawn; rollback to it is disabled.**
+Latest matched set: **1.2.39+fm.3**, Windows automatic-migration Test2 and Mac Test17. Only Filters changes to0.1.2-rc1; Pixel Shift rc12, Multiple Exposure rc42 and Never Sleep1.0.1 remain byte-identical.
 
-[Changes, upgrade prerequisites and validation](docs/RELEASE_1.2.39_EN.md). Direct upgrade requires the exact normal 1.2.38 set; rescued startup configurations need separate review.
+[Full changes, migration scope and validation](docs/RELEASE_1.2.39_fm3_EN.md). Windows supports migration from original1.2.39 without uninstalling; Mac Test17 does not yet contain that Windows migration path.1.2.38 remains withdrawn.
 
 ## Read before installing or updating firmware
 
@@ -24,16 +24,16 @@ See the [detailed installation / upgrade guide](INSTALL_UPGRADE_EN.md). If firmw
 
 | Download | Version |
 |---|---|
-| [Windows installer + shared runtime](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/mod-manager-runtime-1.2.39-20261026) | 1.2.39 |
-| [Shared runtime identity and documentation](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/common-runtime-1.2.39) | 1.2.39 |
-| [45 in-camera filters](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/in-camera-filters-0.1.1-rc5-fw-1.3.18.1-runtime-1.2.39) | 0.1.1-rc5 |
+| [Windows / macOS installers + shared runtime](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/mod-manager-runtime-1.2.39-fm.3-20261028) | 1.2.39+fm.3 |
+| [Shared runtime identity and documentation](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/common-runtime-1.2.39-fm.3) | 1.2.39+fm.3 |
+| [45 in-camera filters](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/in-camera-filters-0.1.2-rc1-fw-1.3.18.1-runtime-1.2.39-fm.3) | 0.1.2-rc1 |
 | [Pixel Shift 400 MP (including AF-C)](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/pixel-shift-400mp-1.2.5-rc12-fw-1.3.18.1-runtime-1.2.39) | 1.2.5-rc12 |
 | [Multiple Exposure](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/multiple-exposure-0.1.2-rc42-fw-1.3.18.1-runtime-1.2.39) | 0.1.2-rc42 |
 | [Never Sleep](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/never-sleep-1.0.1-fw-1.3.18.1-runtime-1.2.39) | 1.0.1 |
 
-The Windows archive includes the four matched MODs. They are also released separately. Shared runtime binaries are embedded in the installer and managed by it; the runtime release provides identity metadata and links, not a standalone MOD. **No matching macOS binary is available yet.** Historical Mac downloads are not compatible with this new set.
+Both complete bundles include all four MODs. The runtime is managed by the installer, not a standalone MOD. Mac is Apple Silicon only; platform migration scopes differ, as documented above.
 
-Download Release Assets, not GitHub's automatic Source code archive. Check SHA256SUMS.txt. Other historical releases are retained for their original firmware environments; 1.2.38 downloads are withdrawn. The paired upgrade path accepts only the exact reviewed 1.2.38 baseline; it is not an arbitrary-version upgrade mechanism.
+Download Assets and check SHA256SUMS.txt; GitHub-generated Source code is not the installer. Historical releases remain for their matching environments; withdrawn versions stay withdrawn.
 
 ## Authors and scope
 

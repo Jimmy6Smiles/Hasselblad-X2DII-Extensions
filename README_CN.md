@@ -4,13 +4,13 @@
 
 由 Jimmy6Smiles 维护；本仓库用于发布说明和下载，源码在私有库维护。非哈苏官方项目。
 
-**最新公开测试配套：X2D II 100C / 固件 1.3.18.1 / 公共运行时 1.2.39。不要与旧 1.3.16.2 包混用。**
+**最新公开测试配套：X2D II 100C / 固件 1.3.18.1 / 公共运行时 1.2.39+fm.3。不要与旧 1.3.16.2 包混用。**
 
 ## 本次更新
 
-1.2.39 修正公共采集宿主的旧版本传感器配置路径。四亿 rc12 保留 rc8 功能；多重曝光 rc42 保留 rc41 取景颜色修正；滤镜及永不息屏不变。**1.2.38 配套已撤回，本版不提供回退到它。**
+最新配套为 **1.2.39+fm.3**：Windows自动升级版Test2与Mac Test17。MOD只有滤镜更新为0.1.2-rc1；四亿rc12、多重曝光rc42、永不息屏1.0.1保持原包。
 
-[更新记录、升级前提和验证范围](docs/RELEASE_1.2.39_CN.md)。仅支持精确正常 1.2.38 配套直接升级；曾修改启动清单进行救援的状态需另行核对。
+[完整中英文更新、升级范围与验证说明](docs/RELEASE_1.2.39_fm3_CN.md)。Windows支持原版1.2.39免卸载迁移；Mac Test17尚不包含这条Windows迁移代码，详见说明。1.2.38仍已撤回。
 
 ## 安装前请先读
 
@@ -24,16 +24,16 @@
 
 | 下载 | 版本 |
 |---|---|
-| [Windows 安装器 + 公共运行时](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/mod-manager-runtime-1.2.39-20261026) | 1.2.39 |
-| [公共运行时身份与说明](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/common-runtime-1.2.39) | 1.2.39 |
-| [机内滤镜 45 款](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/in-camera-filters-0.1.1-rc5-fw-1.3.18.1-runtime-1.2.39) | 0.1.1-rc5 |
+| [Windows / macOS 安装器 + 公共运行时](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/mod-manager-runtime-1.2.39-fm.3-20261028) | 1.2.39+fm.3 |
+| [公共运行时身份与说明](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/common-runtime-1.2.39-fm.3) | 1.2.39+fm.3 |
+| [机内滤镜 45 款](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/in-camera-filters-0.1.2-rc1-fw-1.3.18.1-runtime-1.2.39-fm.3) | 0.1.2-rc1 |
 | [像素超频 400 MP（含 AF-C）](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/pixel-shift-400mp-1.2.5-rc12-fw-1.3.18.1-runtime-1.2.39) | 1.2.5-rc12 |
 | [多重曝光](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/multiple-exposure-0.1.2-rc42-fw-1.3.18.1-runtime-1.2.39) | 0.1.2-rc42 |
 | [永不息屏](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/never-sleep-1.0.1-fw-1.3.18.1-runtime-1.2.39) | 1.0.1 |
 
-Windows ZIP 已内附这四个 MOD，也可从对应 Release 单独下载。公共接口内置于安装器，由“检测公共接口”及配套事务管理，不作为独立 MOD 安装。**同版本 macOS 包尚未构建，不要用历史 Mac 管理器安装这套新包。**
+Windows和Mac完整包都内附四个MOD。公共接口由安装器管理，不作为独立MOD。Mac仅Apple Silicon；两端迁移范围不同，请阅读本次说明。
 
-在 Release 的 Assets 下载附件并核对 SHA256SUMS.txt。GitHub 自动生成的 Source code ZIP/TAR 仅包含发布说明，不是安装器。除已撤回的 1.2.38 外，历史 Release 保留用于对应旧环境恢复；[历史固件 1.3.16.2 资料](docs/HISTORICAL_1.3.16.2_CN.md)。
+在Release的Assets下载附件并核对SHA256SUMS.txt；GitHub自动生成的Source code不是安装器。旧版保留供对应环境恢复，已撤回的版本不重新发布。
 
 ## 功能及署名
 
