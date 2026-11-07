@@ -2,15 +2,15 @@
 
 English | [简体中文](README_CN.md)
 
-Release and download repository maintained by Jimmy6Smiles. Source development is private. This is an unofficial project.
+Release and download repository maintained by Jimmy6Smiles. [Pixel Shift source](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-400MP-Source) is published separately; installer development remains private. This is an unofficial project.
 
-**Current experimental set: X2D II 100C, firmware 1.3.18.1, shared runtime 1.2.39+fm.3.** Do not mix it with the historical 1.3.16.2 packages.
+**Current matched set: X2D II 100C, firmware 1.3.18.1, Windows manager/shared runtime 1.2.42, Pixel Shift 1.2.5-rc13.** Keep the runtime, MODs and firmware matched.
 
 ## What changed
 
-Latest matched set: **1.2.39+fm.3**, Windows automatic-migration Test2 and Mac Test17. Only Filters changes to0.1.2-rc1; Pixel Shift rc12, Multiple Exposure rc42 and Never Sleep1.0.1 remain byte-identical.
+This release fixes Pixel Shift JPEG rendering/calibration session path compatibility with the newer shared runtime and updates the complete boot/capture approval bindings. Pixel Shift becomes **1.2.5-rc13**; Filters 0.1.2-rc2, Multiple Exposure 0.1.2-rc42 and Never Sleep 1.0.1 retain their existing payloads.
 
-[Full changes, migration scope and validation](docs/RELEASE_1.2.39_fm3_EN.md). Windows supports migration from original1.2.39 without uninstalling; Mac Test17 does not yet contain that Windows migration path.1.2.38 remains withdrawn.
+[Full changes, migration scope and validation](docs/RELEASE_1.2.42_EN.md). This migration accepts only the exact formal 1.2.41 matched baseline; reboot manually when prompted and resume verification. **Install RC13 with runtime 1.2.42; do not independently overwrite a 1.2.41 or older installation.** No new Mac build is provided; historical Mac Test17 belongs to the older fm.3 environment.
 
 ## Read before installing or updating firmware
 
@@ -24,14 +24,14 @@ See the [detailed installation / upgrade guide](INSTALL_UPGRADE_EN.md). If firmw
 
 | Download | Version |
 |---|---|
-| [Windows / macOS installers + shared runtime](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/mod-manager-runtime-1.2.39-fm.3-20261028) | 1.2.39+fm.3 |
-| [Shared runtime identity and documentation](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/common-runtime-1.2.39-fm.3) | 1.2.39+fm.3 |
-| [45 in-camera filters](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/in-camera-filters-0.1.2-rc1-fw-1.3.18.1-runtime-1.2.39-fm.3) | 0.1.2-rc1 |
-| [Pixel Shift 400 MP (including AF-C)](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/pixel-shift-400mp-1.2.5-rc12-fw-1.3.18.1-runtime-1.2.39) | 1.2.5-rc12 |
-| [Multiple Exposure](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/multiple-exposure-0.1.2-rc42-fw-1.3.18.1-runtime-1.2.39) | 0.1.2-rc42 |
-| [Never Sleep](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/never-sleep-1.0.1-fw-1.3.18.1-runtime-1.2.39) | 1.0.1 |
+| [Windows manager + shared runtime + four matched MODs](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/mod-manager-runtime-1.2.42-20261107) | 1.2.42 |
+| [Pixel Shift 400 MP (including AF-C)](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/pixel-shift-400mp-1.2.5-rc13-fw-1.3.18.1-runtime-1.2.42) | 1.2.5-rc13; requires matched 1.2.42 |
+| [45 in-camera filters (inside full bundle)](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/mod-manager-runtime-1.2.42-20261107) | 0.1.2-rc2; unchanged payload |
+| [Multiple Exposure (inside full bundle)](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/mod-manager-runtime-1.2.42-20261107) | 0.1.2-rc42; unchanged payload |
+| [Never Sleep (inside full bundle)](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/mod-manager-runtime-1.2.42-20261107) | 1.0.1; unchanged payload |
+| [Historical Mac Apple Silicon Test17](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/mod-manager-runtime-1.2.39-fm.3-20261028) | Older1.2.39+fm.3; not for this 1.2.42/RC13 set |
 
-Both complete bundles include all four MODs. The runtime is managed by the installer, not a standalone MOD. Mac is Apple Silicon only; platform migration scopes differ, as documented above.
+The Windows full bundle includes all four MODs. The installer manages the shared runtime; it is not a standalone MOD. Native components may still use fixed storage-ABI directories containing `1.2.39`, while the logical runtime version is 1.2.42. Do not rewrite those paths.
 
 Download Assets and check SHA256SUMS.txt; GitHub-generated Source code is not the installer. Historical releases remain for their matching environments; withdrawn versions stay withdrawn.
 

@@ -23,17 +23,18 @@ If you already updated firmware, do not blindly run uninstall commands intended 
 ## Installing this release set
 
 - Supported camera and firmware: **X2D II 100C / OEM firmware 1.3.18.1 only**. Historical 1.3.16.2 downloads are for their original environment, not this set.
-- Download the Windows Test2 ZIP or the macOS Apple Silicon / arm64 Test17 full bundle and fully extract it to a writable folder. Keep the supplied resources and `mods` directory together. No Intel Mac build is provided.
+- Download the [Windows 1.2.42 full bundle](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/mod-manager-runtime-1.2.42-20261107) and fully extract it to a writable folder. Keep the supplied resources and `mods` directory together. No new Mac build is provided. Historical Apple Silicon Test17 is for its older 1.2.39+fm.3 environment and cannot install this 1.2.42/RC13 set.
 - Close Phocus and other camera utilities. Run only one manager. Connect USB, select the camera's Phocus tethering mode and return to live view.
-- Read the camera state, then select **Detect Shared Runtime** (`检测公共接口`). Follow the prompts to install the embedded **1.2.39+fm.3** runtime, manually reboot and complete verification. Then install the matched MODs. The installer owns the common startup configuration; MODs register their own components. Do not put the shared runtime in the `mods` folder as a separate MOD.
-- Both full bundles include all four matched MODs, which are also available as separate Release assets. Keep one version per feature. Do not mix files from different runtime sets merely because their displayed feature versions match.
-- Windows Test2 **Paired Upgrade / Recovery (1.2.39+fm.3)** supports automatic migration from the exact reviewed original Windows 1.2.39 baseline without first uninstalling MODs. Backups stay on the computer; verification continues after a manual reboot. This automatic migration still awaits hardware acceptance.
-- Mac Test17 supports its reviewed original 1.2.35 / fm.2 baselines and the fm.3 set. It does not contain the original Windows 1.2.39 migration added in Windows Test2; use Windows Test2 first for that source baseline. Unknown builds, rescued/renamed plans or restored factory startup entries require separate review, not forced overwrites. Old 1.2.38 remains withdrawn.
+- Read the camera state, then select **Detect Shared Runtime** (`检测公共接口`). Follow the prompts to install the embedded **1.2.42** runtime, manually reboot and complete verification. Then install the matched MODs. The installer owns the common startup configuration; MODs register their own components. Do not put the shared runtime in the `mods` folder as a separate MOD.
+- The Windows full bundle includes all four matched MODs. Keep one version per feature. Do not mix files from different runtime sets merely because their displayed feature versions match.
+- For an installed formal **1.2.41** matched set, read state in the new manager and choose **Paired Upgrade / Recovery** (`配套升级／恢复`). Migration requires the exact approved combination and records. It preserves the other installed MODs, settings and photographs, without adding absent MODs. Reboot normally when prompted, return to live view and resume verification. Keep the original manager and PC backups until acceptance completes.
+- Other older sources must follow their existing supported upgrade/recovery paths. Acceptance of 1.2.41→1.2.42 does not establish direct migration from arbitrary older versions. Unknown builds, unfinished transactions, rescued/renamed plans or restored factory startup entries need separate review. Old 1.2.38 remains withdrawn.
+- **Pixel Shift 1.2.5-rc13 requires the matched 1.2.42 release set.** Do not install RC13 independently over 1.2.41 or older runtimes. Fixed native storage-ABI paths may still contain `1.2.39`; that is distinct from the logical runtime version displayed by the manager. Do not rewrite those paths.
 - If a disconnect, timeout, “Task needs verification” or hash mismatch occurs, stop repeatedly clicking Install and preserve the logs. Reconnect or reboot as instructed, read state again and use **Resume Interrupted Operation** (`恢复中断`). Do not let AI tooling, Phocus and another manager compete for the USB connection.
 
 ## Versions and validation limits
 
-See the [1.2.39+fm.3 release notes](docs/RELEASE_1.2.39_fm3_EN.md) for both platforms' matched versions, validation and limitations.
+See the [1.2.42 release notes](docs/RELEASE_1.2.42_EN.md). One development camera completed the matched upgrade, manual reboot and one RAW+JPEG capture. The user confirmed playback, zoom and color/distortion appearance, and the six source frames were cleaned. A second consecutive capture, JPEG-only output, physical 1.2.42 uninstall/rollback and a new Mac build have not completed this round of acceptance.
 
 ## Authors
 
