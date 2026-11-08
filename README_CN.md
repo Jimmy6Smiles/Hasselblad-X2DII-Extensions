@@ -4,13 +4,15 @@
 
 由 Jimmy6Smiles 维护；本仓库用于发布说明和下载。[像素超频源码](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-400MP-Source)单独公开，安装器源码在私有库维护。非哈苏官方项目。
 
-**当前配套：X2D II 100C / 固件 1.3.18.1 / Windows 管理器与公共运行时 1.2.42 / 像素超频 1.2.5-rc13。不要与旧运行时或旧固件包混用。**
+**当前配套：X2D II 100C / 固件 1.3.18.1 / Windows 管理器与公共运行时 1.2.43 / 机内滤镜 0.1.2-rc3。不要与旧运行时或旧固件包混用。**
 
 ## 本次更新
 
-本次修正新版公共接口下四亿 JPEG 显影／校准会话的路径兼容问题，并更新完整启动与采集准入。四亿更新为 **1.2.5-rc13**；机内滤镜0.1.2-rc2、多重曝光0.1.2-rc42、永不息屏1.0.1保留原载荷。
+本次修正 26 款滤镜的 RGB／BGR 转换通道，CineStill 800T 与 Gold 200 的冷暖方向已完成实机对照。公共运行时 **1.2.43**、滤镜 **0.1.2-rc3**；四亿 rc13、多重曝光 rc42、永不息屏 1.0.1 保留已验证载荷。没有红晕或 RAW 后处理实验。
 
-[完整更新、升级范围与验证说明](docs/RELEASE_1.2.42_CN.md)。只对精确匹配的正式1.2.41配套提供本轮自动迁移；按提示手动重启后继续验收。**RC13必须与1.2.42配套安装，不能单独覆盖到1.2.41或更旧公共接口。** 本轮未发布新版Mac包；历史Mac Test17属于旧fm.3环境。
+Windows 管理器使用原生编译加固，排除安装器源码和生成工件；相机运行资源保持已验证字节。下载与准确验证范围见[本次完整说明](docs/RELEASE_1.2.43_CN.md)。
+
+本版只对**已验收的精确 1.2.42＋四个 MOD 组合**提供配套升级。若要增删、启用／停用 MOD 或卸载公共接口，先配套回退到 1.2.42，再用对应管理器完成；不提供任意来源的一键新装／卸载。没有新版 Mac 包。
 
 ## 安装前请先读
 
@@ -24,14 +26,15 @@
 
 | 下载 | 版本 |
 |---|---|
-| [Windows 安装器 + 公共运行时 + 四个配套MOD](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/mod-manager-runtime-1.2.42-20261107) | 1.2.42 |
-| [像素超频 400 MP（含 AF-C）](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/pixel-shift-400mp-1.2.5-rc13-fw-1.3.18.1-runtime-1.2.42) | 1.2.5-rc13；须配套1.2.42 |
-| [机内滤镜 45 款（完整包内）](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/mod-manager-runtime-1.2.42-20261107) | 0.1.2-rc2；载荷不变 |
-| [多重曝光（完整包内）](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/mod-manager-runtime-1.2.42-20261107) | 0.1.2-rc42；载荷不变 |
-| [永不息屏（完整包内）](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/mod-manager-runtime-1.2.42-20261107) | 1.0.1；载荷不变 |
-| [历史Mac Apple Silicon Test17](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/mod-manager-runtime-1.2.39-fm.3-20261028) | 旧1.2.39+fm.3；不适用于本轮1.2.42／RC13 |
+| [Windows 加固安装器＋公共接口＋四个配套 MOD](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/mod-manager-runtime-1.2.43-20261107) | 1.2.43 |
+| [机内滤镜 45 款（完整包内）](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/mod-manager-runtime-1.2.43-20261107) | 0.1.2-rc3；颜色修正 |
+| [像素超频 400 MP／AF-C（完整包内）](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/mod-manager-runtime-1.2.43-20261107) | 1.2.5-rc13；载荷保持 |
+| [多重曝光（完整包内）](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/mod-manager-runtime-1.2.43-20261107) | 0.1.2-rc42；载荷保持 |
+| [永不息屏（完整包内）](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/mod-manager-runtime-1.2.43-20261107) | 1.0.1；载荷保持 |
+| [回退管理器 1.2.42](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/mod-manager-runtime-1.2.42-20261107) | 配套回退成功后使用 |
+| [历史 Mac Apple Silicon Test17](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/mod-manager-runtime-1.2.39-fm.3-20261028) | 旧 1.2.39+fm.3，不适用于当前组合 |
 
-Windows完整包内附四个MOD；公共接口由安装器管理，不作为独立MOD。原生组件的固定存储ABI目录仍可含`1.2.39`，当前逻辑版本是1.2.42；不要自行替换路径中的数字。
+完整解压并保留所有附件和 `rollback-mods`。公共接口由安装器管理，不作为独立 MOD。固定存储 ABI 的目录名可包含旧版本数字，不能自行改名。
 
 在Release的Assets下载附件并核对SHA256SUMS.txt；GitHub自动生成的Source code不是安装器。旧版保留供对应环境恢复，已撤回的版本不重新发布。
 
@@ -49,3 +52,4 @@ Windows完整包内附四个MOD；公共接口由安装器管理，不作为独�
 ## 测试范围
 
 离线测试和开发者单机实测不代表所有环境均兼容。请先备份照片，不用于无法重拍的重要场景；分享诊断前检查隐私。项目不自动上传诊断，也不自动拍照或重启。
+
