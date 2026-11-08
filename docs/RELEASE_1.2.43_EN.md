@@ -39,4 +39,3 @@ One development camera completed deployment, manual reboot, all 45 filter entrie
 This round did not repeat every look, HEIF capture, Multiple Exposure/Pixel Shift capture, arbitrary fresh installation or 1.2.43 uninstall. The hardened distribution receives offline self-tests and startup checks, without a new camera install/capture trial; this is not all-environment hardware acceptance. **No new macOS binary is provided**; historical Mac Test17 cannot manage this 1.2.43 set.
 
 In-camera filters by [FarSails777](https://github.com/FarSails777); manager, runtime and other MODs maintained by Jimmy6Smiles. OEM/third-party rights are retained. GitHub-generated Source code archives contain the documentation repository, not the installer.
-
