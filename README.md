@@ -4,15 +4,15 @@ English | [简体中文](README_CN.md)
 
 Release and download repository maintained by Jimmy6Smiles. [Pixel Shift source](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-400MP-Source) is published separately; installer development remains private. This is an unofficial project.
 
-**Current matched set: X2D II 100C, firmware 1.3.18.1, Windows manager/shared runtime 1.2.43, Filters 0.1.2-rc3.** Keep the runtime, MODs and firmware matched.
+**Current matched set: X2D II 100C, firmware 1.3.18.1, Windows manager/shared runtime 1.2.59, Pixel Shift 1.2.5-rc16, Multiple Exposure 0.1.2-rc47.** Filters 0.1.2-rc3 and Never Sleep 1.0.1 retain their payloads. Keep the runtime, MODs and firmware matched.
 
 ## What changed
 
-This release corrects RGB/BGR conversion for 26 filter recipes. Controlled captures and live view confirmed the intended cool/warm direction for CineStill 800T and Gold 200. **Runtime 1.2.43 + Filters 0.1.2-rc3** retain the accepted Pixel Shift rc13, Multiple Exposure rc42 and Never Sleep 1.0.1 payloads. Halation and RAW post-processing experiments are excluded.
+This release fixes Pixel Shift's long-exposure wait budgets and signed shutter-value readiness checks. It also stops inactive Multiple Exposure UI searches from delaying the return to live view after Pixel Shift has finished. One RAW-only capture returned from the cleaning screen in about three seconds; backend source deletion took 2.757 seconds. Image processing, colour, lens correction and file-writing algorithms are unchanged by the UI fix.
 
-The Windows manager is native-compiled for harder reverse engineering, with installer source and generated build objects excluded. Camera runtime assets retain their tested bytes. See the [complete changes and validation scope](docs/RELEASE_1.2.43_EN.md).
+The Windows manager is native-compiled, with installer source and generated build objects excluded. The distribution uses the existing project's Ed25519 origin signature. Camera runtime assets retain their tested bytes. See the [complete changes and validation scope](docs/RELEASE_1.2.59_EN.md).
 
-The paired upgrade accepts only the **exact accepted 1.2.42 set with all four MODs**. Before adding/removing/enabling/disabling MODs or uninstalling the runtime, perform the paired rollback to 1.2.42 and use its matching manager. Arbitrary fresh installation/uninstall is not offered. No new Mac build is provided.
+The paired upgrade accepts only the **exact accepted public 1.2.43 set with all four MODs**. Before adding/removing/enabling/disabling MODs or uninstalling the runtime, perform the paired rollback to 1.2.43 and use its matching manager and supported rollback route. Arbitrary fresh installation/uninstall is not offered. No new Mac build is provided.
 
 ## Read before installing or updating firmware
 
@@ -26,12 +26,12 @@ See the [detailed installation / upgrade guide](INSTALL_UPGRADE_EN.md). If firmw
 
 | Download | Version |
 |---|---|
-| [Hardened Windows manager + runtime + four MODs](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/mod-manager-runtime-1.2.43-20261107) | 1.2.43 |
-| [45 in-camera filters (full bundle)](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/mod-manager-runtime-1.2.43-20261107) | 0.1.2-rc3; corrected colors |
-| [Pixel Shift 400 MP / AF-C (full bundle)](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/mod-manager-runtime-1.2.43-20261107) | 1.2.5-rc13; unchanged payload |
-| [Multiple Exposure (full bundle)](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/mod-manager-runtime-1.2.43-20261107) | 0.1.2-rc42; unchanged payload |
-| [Never Sleep (full bundle)](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/mod-manager-runtime-1.2.43-20261107) | 1.0.1; unchanged payload |
-| [Rollback manager 1.2.42](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/mod-manager-runtime-1.2.42-20261107) | Use after a completed paired rollback |
+| [Signed Windows manager + runtime + four MODs](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/mod-manager-runtime-1.2.59-20261127) | 1.2.59 |
+| [45 in-camera filters (full bundle)](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/mod-manager-runtime-1.2.59-20261127) | 0.1.2-rc3; unchanged payload |
+| [Pixel Shift 400 MP / AF-C (full bundle)](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/mod-manager-runtime-1.2.59-20261127) | 1.2.5-rc16 |
+| [Multiple Exposure (full bundle)](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/mod-manager-runtime-1.2.59-20261127) | 0.1.2-rc47 |
+| [Never Sleep (full bundle)](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/mod-manager-runtime-1.2.59-20261127) | 1.0.1; unchanged payload |
+| [Rollback manager 1.2.43](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/mod-manager-runtime-1.2.43-20261107) | Use after a completed paired rollback; retain its own rollback materials |
 | [Historical Mac Apple Silicon Test17](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/mod-manager-runtime-1.2.39-fm.3-20261028) | Older 1.2.39+fm.3; incompatible with the current set |
 
 Extract the entire bundle and retain all attachments and `rollback-mods`. The manager owns the shared runtime; it is not a separate MOD. Do not rename fixed storage-ABI paths because they contain older version numbers.

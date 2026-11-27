@@ -20,7 +20,15 @@ This is unofficial, experimental software. Its GitHub Release status does not im
 
 If you already updated firmware, do not blindly run uninstall commands intended for the old firmware. Start with read-only diagnostics and recover according to the actual firmware and residue state.
 
-## Installing this release set
+## Current 1.2.59 paired upgrade
+
+Download the [complete signed 1.2.59 Windows bundle](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/mod-manager-runtime-1.2.59-20261127). Retain all resources, `mods`, `rollback-mods` and PC transaction backups. The supported source is the exact accepted **public 1.2.43 set with all four MODs**. The target is runtime 1.2.59, Pixel Shift rc16, Multiple Exposure rc47, Filters rc3 and Never Sleep 1.0.1. Arbitrary older versions and missing-MOD sets are not upgrade sources.
+
+Exit Phocus and other managers, read camera state and select paired upgrade/recovery. Restart manually when prompted, then resume verification on the same PC. Preserve an uncertain operation and resume its owning transaction rather than repeating installation. Before MOD changes/removal or runtime uninstall, roll back the matched set to 1.2.43, then use its matching manager and supported rollback route.
+
+See the [1.2.59 notes](docs/RELEASE_1.2.59_EN.md) for functionality, offline migration checks and device validation scope. There is no new Mac build. The 1.2.42 instructions below are retained only for their historical matched set.
+
+## Historical 1.2.42 installation
 
 - Supported camera and firmware: **X2D II 100C / OEM firmware 1.3.18.1 only**. Historical 1.3.16.2 downloads are for their original environment, not this set.
 - Download the [Windows 1.2.42 full bundle](https://github.com/Jimmy6Smiles/Hasselblad-X2DII-Extensions/releases/tag/mod-manager-runtime-1.2.42-20261107) and fully extract it to a writable folder. Keep the supplied resources and `mods` directory together. No new Mac build is provided. Historical Apple Silicon Test17 is for its older 1.2.39+fm.3 environment and cannot install this 1.2.42/RC13 set.
@@ -32,7 +40,7 @@ If you already updated firmware, do not blindly run uninstall commands intended 
 - **Pixel Shift 1.2.5-rc13 requires the matched 1.2.42 release set.** Do not install RC13 independently over 1.2.41 or older runtimes. Fixed native storage-ABI paths may still contain `1.2.39`; that is distinct from the logical runtime version displayed by the manager. Do not rewrite those paths.
 - If a disconnect, timeout, “Task needs verification” or hash mismatch occurs, stop repeatedly clicking Install and preserve the logs. Reconnect or reboot as instructed, read state again and use **Resume Interrupted Operation** (`恢复中断`). Do not let AI tooling, Phocus and another manager compete for the USB connection.
 
-## Versions and validation limits
+## Historical 1.2.42 validation limits
 
 See the [1.2.42 release notes](docs/RELEASE_1.2.42_EN.md). One development camera completed the matched upgrade, manual reboot and one RAW+JPEG capture. The user confirmed playback, zoom and color/distortion appearance, and the six source frames were cleaned. A second consecutive capture, JPEG-only output, physical 1.2.42 uninstall/rollback and a new Mac build have not completed this round of acceptance.
 
